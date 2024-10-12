@@ -9,6 +9,7 @@ import {styled} from '@mui/system';
 import {Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot} from '@mui/lab';
 import {motion} from 'framer-motion';
 import Navbar from "./Navbar";
+import Question from "./Question";
 
 function useInView(options) {
     const [isInView, setIsInView] = useState(false);
@@ -37,39 +38,6 @@ function useInView(options) {
     return [ref, isInView || hasBeenViewed];
 }
 
-// Create a hacker-like black and white theme
-const hackerTheme = createTheme({
-    palette: {
-        mode: 'dark',
-        primary: {
-            main: '#00ff00', // Neon green
-        },
-        secondary: {
-            main: '#ffffff', // White
-        },
-        background: {
-            default: '#000000', // Black
-            paper: '#111111', // Dark gray
-        },
-        text: {
-            primary: '#ffffff', // White
-            secondary: '#00ff00', // Neon green
-        },
-    },
-    typography: {
-        fontFamily: 'Courier, monospace',
-    },
-    components: {
-        MuiButton: {
-            styleOverrides: {
-                root: {
-                    textTransform: 'uppercase',
-                    fontWeight: 'bold',
-                },
-            },
-        },
-    },
-});
 
 // Custom styled components
 const HeroSection = styled(Box)(({theme}) => ({
@@ -109,16 +77,7 @@ const EventCard = styled(Card)(({theme}) => ({
     },
 }));
 
-const navConfig = {
-    title: "CyberX",
-    menuItems: [
-        {label: "Home", onClick: () => console.log("Home clicked")},
-        {label: "About", onClick: () => console.log("About clicked")},
-        {label: "Events", onClick: () => console.log("Events clicked")},
-        {label: "Members", onClick: () => console.log("Members clicked")},
-        {label: "Contact", onClick: () => console.log("Contact clicked")},
-    ]
-};
+
 
 // Hero section component with animation
 const Hero = () => {
@@ -148,7 +107,7 @@ const Hero = () => {
 };
 
 // Reusable Section component
-const Section = ({ image, title, content, order }) => {
+const Section = ({image, title, content, order}) => {
     const [ref, isInView] = useInView({
         threshold: 0.5, // Trigger when 10% of the component is visible
         triggerOnce: true, // Ensure the animation only happens once
@@ -180,9 +139,9 @@ const Section = ({ image, title, content, order }) => {
     );
 
     return (
-        <Box ref={ref} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <Box ref={ref} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
             <Slide appear={false} direction={order === 'image-first' ? 'left' : 'right'} in={isInView} timeout={1500}>
-                <Box sx={{ py: 8, width: '100%' }}>
+                <Box sx={{py: 8, width: '100%'}}>
                     <Container>
                         <Grid container spacing={4} justifyContent="center" alignItems="center">
                             {order === 'image-first' ? (
@@ -215,10 +174,10 @@ const About = () => {
 const CyberTimeline = () => (
     <Box sx={{
         py: 8,
-        height:'100vh',
-        display:'flex',
-        justifyContent:'center',
-        alignItems:'center'
+        height: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
     }}>
         <Container>
             <Typography variant="h4" component="h2" gutterBottom align="center">
@@ -272,9 +231,10 @@ const Events = () => (
 // Main App component
 const App = () => {
     return (
-        <ThemeProvider theme={hackerTheme}>
-            <CssBaseline/>
-            <Navbar config={navConfig}/>
+
+
+        <>
+
             <Hero/>
             <Section
                 image="https://vatins.com/assets/images/resource/laptop-1.png"
@@ -296,7 +256,9 @@ const App = () => {
                     © 2024 CyberX | Email: cybersecurity@dpsrkp.net
                 </Typography>
             </Box>
-        </ThemeProvider>
+
+        </>
+
     );
 };
 
