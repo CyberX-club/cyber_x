@@ -1,19 +1,104 @@
-import React from 'react';
-import {createTheme, ThemeProvider} from '@mui/material/styles';
+import React, {useState, useEffect} from 'react';
 import {
-    AppBar,
-    Toolbar,
-    Typography,
     Container,
+    Typography,
     Grid,
+    Box,
     Card,
     CardContent,
     CardMedia,
-    Box,
-    Collapse,
-    IconButton,
 } from '@mui/material';
-import {Menu as MenuIcon} from '@mui/icons-material';
+import StarryBackground from './StarryBackground';
+
+const CrypticText = ({text, isHovered}) => {
+    const [displayText, setDisplayText] = useState(text);
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+';
+
+    useEffect(() => {
+        if (isHovered) {
+            let iteration = 0;
+            const interval = setInterval(() => {
+                setDisplayText(prev =>
+                    prev.split('').map((char, index) => {
+                        if (index < iteration) {
+                            return text[index];
+                        }
+                        return characters[Math.floor(Math.random() * characters.length)];
+                    }).join('')
+                );
+
+                if (iteration >= text.length) {
+                    clearInterval(interval);
+                }
+
+                iteration += 1 / 3;
+            }, 30);
+
+            return () => clearInterval(interval);
+        } else {
+            setDisplayText(text);
+        }
+    }, [text, isHovered]);
+
+    return <span>{displayText}</span>;
+};
+export {CrypticText};
+
+const Card3D = ({member}) => {
+    const [tilt, setTilt] = useState({x: 0, y: 0});
+    const [isHovered, setIsHovered] = useState(false);
+
+    const handleMouseMove = (e) => {
+        const card = e.currentTarget;
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const tiltX = (y - centerY) / 10;
+        const tiltY = (centerX - x) / 10;
+        setTilt({x: tiltX, y: tiltY});
+    };
+
+    const handleMouseEnter = () => {
+        setIsHovered(true);
+    };
+
+    const handleMouseLeave = () => {
+        setTilt({x: 0, y: 0});
+        setIsHovered(false);
+    };
+
+    return (
+        <Card
+            onMouseMove={handleMouseMove}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            sx={{
+                transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
+                transition: 'transform 0.1s ease',
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+            }}
+        >
+            <CardMedia
+                component="img"
+                height="200"
+                image={member.image}
+                alt={member.name}
+            />
+            <CardContent sx={{flexGrow: 1}}>
+                <Typography variant="h5" component="div" gutterBottom>
+                    <CrypticText text={member.name} isHovered={isHovered}/>
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                    {member.role}
+                </Typography>
+            </CardContent>
+        </Card>
+    );
+};
 
 const membersData = {
     12: [
@@ -49,49 +134,36 @@ const membersData = {
     ],
 };
 
+
 const CyberXApp = () => {
-    const [navbarOpen, setNavbarOpen] = React.useState(false);
-
-    const toggleNavbar = () => {
-        setNavbarOpen(!navbarOpen);
-    };
-
     return (
-        <Box>
-            <Container maxWidth="lg" sx={{py: 5}}>
-                {Object.keys(membersData).reverse().map((grade) => (
-                    <Box key={grade}>
-                        <Typography variant="h4" component="h2" align="center" gutterBottom>
-                            Class {grade}
-                        </Typography>
-                        <Grid container spacing={3}>
-                            {membersData[grade].map((member, index) => (
-                                <Grid item xs={12} sm={6} md={4} key={index}>
-                                    <Card>
-                                        <CardMedia
-                                            component="img"
-                                            height="200"
-                                            image={member.image}
-                                            alt={member.name}
-                                        />
-                                        <CardContent>
-                                            <Typography variant="h5" component="div" gutterBottom>
-                                                {member.name}
-                                            </Typography>
-                                            <Typography variant="body2" color="text.secondary">
-                                                {member.role}
-                                            </Typography>
-                                        </CardContent>
-                                    </Card>
-                                </Grid>
-                            ))}
-                        </Grid>
-                    </Box>
-                ))}
-            </Container>
-
-        </Box>
-
+        <>
+            <StarryBackground showConstellations />
+            <Box
+                sx={{
+                    minHeight: '100vh',
+                    position: 'relative',
+                    zIndex: 1,
+                }}
+            >
+                <Container maxWidth="lg" sx={{ py: 5 }}>
+                    {Object.keys(membersData).reverse().map((grade) => (
+                        <Box key={grade} mb={4}>
+                            <Typography variant="h4" component="h2" align="center" gutterBottom>
+                                Class {grade}
+                            </Typography>
+                            <Grid container spacing={3}>
+                                {membersData[grade].map((member, index) => (
+                                    <Grid item xs={12} sm={6} md={4} key={index}>
+                                        <Card3D member={member} />
+                                    </Grid>
+                                ))}
+                            </Grid>
+                        </Box>
+                    ))}
+                </Container>
+            </Box>
+        </>
     );
 };
 

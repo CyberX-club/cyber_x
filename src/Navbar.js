@@ -30,10 +30,8 @@ const NavButton = styled(Button)(({theme}) => ({
 }));
 
 function HideOnScroll(props) {
-    const {children, afterDark} = props;
+    const {children} = props;
     const trigger = useScrollTrigger();
-
-    afterDark(trigger);
 
     return (
         <Slide appear={false} direction="down" in={!trigger}>
@@ -50,10 +48,10 @@ const Navbar = ({config}) => {
     };
 
     return (
-        <HideOnScroll afterDark={(trigger) => null}>
+        <HideOnScroll>
             <AppBar position="sticky">
                 <Toolbar>
-                    <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
+                    <Typography variant="h4" component="div" sx={{flexGrow: 1,cursor:"pointer"}} onClick={() => window.location.href = '/'}>
                         {config.title}
                     </Typography>
                     <IconButton
