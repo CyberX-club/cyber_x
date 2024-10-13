@@ -26,7 +26,7 @@ const MyRoutes = () => {
         { platform: 'Twitter', url: 'https://twitter.com/CyberX' },
         { platform: 'LinkedIn', url: 'https://www.linkedin.com/company/cyberx' },
         { platform: 'GitHub', url: 'https://github.com/CyberX' },
-        { platform: 'Instagram', url: 'https://www.instagram.com/CyberX' },
+        { platform: 'Instagram', url: 'https://www.instagram.com/CyberX.CLUB' },
     ];
 
 
