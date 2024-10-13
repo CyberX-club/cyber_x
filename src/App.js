@@ -94,7 +94,7 @@ const Hero = () => {
                 animate={{opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 50}}
                 transition={{duration: 0.8}}
             >
-                <Typography variant="h2" component="h1" gutterBottom>
+                <Typography variant="h2" component="h1" gutterBottom  fontFamily={"Space Mono"}>
                     <CrypticText text={"Welcome to CyberX"} isHovered={isVisible}/>
                 </Typography>
                 <Typography variant="h5" component="h2" gutterBottom>

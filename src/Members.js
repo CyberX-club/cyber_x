@@ -89,7 +89,7 @@ const Card3D = ({member}) => {
                 alt={member.name}
             />
             <CardContent sx={{flexGrow: 1}}>
-                <Typography variant="h5" component="div" gutterBottom>
+                <Typography variant="h5" component="div" gutterBottom fontFamily={"Space Mono"} fontWeight={700}>
                     <CrypticText text={member.name} isHovered={isHovered}/>
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
@@ -149,7 +149,7 @@ const CyberXApp = () => {
                 <Container maxWidth="lg" sx={{ py: 5 }}>
                     {Object.keys(membersData).reverse().map((grade) => (
                         <Box key={grade} mb={4}>
-                            <Typography variant="h4" component="h2" align="center" gutterBottom>
+                            <Typography variant="h2" component="h2" align="center" gutterBottom>
                                 Class {grade}
                             </Typography>
                             <Grid container spacing={3}>
