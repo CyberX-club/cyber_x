@@ -176,7 +176,7 @@ const Quiz = () => {
 
     return (
         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>
-            <Paper elevation={3} sx={{ padding: 2, margin: 2, maxWidth: 600, width: '100%' }}>
+            <Paper elevation={3} sx={{ padding: 2, margin: 2, maxWidth: 800, width: '100%'}}>
                 <Box sx={{ padding: 2 }}>
                     {isQuizCompleted ? (
                         <Box textAlign="center">

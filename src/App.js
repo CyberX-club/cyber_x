@@ -10,6 +10,7 @@ import {Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineCo
 import {motion} from 'framer-motion';
 import Navbar from "./Navbar";
 import Question from "./Question";
+import {CrypticText} from "./Members";
 
 function useInView(options) {
     const [isInView, setIsInView] = useState(false);
@@ -93,8 +94,8 @@ const Hero = () => {
                 animate={{opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 50}}
                 transition={{duration: 0.8}}
             >
-                <Typography variant="h2" component="h1" gutterBottom>
-                    Welcome to CyberX
+                <Typography variant="h2" component="h1" gutterBottom  fontFamily={"Space Mono"}>
+                    <CrypticText text={"Welcome to CyberX"} isHovered={isVisible}/>
                 </Typography>
                 <Typography variant="h5" component="h2" gutterBottom>
                     Empowering the future of cybersecurity.
@@ -235,6 +236,7 @@ const Events = () => (
         </Container>
     </Box>
 );
+
 
 // Main App component
 const App = () => {

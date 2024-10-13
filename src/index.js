@@ -28,6 +28,12 @@ const hackerTheme = createTheme({
     },
     typography: {
         fontFamily: 'Courier, monospace',
+        h2:{
+            fontFamily:'Poppins'
+        },
+        h4:{
+            fontFamily:'Poppins'
+        },
     },
     components: {
         MuiButton: {
@@ -38,6 +44,7 @@ const hackerTheme = createTheme({
                 },
             },
         },
+
     },
 });
 root.render(

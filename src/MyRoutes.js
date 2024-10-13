@@ -12,10 +12,10 @@ const MyRoutes = () => {
     const navConfig = {
         title: "CyberX",
         menuItems: [
-            {label: "Home", onClick: () => console.log("Home clicked")},
-            {label: "About", onClick: () => console.log("About clicked")},
-            {label: "Events", onClick: () => console.log("Events clicked")},
-            {label: "Members", onClick: () => console.log("Members clicked")},
+            {label: "Home", href: "/"},
+            {label: "About", href: "/about"},
+            {label: "Events", href: "/events"},
+            {label: "Members", href: "/members"},
             {label: "Contact", onClick: () => console.log("Contact clicked")},
         ]
     };
