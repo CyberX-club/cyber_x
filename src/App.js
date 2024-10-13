@@ -78,7 +78,6 @@ const EventCard = styled(Card)(({theme}) => ({
 }));
 
 
-
 // Hero section component with animation
 const Hero = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -206,19 +205,28 @@ const Events = () => (
                 Upcoming Events
             </Typography>
             <Grid container spacing={4}>
-                {['Workshop on Cybersecurity Basics', 'Cybersecurity Challenge 2024'].map((event, index) => (
+                {[
+                    {
+                        event: "'Workshop on Cybersecurity Basics'",
+                        href: "#"
+                    },
+                    {
+                        event: "Cybersecurity Challenge 2024",
+                        href: "/quiz"
+                    }
+                ].map((event, index) => (
                     <Grid item xs={12} sm={6} key={index}>
                         <EventCard>
                             <CardContent>
                                 <Typography variant="h5" component="div" gutterBottom>
-                                    {event}
+                                    {event.event}
                                 </Typography>
                                 <Typography variant="body2">
                                     Date: July 17, 2024
                                 </Typography>
                             </CardContent>
                             <CardActions>
-                                <StyledButton size="small">Learn More</StyledButton>
+                                <StyledButton size="small" href={event.href}>Learn More</StyledButton>
                             </CardActions>
                         </EventCard>
                     </Grid>

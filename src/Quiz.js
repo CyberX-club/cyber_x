@@ -1,4 +1,10 @@
 import Carousel from "react-material-ui-carousel";
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import WarningIcon from '@mui/icons-material/Warning';
+import ErrorIcon from '@mui/icons-material/Error';
+import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfied';
+import SentimentSatisfiedIcon from '@mui/icons-material/SentimentSatisfied';
+import SentimentDissatisfiedIcon from '@mui/icons-material/SentimentDissatisfied';
 import Question from "./Question";
 import { Box, Paper, Typography, Button } from "@mui/material";
 import { useState } from "react";
@@ -114,21 +120,53 @@ const Quiz = () => {
         }
     };
 
+    const feedbacks = [
+        {
+            minPercentage: 90,
+            color: 'green',
+            icon: <CheckCircleIcon style={{ marginRight: 8 }} />,
+            message: 'Excellent - You are very cybersecure!'
+        },
+        {
+            minPercentage: 75,
+            color: 'blue',
+            icon: <SentimentVerySatisfiedIcon style={{ marginRight: 8 }} />,
+            message: 'Very Good - You have a strong understanding of cybersecurity.'
+        },
+        {
+            minPercentage: 50,
+            color: 'orange',
+            icon: <SentimentSatisfiedIcon style={{ marginRight: 8 }} />,
+            message: 'Good - You have a fair understanding of cybersecurity.'
+        },
+        {
+            minPercentage: 25,
+            color: 'orange',
+            icon: <WarningIcon style={{ marginRight: 8 }} />,
+            message: 'Average - Your cybersecurity awareness could be improved.'
+        },
+        {
+            minPercentage: 0,
+            color: 'red',
+            icon: <ErrorIcon style={{ marginRight: 8 }} />,
+            message: 'Poor - You need to work on your cybersecurity knowledge.'
+        }
+    ];
+
+
     const getFeedback = () => {
         const percentage = (score / quizQuestions.length) * 100;
+        const feedback = feedbacks.find(({ minPercentage }) => percentage >= minPercentage);
 
-        if (percentage >= 90) {
-            return "Excellent";
-        } else if (percentage >= 75) {
-            return "Very Good";
-        } else if (percentage >= 50) {
-            return "Good";
-        } else if (percentage >= 25) {
-            return "Average";
-        } else {
-            return "Poor";
-        }
+        return (
+            <div style={{ display: 'flex', alignItems: 'center', color: feedback.color }}>
+                {feedback.icon}
+                <Typography variant="body1">{feedback.message}</Typography>
+            </div>
+        );
     };
+
+
 
     const restartQuiz = () => {
         setScore(0);
