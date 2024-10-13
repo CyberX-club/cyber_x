@@ -250,12 +250,6 @@ const App = () => {
             />
             <CyberTimeline/>
             <Events/>
-            <Box component="footer"
-                 sx={{bgcolor: 'background.paper', color: 'text.primary', py: 3, textAlign: 'center'}}>
-                <Typography variant="body2">
-                    © 2024 CyberX | Email: cybersecurity@dpsrkp.net
-                </Typography>
-            </Box>
 
         </>
 

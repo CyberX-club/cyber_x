@@ -50,7 +50,7 @@ const Navbar = ({config}) => {
     };
 
     return (
-        <HideOnScroll afterDark={(trigger) => setIsOpen(isOpen && !trigger)}>
+        <HideOnScroll afterDark={(trigger) => null}>
             <AppBar position="sticky">
                 <Toolbar>
                     <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
