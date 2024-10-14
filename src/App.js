@@ -7,11 +7,11 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import {styled} from '@mui/system';
 import {Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot} from '@mui/lab';
-import {motion} from 'framer-motion';
 import Navbar from "./Navbar";
 import Question from "./Question";
 import {CrypticText} from "./Members";
 import FocusArea from "./FocusArea";
+import { motion, AnimatePresence } from 'framer-motion';
 
 function useInView(options) {
     const [isInView, setIsInView] = useState(false);
@@ -53,7 +53,7 @@ const HeroSection = styled(Box)(({theme}) => ({
     color: theme.palette.text.primary,
 }));
 
-const StyledButton = styled(Button)(({theme}) => ({
+const StyledButton = styled(Button)(({ theme }) => ({
     backgroundColor: theme.palette.secondary.main,
     color: theme.palette.background.default,
     padding: '10px 10px',
@@ -69,15 +69,88 @@ const StyledButton = styled(Button)(({theme}) => ({
     },
 }));
 
-const EventCard = styled(Card)(({theme}) => ({
-    backgroundColor: theme.palette.background.paper,
-    color: theme.palette.text.primary,
-    transition: 'transform 0.3s, box-shadow 0.3s',
-    '&:hover': {
-        transform: 'translateY(-10px)',
-        boxShadow: `0 10px 20px ${theme.palette.primary.main}33`,
-    },
-}));
+const EventCard = ({ event, hoverEffect = true }) => {
+    const [isHovered, setIsHovered] = useState(false);
+
+    const handleMouseEnter = () => {
+        if (hoverEffect) setIsHovered(true);
+    };
+
+    const handleMouseLeave = () => {
+        if (hoverEffect) setIsHovered(false);
+    };
+
+    return (
+        <Box
+            sx={{
+                position: 'relative',
+                zIndex: isHovered ? 1 : 'auto',
+            }}
+        >
+            <AnimatePresence>
+                {isHovered && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        style={{
+                            position: 'fixed',
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            bottom: 0,
+                            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            zIndex: 0,
+                        }}
+                    />
+                )}
+            </AnimatePresence>
+            <motion.div
+                whileHover={
+                    hoverEffect
+                        ? {
+                            scale: 1.05,
+                            zIndex: 2,
+                            transition: { duration: 0.3 },
+                        }
+                        : {}
+                }
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+            >
+                <Card
+                    sx={{
+                        height: '100%',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'space-between',
+                        transition: 'all 0.3s ease',
+                        boxShadow: isHovered
+                            ? '0 10px 20px rgba(0, 0, 0, 0.2)'
+                            : 'none',
+                    }}
+                >
+                    <CardContent>
+                        <Typography variant="h5" component="div" gutterBottom>
+                            {event.event}
+                        </Typography>
+                        <Typography variant="body2">
+                            Date: {event.date}
+                        </Typography>
+                    </CardContent>
+                    <CardActions>
+                        <StyledButton size="small" href={event.href}>
+                            Learn More
+                        </StyledButton>
+                    </CardActions>
+                </Card>
+            </motion.div>
+        </Box>
+    );
+};
 
 
 // Hero section component with animation
@@ -200,35 +273,24 @@ const Events = () => (
             <Grid container spacing={4}>
                 {[
                     {
-                        event: "'Workshop on Cybersecurity Basics'",
+                        event: "Workshop on Cybersecurity Basics",
+                        date: "July 17, 2024",
                         href: "#"
                     },
                     {
                         event: "Cybersecurity Challenge 2024",
+                        date: "August 5, 2024",
                         href: "/quiz"
                     }
                 ].map((event, index) => (
                     <Grid item xs={12} sm={6} key={index}>
-                        <EventCard>
-                            <CardContent>
-                                <Typography variant="h5" component="div" gutterBottom>
-                                    {event.event}
-                                </Typography>
-                                <Typography variant="body2">
-                                    Date: July 17, 2024
-                                </Typography>
-                            </CardContent>
-                            <CardActions>
-                                <StyledButton size="small" href={event.href}>Learn More</StyledButton>
-                            </CardActions>
-                        </EventCard>
+                        <EventCard event={event} hoverEffect={true} />
                     </Grid>
                 ))}
             </Grid>
         </Container>
     </Box>
 );
-
 
 // Main App component
 const App = () => {
