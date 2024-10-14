@@ -124,7 +124,7 @@ const membersData = {
         {name: 'Anisha Mahajan', role: 'Member', image: 'path/to/member1.jpg'},
         {name: 'Naija Sukhija', role: 'Member', image: 'path/to/member2.jpg'},
         {name: 'Suhani Mishra', role: 'Member', image: 'path/to/member3.jpg'},
-        {name: 'Goutam Behera', role: 'Member', image: 'path/to/member1.jpg'},
+        {name: 'Goutam Behera', role: 'Core Member', image: 'path/to/member1.jpg'},
         {name: 'Aryaman Argarwal', role: 'Member', image: 'path/to/member2.jpg'},
         {name: 'Aryaman Singh Samyal', role: 'Member', image: 'path/to/member3.jpg'},
     ],
