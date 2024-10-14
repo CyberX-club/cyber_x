@@ -6,6 +6,7 @@ import {
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { styled } from '@mui/system';
+import {CrypticText} from "./Members";
 
 const NavBox = styled(Box)(({ theme }) => ({
     position: 'absolute',
@@ -13,6 +14,7 @@ const NavBox = styled(Box)(({ theme }) => ({
     left: 0,
     right: 0,
     width: '100%',
+    opacity:"0.4",
     backgroundColor: theme.palette.background.paper,
     borderBottom: `2px solid ${theme.palette.primary.main}`,
     padding: theme.spacing(2),
@@ -79,15 +81,19 @@ const Navbar = ({ config }) => {
     return (
         <>
             <HideOnScroll isOpen={isOpen}>
-                <AppBar position="fixed">
-                    <Toolbar>
+                <AppBar position="fixed" sx={{
+                    backgroundColor:"#000000"
+                }}>
+                    <Toolbar sx={{
+                        backgroundColor:"rgba(255,255,255,0.11)"
+                    }}>
                         <Typography
                             variant="h4"
                             component="div"
                             sx={{ flexGrow: 1, cursor: "pointer" }}
                             onClick={() => window.location.href = '/'}
                         >
-                            {config.title}
+                            <CrypticText text={config.title} isHovered={true}/>
                         </Typography>
                         <IconButton
                             size="large"
