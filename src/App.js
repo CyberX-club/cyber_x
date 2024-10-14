@@ -11,6 +11,7 @@ import {motion} from 'framer-motion';
 import Navbar from "./Navbar";
 import Question from "./Question";
 import {CrypticText} from "./Members";
+import FocusArea from "./FocusArea";
 
 function useInView(options) {
     const [isInView, setIsInView] = useState(false);
@@ -107,10 +108,10 @@ const Hero = () => {
 };
 
 // Reusable Section component
-const Section = ({image, title, content, order}) => {
+const Section = ({ image, title, content, order }) => {
     const [ref, isInView] = useInView({
-        threshold: 0.5, // Trigger when 10% of the component is visible
-        triggerOnce: true, // Ensure the animation only happens once
+        threshold: 0.5,
+        triggerOnce: true,
     });
 
     const imageGridItem = (
@@ -119,9 +120,10 @@ const Section = ({image, title, content, order}) => {
                 component="img"
                 src={image}
                 sx={{
-                    width: 'auto',
-                    maxHeight: 400, // Set a maximum height for the image
+                    width: '100%',
                     height: 'auto',
+                    maxHeight: { xs: 300, sm: 400 },
+                    objectFit: 'contain',
                     display: 'block',
                     margin: '0 auto',
                 }}
@@ -139,10 +141,10 @@ const Section = ({image, title, content, order}) => {
     );
 
     return (
-        <Box ref={ref} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+        <Box ref={ref} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <Slide appear={false} direction={order === 'image-first' ? 'left' : 'right'} in={isInView} timeout={1500}>
-                <Box sx={{py: 8, width: '100%'}}>
-                    <Container>
+                <Box sx={{ py: 8, width: '100%' }}>
+                    <Container maxWidth="lg">
                         <Grid container spacing={4} justifyContent="center" alignItems="center">
                             {order === 'image-first' ? (
                                 <>
@@ -174,29 +176,19 @@ const About = () => {
 const CyberTimeline = () => (
     <Box sx={{
         py: 8,
-        height: '100vh',
+        minHeight: '100vh',
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        position: 'relative'
     }}>
-        <Container>
-            <Typography variant="h4" component="h2" gutterBottom align="center">
-                Our Focus Areas
-            </Typography>
-            <Timeline position="alternate">
-                {['Penetration Testing', 'SQL Injection', 'Vulnerability Assessment', 'Cloud Security', 'Application Security'].map((item, index) => (
-                    <TimelineItem key={index}>
-                        <TimelineSeparator>
-                            <TimelineDot color="primary"/>
-                            <TimelineConnector/>
-                        </TimelineSeparator>
-                        <TimelineContent>{item}</TimelineContent>
-                    </TimelineItem>
-                ))}
-            </Timeline>
+        <Container  >
+            <FocusArea />
         </Container>
     </Box>
 );
+
+
 
 // Events section component
 const Events = () => (
