@@ -245,7 +245,7 @@ const App = () => {
                 order="image-first"
             />
             <Section
-                image="https://digex.vercel.app/images/sarikakaushal.jpg"
+                image="sarikakaushal.png"
                 title="Founder and Teacher In-Charge"
                 content="Mrs. Sarika Kaushal founded CyberX in 2023, and has been the club's teaides the club leadership in planning and organizing events, and mentors the club's junior members."
                 order="text-first"
