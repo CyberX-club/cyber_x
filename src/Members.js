@@ -114,34 +114,34 @@ const Card3D = ({ member }) => {
 const membersData = {
     12: [
         {name: 'Atharva Singh', role: 'Director', image: 'atharv.jpg'},
-        {name: 'Gyanshu Raj', role: 'Director', image: 'https://media.discordapp.net/attachments/1294023311453585408/1294981316835545108/IMG-20241011-WA0026.jpg?ex=670da595&is=670c5415&hm=a9fc7e1e161c0bc7711774ae015290efd553bb08f5e89d2a2790fa81db2fb7cb&=&format=webp&width=463&height=619'},
+        {name: 'Gyanshu Raj', role: 'Director', image: 'Gyanshu Raj 12 E.png'},
         {name: 'Atharvajeet Singh', role: 'Chief Advisor', image: 'path/to/member3.jpg'},
         {name: 'Akshit Shubham', role: 'Sr. Member', image: 'path/to/member1.jpg'},
         {name: 'Twamadi Sar', role: 'Member', image: 'path/to/member2.jpg'},
-        {name: 'Swastika Dubey', role: 'Event Head', image: 'https://media.discordapp.net/attachments/1294023311453585408/1294680644881748069/40774.jpg?ex=670ddf0f&is=670c8d8f&hm=53e2cf1f57b0c8b8863131df544cddd0f07269ebaf29a941b64cdbd4be74d753&=&format=webp&width=464&height=619'},
+        {name: 'Swastika Dubey', role: 'Event Head', image: 'Swastika Dubey12 F.jpg'},
     ],
     11: [
-        {name: 'Anisha Mahajan', role: 'Member', image: 'path/to/member1.jpg'},
-        {name: 'Naija Sukhija', role: 'Member', image: 'path/to/member2.jpg'},
-        {name: 'Suhani Mishra', role: 'Member', image: 'path/to/member3.jpg'},
+        {name: 'Anisha Mahajan', role: 'Member', image: 'Anisha Mahajan 11F.png'},
+        {name: 'Naija Sukhija', role: 'Member', image: 'Naija Sukhija 11F.jpg'},
+        {name: 'Suhani Mishra', role: 'Member', image: 'Suhani Mishra 11F.png'},
         {name: 'Goutam Behera', role: 'Core Member', image: 'path/to/member1.jpg'},
-        {name: 'Aryaman Argarwal', role: 'Member', image: 'path/to/member2.jpg'},
-        {name: 'Aryaman Singh Samyal', role: 'Member', image: 'path/to/member3.jpg'},
+        {name: 'Aryaman Aggarwal', role: 'Member', image: 'path/to/member2.jpg'},
+        {name: 'Aryaman Singh Samyal', role: 'Member', image: 'Aryaman Singh Samyal 11M .png'},
     ],
     10: [
-        {name: 'Vidhan Garg', role: 'Member', image: 'https://media.discordapp.net/attachments/1294023311453585408/1294987568093593662/image.png?ex=670dab67&is=670c59e7&hm=8312251e7a4d42403c9f5b8423f56e75697fd26dc4a6e9502fb67c70d3679d15&=&format=webp&quality=lossless&width=223&height=350'},
+        {name: 'Vidhan Garg', role: 'Member', image: 'Vidhan Garg 10C.png'},
         {name: 'Chyanika Negi', role: 'Member', image: 'path/to/member2.jpg'},
     ],
     9: [
-        {name: 'Devansh Kumar', role: 'Member', image: 'path/to/member1.jpg'},
+        {name: 'Devansh Kumar', role: 'Member', image: 'Devansh Kumar 9H.jpg'},
     ],
     7: [
-        {name: 'Samanyu Aggarwal', role: 'Member', image: 'path/to/member1.jpg'},
+        {name: 'Samanyu Aggarwal', role: 'Member', image: 'Samanyu Aggarwal 7D.png'},
     ],
     6: [
         {name: 'Anureet Kaur Sandhu', role: 'Member', image: 'path/to/member1.jpg'},
-        {name: 'Jiya Sahni', role: 'Member', image: 'path/to/member2.jpg'},
-        {name: 'Ranveer Kalra', role: 'Member', image: 'path/to/member2.jpg'},
+        {name: 'Jiya Sahni', role: 'Member', image: 'Jiya Sahani 6k.png'},
+        {name: 'Ranveer Kalra', role: 'Member', image: 'Ranveer Kalra 6d.png'},
     ],
 };
 
