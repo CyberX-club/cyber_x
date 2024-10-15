@@ -7,6 +7,7 @@ import React from "react";
 import CyberXApp from "./components/Members";
 import {Box, Container, Typography} from "@mui/material";
 import Footer from "./Footer";
+import About from "./components/About";
 
 const MyRoutes = () => {
     const navConfig = {
@@ -38,6 +39,7 @@ const MyRoutes = () => {
                 <Route path="/" element={<App/>}/>
                 <Route path={"/quiz"} element={<Quiz/>}/>
                 <Route path={"/members"} element={<CyberXApp/>}/>
+                <Route path={"/about"} element={<About/>}/>
                 {/*<Route path={"/resources"} element={<Resources/>}/>*/}
             </Routes>
 
