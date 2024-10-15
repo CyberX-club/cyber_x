@@ -1,6 +1,7 @@
 // content.js
 export const aboutContent = {
     title: "CyberX - Cyber Security Club",
+
     paragraphs: [
         "In today's digital age, where technology seamlessly integrates into every aspect of our lives, cybersecurity has become more essential than ever, particularly for youngsters. The internet offers vast opportunities, but it also exposes users to significant risks, from identity theft to cyberbullying and malware attacks. These threats are ever-evolving, and it's crucial that we stay informed and protected.",
         "The inception of our Cyber Security Club was sparked by a shared concern among a group of students and myself. Disturbed by the rising tide of cybercrime news, these students approached me, seeking a platform to understand and address these growing threats. Their initiative highlighted a crucial need: greater awareness about cyber security, especially among young people.",

@@ -49,7 +49,7 @@ const MyRoutes = () => {
         {
             label: 'Cyber Security Awareness Guide',
             description: 'A comprehensive guide on the best practices for staying safe online, covering topics such as password management, phishing, and social engineering.',
-            img: 'https://example.com/guide-image.jpg',
+            img: 'https://via.placeholder.com/512',
             author: 'Jane Doe',
             postedAt: '2024-10-01',
             urls: [
@@ -69,7 +69,7 @@ const MyRoutes = () => {
         {
             label: 'Introduction to Network Security',
             description: 'This PDF resource covers the fundamentals of network security, including firewalls, intrusion detection systems, and secure protocols.',
-            img: 'https://example.com/network-security-image.jpg',
+            img: 'https://via.placeholder.com/512',
             urls: [
                 'https://example.com/introduction-to-network-security.pdf',
                 'https://example.com/network-security-advanced.pdf',
