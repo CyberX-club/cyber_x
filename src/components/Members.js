@@ -119,14 +119,35 @@ const membersData = {
         {name: 'Akshit Shubham', role: 'Sr. Member', image: 'path/to/member1.jpg'},
         {name: 'Twamadi Sar', role: 'Member', image: 'path/to/member2.jpg'},
         {name: 'Swastika Dubey', role: 'Event Head', image: 'Swastika Dubey12 F.jpg'},
+        {name: 'Tanush Jayara', role: 'Member', image: 'Tanush Jayara 12 E.png'},
+        {name: 'Aaahana Mehrotra', role: 'Member' ,image: 'path/to/member7.jpg'},
+        {name: 'Vishisht',role: 'Member',image:'Vishisht  12L .JPG'},
+
+
     ],
     11: [
         {name: 'Anisha Mahajan', role: 'Member', image: 'Anisha Mahajan 11F.png'},
         {name: 'Naija Sukhija', role: 'Member', image: 'Naija Sukhija 11F.jpg'},
         {name: 'Suhani Mishra', role: 'Member', image: 'Suhani Mishra 11F.png'},
+        {name: 'Agrani Sah', role: 'Ad-Hocs',image: 'Agrani Sah.jpg'},
         {name: 'Goutam Behera', role: 'Core Member', image: 'Gouttam 11G.jpeg'},
-        {name: 'Aryaman Aggarwal', role: 'Member', image: 'aryaman aggarwal 11 I.jpeg'},
         {name: 'Aryaman Singh Samyal', role: 'Member', image: 'Aryaman Singh Samyal 11M .png'},
+        {name: 'Shaurya Pratap Srivastava' , role: 'Member',image:'path.jpog'},
+
+
+
+
+
+    ],
+    AdHocs: [
+            {name: 'Agrani Sah', role: 'Ad-Hocs',image: 'Agrani Sah.jpg'},
+            {name: 'Aryaman Aggarwal', role: 'Ad-Hocs', image: 'aryaman aggarwal 11 I.jpeg'},
+            {name: 'Sabeer Ranjan' , role: 'Ad-Hocs',image:'path.jg'},
+            {name: 'Atharwa Navyam', role: 'Ad-Hocs', image: '12.p'},
+
+
+
+
     ],
     10: [
         {name: 'Vidhan Garg', role: 'Member', image: 'Vidhan Garg 10C.png'},
