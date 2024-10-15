@@ -4,7 +4,7 @@ import App from './App';
 import Quiz from "./Quiz";
 import Navbar from "./Navbar";
 import React from "react";
-import CyberXApp from "./Members";
+import CyberXApp from "./components/Members";
 import {Box, Container, Typography} from "@mui/material";
 import Footer from "./Footer";
 

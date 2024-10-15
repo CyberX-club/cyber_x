@@ -6,7 +6,7 @@ import {
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import {styled} from '@mui/system';
-import {CrypticText} from "./Members";
+import {CrypticText} from "./components/Members";
 
 const NavBox = styled(Box)(({theme}) => ({
     position: 'absolute',

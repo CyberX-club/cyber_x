@@ -8,7 +8,7 @@ import {
     CardContent,
     CardMedia,
 } from '@mui/material';
-import StarryBackground from './StarryBackground';
+import StarryBackground from '../StarryBackground';
 
 const CrypticText = ({text, isHovered}) => {
     const [displayText, setDisplayText] = useState(text);
