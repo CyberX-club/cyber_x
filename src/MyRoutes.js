@@ -18,6 +18,7 @@ const MyRoutes = () => {
             {label: "About", href: "/about"},
             {label: "Events", href: "/events"},
             {label: "Members", href: "/members"},
+            {label: "Resources", href:"/resources"},
             {label: "Contact", onClick: () => console.log("Contact clicked")},
         ]
     };
@@ -32,6 +33,19 @@ const MyRoutes = () => {
     ];
 
     const resources = [
+        {
+            label: 'Shielding Cyber Attacks',
+            description: 'Guarding the Future: Your First Line of Defense Against Cyber Attacks',
+            img: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fsearch%2Fcyber-security-3d&psig=AOvVaw0rZiFbC1lYCCjFrsEyPf1p&ust=1729097727415000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCLi2iJftkIkDFQAAAAAdAAAAABAE',
+            author: 'Goutam Behera',
+            postedAt: '2024-10-01',
+            urls: [
+                'https://drive.google.com/file/d/1zVQ4w58pCVHm200fSv9PkDMwW8ET3deU/view?usp=drive_link',
+
+            ],
+        },
+
+
         {
             label: 'Cyber Security Awareness Guide',
             description: 'A comprehensive guide on the best practices for staying safe online, covering topics such as password management, phishing, and social engineering.',

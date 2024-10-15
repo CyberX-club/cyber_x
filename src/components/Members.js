@@ -116,7 +116,7 @@ const membersData = {
         {name: 'Gyanshu Raj', role: 'Director', image: 'Gyanshu Raj 12 E.png'},
         {name: 'Atharvajeet Singh', role: 'Chief Advisor', image: 'path/to/member3.jpg'},
         {name: 'Akshit Shubham', role: 'Sr. Member', image: 'path/to/member1.jpg'},
-        {name: 'Twamadi Sar', role: 'Member', image: 'path/to/member2.jpg'},
+        {name: 'Twamadi Sar', role: 'Member', image: 'Twamadi Sar.jpg'},
         {name: 'Swastika Dubey', role: 'Event Head', image: 'Swastika Dubey12 F.jpg'},
         {name: 'Tanush Jayara', role: 'Member', image: 'Tanush Jayara 12 E.png'},
         {name: 'Aaahana Mehrotra', role: 'Member' ,image: 'path/to/member7.jpg'},
@@ -126,14 +126,17 @@ const membersData = {
         {name: 'Anisha Mahajan', role: 'Member', image: 'Anisha Mahajan 11F.png'},
         {name: 'Naija Sukhija', role: 'Member', image: 'Naija Sukhija 11F.jpg'},
         {name: 'Suhani Mishra', role: 'Member', image: 'Suhani Mishra 11F.png'},
-        {name: 'Agrani Sah', role: 'Ad-Hocs', image: 'Agrani Sah.jpg'},
+        {name: 'Agrani Sah', role: 'Creative Member', image: 'Agrani Sah 11G.jpeg'},
         {name: 'Goutam Behera', role: 'Core Member', image: 'Gouttam 11G.jpeg'},
         {name: 'Aryaman Singh Samyal', role: 'Member', image: 'Aryaman Singh Samyal 11M .png'},
         {name: 'Shaurya Pratap Srivastava', role: 'Member', image: 'path.jpg'},
+        {name: 'Aryaman Aggarwal', role: 'Member', image: 'aryaman aggarwal 11 I.jpeg'},
+        {name: 'Sabeer Ranjan', role: 'Member', image: 'SABEER RANJAN.jpg'},
+        {name: 'Atharwa Navyam', role: 'Member', image: 'Atharwa Navyam 11I.png'},
     ],
     10: [
         {name: 'Vidhan Garg', role: 'Member', image: 'Vidhan Garg 10C.png'},
-        {name: 'Chyanika Negi', role: 'Member', image: 'Chayanika Negi 10J.jpg'},
+        {name: 'Chayanika Negi', role: 'Member', image: 'Chayanika Negi 10J.jpg'},
     ],
     9: [
         {name: 'Devansh Kumar', role: 'Member', image: 'Devansh Kumar 9H.jpg'},
@@ -145,16 +148,11 @@ const membersData = {
         {name: 'Anureet Kaur Sandhu', role: 'Member', image: 'Anureet Kaur Sandhu 6-K.jpg'},
         {name: 'Jiya Sahni', role: 'Member', image: 'Jiya Sahani 6k.png'},
         {name: 'Ranveer Kalra', role: 'Member', image: 'Ranveer Kalra 6d.png'},
-    ],
-    AdHocs: [
-        {name: 'Aryaman Aggarwal', role: 'Ad-Hocs', image: 'aryaman aggarwal 11 I.jpeg'},
-        {name: 'Sabeer Ranjan', role: 'Ad-Hocs', image: 'path.jpg'},
-        {name: 'Atharwa Navyam', role: 'Ad-Hocs', image: '12.jpg'},
-    ],
+    ]
 };
 
 const CyberXApp = () => {
-    const orderedSections = ['12', '11', 'AdHocs', '10', '9', '7', '6'];
+    const orderedSections = ['12', '11', '10', '9', '7', '6'];
 
     return (
         <>
@@ -176,7 +174,7 @@ const CyberXApp = () => {
                             )}
                             {grade === 'AdHocs' && (
                                 <Typography variant="h2" component="h2" align="center" gutterBottom>
-                                    Ad-Hocs
+                                    Member
                                 </Typography>
                             )}
                             <Grid container spacing={3}>
