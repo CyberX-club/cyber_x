@@ -193,5 +193,5 @@ const CyberXApp = () => {
         </>
     );
 };
- 
+
 export default CyberXApp;

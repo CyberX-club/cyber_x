@@ -1,30 +1,30 @@
 import React from 'react';
-import { Box, Container, Typography, IconButton, Tooltip } from '@mui/material';
-import { Email } from '@mui/icons-material';
-import { Facebook, Twitter, LinkedIn, GitHub, Instagram } from '@mui/icons-material';
+import {Box, Container, Typography, IconButton, Tooltip, Link} from '@mui/material';
+import {Email} from '@mui/icons-material';
+import {Facebook, Twitter, LinkedIn, GitHub, Instagram} from '@mui/icons-material';
 
 const getIcon = (platform) => {
     switch (platform.toLowerCase()) {
         case 'facebook':
-            return <Facebook />;
+            return <Facebook/>;
         case 'twitter':
-            return <Twitter />;
+            return <Twitter/>;
         case 'linkedin':
-            return <LinkedIn />;
+            return <LinkedIn/>;
         case 'github':
-            return <GitHub />;
+            return <GitHub/>;
         case 'instagram':
-            return <Instagram />;
+            return <Instagram/>;
         default:
             return null;
     }
 };
 
-const Footer = ({ email, socialMedia = [] }) => {
+const Footer = ({email, socialMedia = []}) => {
     return (
         <Box
             component="footer"
-            sx={{ bgcolor: 'background.paper', py: 3, mt: 5 }}
+            sx={{bgcolor: 'background.paper', py: 3, mt: 5}}
             id="contact"
         >
             <Container maxWidth="lg">
@@ -39,7 +39,7 @@ const Footer = ({ email, socialMedia = [] }) => {
                                 href={item.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                sx={{ color: 'goldenrod', marginRight: '0.5rem' }}
+                                sx={{color: 'goldenrod', marginRight: '0.5rem'}}
                             >
                                 {getIcon(item.platform)}
                             </IconButton>
@@ -48,10 +48,12 @@ const Footer = ({ email, socialMedia = [] }) => {
                 </Box>
 
                 {email && (
-                    <Typography variant="body2" align="center" gutterBottom>
-                        <Email sx={{ verticalAlign: 'middle', marginRight: '0.5rem' }} />
-                        {email}
-                    </Typography>
+                    <Link href={`mailto:${email}`} underline="hover" color="textPrimary" align="center">
+                        <Typography variant="body2" align="center" gutterBottom>
+                            <Email sx={{verticalAlign: 'middle', marginRight: '0.5rem'}}/>
+                            {email}
+                        </Typography>
+                    </Link>
                 )}
             </Container>
         </Box>
