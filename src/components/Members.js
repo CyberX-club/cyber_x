@@ -139,7 +139,7 @@ const membersData = {
         {name: 'Samanyu Aggarwal', role: 'Member', image: 'Samanyu Aggarwal 7D.png'},
     ],
     6: [
-        {name: 'Anureet Kaur Sandhu', role: 'Member', image: 'path/to/member1.jpg'},
+        {name: 'Anureet Kaur Sandhu', role: 'Member', image: 'Anureet Kaur Sandhu 6-K.jpg'},
         {name: 'Jiya Sahni', role: 'Member', image: 'Jiya Sahani 6k.png'},
         {name: 'Ranveer Kalra', role: 'Member', image: 'Ranveer Kalra 6d.png'},
     ],
