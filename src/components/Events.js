@@ -16,7 +16,7 @@ const Events = () => (
                     },
                     {
                         event: "Cybersecurity Challenge 2024",
-                        date: "August 5, 2024",
+                        date: "",
                         href: "/quiz"
                     }
                 ].map((event, index) => (

@@ -96,9 +96,11 @@ const Navbar = ({config}) => {
                             }}
                         >
                             <Typography
-                                variant="h4"
+                                variant="h3"
                                 component="div"
                                 sx={{cursor: "pointer"}}
+                                fontFamily={"Ubuntu Sans Mono"}
+                                fontWeight={900}
                                 onClick={() => window.location.href = '/'}
                             >
                                 <CrypticText text={config.title} isHovered={true}/>

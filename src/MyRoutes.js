@@ -8,6 +8,7 @@ import CyberXApp from "./components/Members";
 import {Box, Container, Typography} from "@mui/material";
 import Footer from "./Footer";
 import About from "./components/About";
+import Resources from "./components/Resources";
 
 const MyRoutes = () => {
     const navConfig = {
@@ -30,6 +31,44 @@ const MyRoutes = () => {
         { platform: 'Instagram', url: 'https://www.instagram.com/CyberX.CLUB' },
     ];
 
+    const resources = [
+        {
+            label: 'Cyber Security Awareness Guide',
+            description: 'A comprehensive guide on the best practices for staying safe online, covering topics such as password management, phishing, and social engineering.',
+            img: 'https://example.com/guide-image.jpg',
+            author: 'Jane Doe',
+            postedAt: '2024-10-01',
+            urls: [
+                'https://example.com/cyber-security-awareness-guide.pdf',
+                'https://example.com/guide-appendix.pdf',
+            ],
+        },
+        {
+            label: 'OWASP Top Ten',
+            description: 'An educational resource that provides an overview of the top ten web application security risks, including how to mitigate them.',
+            author: 'John Smith',
+            postedAt: '2024-10-05',
+            urls: [
+                'https://example.com/owasp-top-ten.pdf',
+            ],
+        },
+        {
+            label: 'Introduction to Network Security',
+            description: 'This PDF resource covers the fundamentals of network security, including firewalls, intrusion detection systems, and secure protocols.',
+            img: 'https://example.com/network-security-image.jpg',
+            urls: [
+                'https://example.com/introduction-to-network-security.pdf',
+                'https://example.com/network-security-advanced.pdf',
+            ],
+        },
+        {
+            label: 'Cyber Security News',
+            description: 'Stay up-to-date with the latest news and trends in the world of cyber security, including recent cyber attacks, vulnerabilities, and patches.',
+            urls: [],
+        },
+    ];
+
+
 
 
     return (
@@ -40,7 +79,7 @@ const MyRoutes = () => {
                 <Route path={"/quiz"} element={<Quiz/>}/>
                 <Route path={"/members"} element={<CyberXApp/>}/>
                 <Route path={"/about"} element={<About/>}/>
-                {/*<Route path={"/resources"} element={<Resources/>}/>*/}
+                <Route path={"/resources"} element={<Resources resources={resources}/>}/>
             </Routes>
 
             <Footer email={email} socialMedia={socialMedia} />
