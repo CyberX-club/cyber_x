@@ -7,7 +7,6 @@ import React from "react";
 import CyberXApp from "./components/Members";
 import {Box, Container, Typography} from "@mui/material";
 import Footer from "./Footer";
-import Resources from "./components/Resources";
 
 const MyRoutes = () => {
     const navConfig = {
