@@ -124,13 +124,13 @@ const membersData = {
         {name: 'Anisha Mahajan', role: 'Member', image: 'Anisha Mahajan 11F.png'},
         {name: 'Naija Sukhija', role: 'Member', image: 'Naija Sukhija 11F.jpg'},
         {name: 'Suhani Mishra', role: 'Member', image: 'Suhani Mishra 11F.png'},
-        {name: 'Goutam Behera', role: 'Core Member', image: 'GOUTTAM.jpeg'},
-        {name: 'Aryaman Aggarwal', role: 'Member', image: 'path/to/member2.jpg'},
+        {name: 'Goutam Behera', role: 'Core Member', image: 'Gouttam 11G.jpeg'},
+        {name: 'Aryaman Aggarwal', role: 'Member', image: 'aryaman aggarwal 11 I.jpeg'},
         {name: 'Aryaman Singh Samyal', role: 'Member', image: 'Aryaman Singh Samyal 11M .png'},
     ],
     10: [
         {name: 'Vidhan Garg', role: 'Member', image: 'Vidhan Garg 10C.png'},
-        {name: 'Chyanika Negi', role: 'Member', image: 'path/to/member2.jpg'},
+        {name: 'Chyanika Negi', role: 'Member', image: 'Chayanika Negi 10J.jpg'},
     ],
     9: [
         {name: 'Devansh Kumar', role: 'Member', image: 'Devansh Kumar 9H.jpg'},
