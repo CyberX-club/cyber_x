@@ -39,7 +39,7 @@ const MyRoutes = () => {
                 <Route path="/" element={<App/>}/>
                 <Route path={"/quiz"} element={<Quiz/>}/>
                 <Route path={"/members"} element={<CyberXApp/>}/>
-                <Route path={"/resources"} element={<Resources/>}/>
+                {/*<Route path={"/resources"} element={<Resources/>}/>*/}
             </Routes>
 
             <Footer email={email} socialMedia={socialMedia} />
