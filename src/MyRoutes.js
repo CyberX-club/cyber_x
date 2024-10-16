@@ -35,8 +35,8 @@ const MyRoutes = () => {
     const resources = [
         {
             label: 'Shielding Cyber Attacks',
+            img: 'https://lh3.googleusercontent.com/drive-storage/AJQWtBMjuO2bFajqcmici6TUBch11eI9P6JqnnQ4sXR9p76_nHVOvh7jtpbrcw5hHUsNnborV8AwbGvcVOPyALdnhvjp5eI2cUcGTTOwOQ=s220',
             description: 'Guarding the Future: Your First Line of Defense Against Cyber Attacks',
-            img: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fsearch%2Fcyber-security-3d&psig=AOvVaw0rZiFbC1lYCCjFrsEyPf1p&ust=1729097727415000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCLi2iJftkIkDFQAAAAAdAAAAABAE',
             author: 'Goutam Behera',
             postedAt: '2024-10-01',
             urls: [
