@@ -16,7 +16,6 @@ const MyRoutes = () => {
         menuItems: [
             {label: "Home", href: "/"},
             {label: "About", href: "/about"},
-            {label: "Events", href: "/events"},
             {label: "Members", href: "/members"},
             {label: "Resources", href:"/resources"},
             {label: "Contact", onClick: () => console.log("Contact clicked")},
