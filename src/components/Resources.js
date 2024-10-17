@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import {
     Box,
     Typography,
@@ -16,11 +16,11 @@ import {
     Grow,
     Fade,
 } from '@mui/material';
-import { GoogleDriveUtils } from "../Utils";
+import {GoogleDriveUtils} from "../Utils";
 import Endpoints from "../Endpoints";
-import { LaunchSharp } from "@mui/icons-material";
+import {LaunchSharp} from "@mui/icons-material";
 
-const Resources = ({ resources }) => {
+const Resources = ({resources}) => {
     const FETCH_IMAGE = false;
     const [open, setOpen] = useState(false);
     const [selectedResource, setSelectedResource] = useState(null);
@@ -50,7 +50,7 @@ const Resources = ({ resources }) => {
                 const data = await response.json();
                 const thumbnailLink = data.thumbnailLink;
 
-                setImageCache((prev) => ({ ...prev, [resource.urls[0]]: thumbnailLink }));
+                setImageCache((prev) => ({...prev, [resource.urls[0]]: thumbnailLink}));
 
                 return thumbnailLink;
             } catch (error) {
@@ -64,8 +64,8 @@ const Resources = ({ resources }) => {
     useEffect(() => {
         const fetchImages = async () => {
             const updatedResources = await Promise.all(resources.map(async (resource) => {
-                const imageUrl = FETCH_IMAGE ? await fetchImage(resource) : resource.img ? `${window.location.origin}/resources/${resource.img}` : null;
-                return { ...resource, fetchedImage: imageUrl };
+                const imageUrl = FETCH_IMAGE  ?await fetchImage(resource) : resource.img ? `${window.location.origin}/resources/${resource.img}` : null;
+                return {...resource, fetchedImage: imageUrl};
             }));
             setFetchedResources(updatedResources);
         };
@@ -81,7 +81,7 @@ const Resources = ({ resources }) => {
             p={3}
             minHeight="100vh"
         >
-            <Typography variant="h4" gutterBottom align="center" sx={{ marginBottom: 2 }}>
+            <Typography variant="h4" gutterBottom align="center" sx={{marginBottom: 2}}>
                 Resources
             </Typography>
             <Box width="100%" maxWidth="800px">
@@ -110,7 +110,7 @@ const Resources = ({ resources }) => {
                                     component="img"
                                     image={resource.fetchedImage}
                                     alt={resource.label}
-                                    sx={{ height: 140, objectFit: 'cover' }}
+                                    sx={{height: 140, objectFit: 'cover'}}
                                     onError={(e) => {
                                         e.target.onerror = null;
                                         e.target.src = '';
@@ -163,16 +163,20 @@ const Resources = ({ resources }) => {
                     }
                 }}
             >
-                <Fade in={open} timeout={400}>
-                    <Card sx={{ maxWidth: 700 }}>
-                        <DialogTitle>{selectedResource?.label}</DialogTitle>
+                <Fade in={open} timeout={600}>
+                    <Card sx={{maxWidth: 700}}>
+                        <DialogTitle>
+                            <Typography variant={"h5"} fontWeight={800}>
+                                {selectedResource?.label}
+                            </Typography>
+                        </DialogTitle>
                         <DialogContent>
                             {selectedResource?.fetchedImage && (
                                 <CardMedia
                                     component="img"
                                     image={selectedResource.fetchedImage}
                                     alt={selectedResource.label}
-                                    sx={{ height: 140, objectFit: 'cover', marginBottom: 2 }}
+                                    sx={{height: 140, objectFit: 'cover', marginBottom: 2}}
                                     onError={(e) => {
                                         e.target.onerror = null;
                                         e.target.src = '';
