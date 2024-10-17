@@ -64,7 +64,7 @@ const Resources = ({ resources }) => {
     useEffect(() => {
         const fetchImages = async () => {
             const updatedResources = await Promise.all(resources.map(async (resource) => {
-                const imageUrl = FETCH_IMAGE ? await fetchImage(resource) : resource.img ? resource.img : null;
+                const imageUrl = FETCH_IMAGE ? await fetchImage(resource) : resource.img ? `${window.location.origin}/resources/${resource.img}` : null;
                 return { ...resource, fetchedImage: imageUrl };
             }));
             setFetchedResources(updatedResources);
