@@ -49,11 +49,13 @@ const Card3D = ({ member }) => {
     const [isHovered, setIsHovered] = useState(false);
     const [imgError, setImgError] = useState(false);
 
-    const handleMouseMove = (e) => {
+    const handleMove = (e) => {
         const card = e.currentTarget;
         const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+        const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+        const clientY = e.clientY || (e.touches && e.touches[0].clientY);
+        const x = clientX - rect.left;
+        const y = clientY - rect.top;
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
         const tiltX = (y - centerY) / 10;
@@ -61,8 +63,8 @@ const Card3D = ({ member }) => {
         setTilt({ x: tiltX, y: tiltY });
     };
 
-    const handleMouseEnter = () => setIsHovered(true);
-    const handleMouseLeave = () => {
+    const handleEnter = () => setIsHovered(true);
+    const handleLeave = () => {
         setTilt({ x: 0, y: 0 });
         setIsHovered(false);
     };
@@ -71,9 +73,12 @@ const Card3D = ({ member }) => {
 
     return (
         <Card
-            onMouseMove={handleMouseMove}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
+            onMouseMove={handleMove}
+            onMouseEnter={handleEnter}
+            onMouseLeave={handleLeave}
+            onTouchStart={handleEnter}
+            onTouchMove={handleMove}
+            onTouchEnd={handleLeave}
             sx={{
                 transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
                 transition: 'transform 0.1s ease',

@@ -109,7 +109,7 @@ const Navbar = ({ config }) => {
                                 component="div"
                                 sx={{ cursor: "pointer", py: 1 }}
                                 fontFamily={"Space Mono"}
-                                fontWeight={400}
+                                fontWeight={700}
                                 onClick={() => window.location.href = '/'}
                             >
                                 <CrypticText text={config.title} isHovered={true} />
