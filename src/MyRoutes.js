@@ -34,7 +34,7 @@ const MyRoutes = () => {
     const resources = [
         {
             label: 'Shielding Cyber Attacks',
-            img: 'https://lh3.googleusercontent.com/drive-storage/AJQWtBMjuO2bFajqcmici6TUBch11eI9P6JqnnQ4sXR9p76_nHVOvh7jtpbrcw5hHUsNnborV8AwbGvcVOPyALdnhvjp5eI2cUcGTTOwOQ=s220',
+            img: 'protection_against.png',
             description: 'Guarding the Future: Your First Line of Defense Against Cyber Attacks',
             author: 'Goutam Behera',
             postedAt: '2024-07-24',
@@ -48,7 +48,7 @@ const MyRoutes = () => {
         {
             label: 'Cyber Security Awareness Guide',
             description: 'A comprehensive guide on the best practices for staying safe online, covering topics such as password management, phishing, and social engineering.',
-            img: 'https://via.placeholder.com/512',
+            img: 'ser-bg2.jpg',
             author: 'Atharva Singh',
             postedAt: '2024-10-15',
             urls: [
@@ -60,6 +60,7 @@ const MyRoutes = () => {
         {
             label: 'Intro To Trending Cyber Crime Attacks Over Network',
             description: 'Your Guide to the Top Web Application Security Risks and How to Defend Against Them: A Comprehensive Resource on the Latest Network Security Threats',
+            img: 'ser-bg.jpg',
             author: 'Goutam Behera',
             postedAt: '2024-07-24',
             urls: [
@@ -70,7 +71,7 @@ const MyRoutes = () => {
             label: 'Introduction to Network Security',
             description: 'This PDF resource covers the fundamentals of network security, including firewalls, intrusion detection systems, and secure protocols.',
             author: 'Atharva Singh',
-            img: 'https://via.placeholder.com/512',
+            img: 'ser-bg.jpeg',
             urls: [
                 'https://drive.google.com/file/d/1hGLfmLrqDPV1cxBc6HdeLU4cLPxGPMZ2/view?usp=sharing',
 
@@ -80,6 +81,7 @@ const MyRoutes = () => {
         {
             label: 'DPSRKP Cyber Security Brochure',
             description: 'Stay up-to-date with the latest news and trends in the world of cyber security, including recent cyber attacks, vulnerabilities, and patches.',
+            img: 'dpsrkpcyberx.png',
             urls: ['https://drive.google.com/file/d/1fUkmDSicRRzUAl6R1rBlZXWZ1-MmsPhS/view?usp=sharing'],
         },
     ];

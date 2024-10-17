@@ -10,7 +10,7 @@ const Events = () => (
             <Grid container spacing={4}>
                 {[
                     {
-                        event: "Workshop on Cybersecurity Basics",
+                        event: "Workshop on Cybersecurity Basics Dated Below",
                         date: "July 17, 2024",
                         href: "#"
                     },
