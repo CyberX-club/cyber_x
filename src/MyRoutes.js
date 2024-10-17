@@ -37,7 +37,7 @@ const MyRoutes = () => {
             img: 'https://lh3.googleusercontent.com/drive-storage/AJQWtBMjuO2bFajqcmici6TUBch11eI9P6JqnnQ4sXR9p76_nHVOvh7jtpbrcw5hHUsNnborV8AwbGvcVOPyALdnhvjp5eI2cUcGTTOwOQ=s220',
             description: 'Guarding the Future: Your First Line of Defense Against Cyber Attacks',
             author: 'Goutam Behera',
-            postedAt: '2024-10-01',
+            postedAt: '2024-07-24',
             urls: [
                 'https://drive.google.com/file/d/1zVQ4w58pCVHm200fSv9PkDMwW8ET3deU/view?usp=drive_link',
 
@@ -49,35 +49,38 @@ const MyRoutes = () => {
             label: 'Cyber Security Awareness Guide',
             description: 'A comprehensive guide on the best practices for staying safe online, covering topics such as password management, phishing, and social engineering.',
             img: 'https://via.placeholder.com/512',
-            author: 'Jane Doe',
-            postedAt: '2024-10-01',
+            author: 'Atharva Singh',
+            postedAt: '2024-10-15',
             urls: [
-                'https://example.com/cyber-security-awareness-guide.pdf',
-                'https://example.com/guide-appendix.pdf',
+                'https://drive.google.com/file/d/1CBtkmEu_aHNBnOQJqCHB02_py61Ed1PD/view?usp=sharing',
+
+
             ],
         },
         {
-            label: 'OWASP Top Ten',
-            description: 'An educational resource that provides an overview of the top ten web application security risks, including how to mitigate them.',
-            author: 'John Smith',
-            postedAt: '2024-10-05',
+            label: 'Intro To Trending Cyber Crime Attacks Over Network',
+            description: 'Your Guide to the Top Web Application Security Risks and How to Defend Against Them: A Comprehensive Resource on the Latest Network Security Threats',
+            author: 'Goutam Behera',
+            postedAt: '2024-07-24',
             urls: [
-                'https://example.com/owasp-top-ten.pdf',
+                'https://drive.google.com/file/d/19lYngEhdcWWgF4PEE_4W4-nzzBxnpg4Z/view?usp=sharing',
             ],
         },
         {
             label: 'Introduction to Network Security',
             description: 'This PDF resource covers the fundamentals of network security, including firewalls, intrusion detection systems, and secure protocols.',
+            author: 'Atharva Singh',
             img: 'https://via.placeholder.com/512',
             urls: [
-                'https://example.com/introduction-to-network-security.pdf',
-                'https://example.com/network-security-advanced.pdf',
+                'https://drive.google.com/file/d/1hGLfmLrqDPV1cxBc6HdeLU4cLPxGPMZ2/view?usp=sharing',
+
+
             ],
         },
         {
-            label: 'Cyber Security News',
+            label: 'DPSRKP Cyber Security Brochure',
             description: 'Stay up-to-date with the latest news and trends in the world of cyber security, including recent cyber attacks, vulnerabilities, and patches.',
-            urls: [],
+            urls: ['https://drive.google.com/file/d/1fUkmDSicRRzUAl6R1rBlZXWZ1-MmsPhS/view?usp=sharing'],
         },
     ];
 

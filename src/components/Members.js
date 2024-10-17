@@ -112,11 +112,11 @@ const Card3D = ({ member }) => {
 
 const membersData = {
     12: [
-        {name: 'Atharva Singh', role: 'Director', image: 'atharv.jpg'},
+        {name: 'Atharva Singh', role: 'Director', image: 'ATHARVA SINGH.jpeg'},
         {name: 'Gyanshu Raj', role: 'Director', image: 'Gyanshu Raj 12 E.png'},
-        {name: 'Atharvajeet Singh', role: 'Chief Advisor', image: 'path/to/member3.jpg'},
-        {name: 'Akshit Shubham', role: 'Sr. Member', image: 'path/to/member1.jpg'},
-        {name: 'Twamadi Sar', role: 'Member', image: 'Twamadi Sar.jpg'},
+        {name: 'Atharvajeet Singh', role: 'Chief Advisor', image: 'ATHARVAJEET.jpeg'},
+        {name: 'Akshit Shubham', role: 'Technical Head', image: 'Akshit Shubham.jpeg'},
+        {name: 'Twamadi Sar', role: 'Creative Head', image: 'Twamadi Sar.jpg'},
         {name: 'Swastika Dubey', role: 'Event Head', image: 'Swastika Dubey12 F.jpg'},
         {name: 'Tanush Jayara', role: 'Member', image: 'Tanush Jayara 12 E.png'},
         {name: 'Aaahana Mehrotra', role: 'Member' ,image: 'path/to/member7.jpg'},
