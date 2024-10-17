@@ -85,7 +85,7 @@ const Card3D = ({ member }) => {
             <Box sx={{ position: 'relative', paddingTop: '100%' /* 1:1 aspect ratio */ }}>
                 <CardMedia
                     component="img"
-                    image={imgError ? fallbackImage : member.image}
+                    image={imgError ? fallbackImage : `${window.location.origin}/MEMBERS/${member.image}`}
                     alt={member.name}
                     onError={() => setImgError(true)}
                     sx={{
