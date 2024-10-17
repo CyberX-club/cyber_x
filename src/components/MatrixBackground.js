@@ -36,7 +36,9 @@ const MatrixBackground = () => {
             const colors = ['#00FF0090'];
 
             const initializeArrays = () => {
-                const columns = Math.max(1, Math.min(Math.floor(canvas.width / (fontSize * 2)), 100)); // Reduce the number of columns
+                const maxColumns = 10000; // Maximum number of columns
+                const columnWidth = fontSize * 2; // Width of each column
+                const columns = Math.floor(canvas.width / columnWidth);
                 const drops = [];
                 const dropColors = [];
                 for (let i = 0; i < columns; i++) {
