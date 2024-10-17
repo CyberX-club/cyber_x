@@ -10,7 +10,7 @@ import {
     DialogTitle,
     DialogContent,
     DialogActions,
-    Button
+    Button, Paper
 } from '@mui/material';
 import {
     Timeline,
@@ -49,7 +49,7 @@ const FocusArea = () => {
     };
 
     return (
-        <>
+        <Paper sx={{ width: '100%',p:2}}>
             <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <Typography variant="h4" gutterBottom component="div">
                     Our Focus Areas
@@ -143,7 +143,7 @@ const FocusArea = () => {
                     </Button>
                 </DialogActions>
             </Dialog>
-        </>
+        </Paper>
     );
 };
 
