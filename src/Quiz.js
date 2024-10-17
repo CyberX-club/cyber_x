@@ -4,12 +4,18 @@ import WarningIcon from '@mui/icons-material/Warning';
 import ErrorIcon from '@mui/icons-material/Error';
 import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfied';
 import SentimentSatisfiedIcon from '@mui/icons-material/SentimentSatisfied';
-import SentimentDissatisfiedIcon from '@mui/icons-material/SentimentDissatisfied';
+import SecurityIcon from '@mui/icons-material/Security';
+import LockIcon from '@mui/icons-material/Lock';
 import Question from "./Question";
-import { Box, Paper, Typography, Button } from "@mui/material";
+import { Box, Paper, Typography, Button, LinearProgress, Chip } from "@mui/material";
 import { useState } from "react";
 
 const Quiz = () => {
+    const [score, setScore] = useState(0);
+    const [activeStep, setActiveStep] = useState(0);
+    const [isQuizCompleted, setIsQuizCompleted] = useState(false);
+    const [answeredQuestions, setAnsweredQuestions] = useState(new Set());
+
     const quizQuestions = [
         {
             question: "What is the primary goal of a firewall in cybersecurity?",
@@ -103,15 +109,17 @@ const Quiz = () => {
         }
     ];
 
-
-    const [score, setScore] = useState(0);
-    const [activeStep, setActiveStep] = useState(0);
-    const [isQuizCompleted, setIsQuizCompleted] = useState(false);
-
     const handleAnswerSelected = (answer, correctAnswer) => {
+        if (answeredQuestions.has(activeStep)) {
+            return; // Prevent answering the same question again
+        }
+
         if (answer === correctAnswer) {
             setScore(prevScore => prevScore + 1);
         }
+
+        // Mark the question as answered
+        setAnsweredQuestions(prev => new Set(prev).add(activeStep));
 
         if (activeStep < quizQuestions.length - 1) {
             setActiveStep(prevStep => prevStep + 1);
@@ -153,68 +161,169 @@ const Quiz = () => {
         }
     ];
 
+    const restartQuiz = () => {
+        setScore(0);
+        setActiveStep(0);
+        setIsQuizCompleted(false);
+        setAnsweredQuestions(new Set()); // Reset answered questions
+    };
 
     const getFeedback = () => {
         const percentage = (score / quizQuestions.length) * 100;
         const feedback = feedbacks.find(({ minPercentage }) => percentage >= minPercentage);
 
         return (
-            <div style={{ display: 'flex', alignItems: 'center', color: feedback.color }}>
-                {feedback.icon}
-                <Typography variant="body1">{feedback.message}</Typography>
-            </div>
+            <Box sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: 2,
+                my: 3
+            }}>
+                <Box sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    color: feedback.color,
+                    bgcolor: `${feedback.color}15`,
+                    padding: 2,
+                    borderRadius: 2,
+                    width: 'fit-content'
+                }}>
+                    {feedback.icon}
+                    <Typography variant="h6">{feedback.message}</Typography>
+                </Box>
+                <Box sx={{ width: '100%', mt: 2 }}>
+                    <LinearProgress
+                        variant="determinate"
+                        value={percentage}
+                        sx={{
+                            height: 10,
+                            borderRadius: 5,
+                            backgroundColor: '#e0e0e0',
+                            '& .MuiLinearProgress-bar': {
+                                backgroundColor: feedback.color,
+                            }
+                        }}
+                    />
+                    <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        align="center"
+                        sx={{ mt: 1 }}
+                    >
+                        {`${Math.round(percentage)}% Complete`}
+                    </Typography>
+                </Box>
+            </Box>
         );
     };
 
-
-
-    const restartQuiz = () => {
-        setScore(0);
-        setActiveStep(0);
-        setIsQuizCompleted(false);
-    };
-
     return (
-        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>
-            <Paper elevation={3} sx={{ padding: 2, margin: 2, maxWidth: 800, width: '100%'}}>
-                <Box sx={{ padding: 2 }}>
-                    {isQuizCompleted ? (
-                        <Box textAlign="center">
-                            <Typography variant="h4" gutterBottom>
-                                Quiz Completed!
-                            </Typography>
-                            <Typography variant="h6">
-                                Your Score: {score} out of {quizQuestions.length}
-                            </Typography>
-                            <Typography variant="h6" color="primary">
-                                Feedback: {getFeedback()}
-                            </Typography>
-                            <Button variant="contained" color="primary" onClick={restartQuiz} sx={{ marginTop: 2 }}>
-                                Restart Quiz
-                            </Button>
-                        </Box>
-                    ) : (
-                        <Carousel
-                            index={activeStep}
-                            autoPlay={false}
-                            animation="slide"
-                            indicators={false}
-                            navButtonsAlwaysInvisible
-                        >
-                            {quizQuestions.map((question, index) => (
-                                <Question
-                                    key={index}
-                                    question={question.question}
-                                    answers={question.options}
-                                    correctAnswer={question.correctAnswer}
-                                    onAnswerSelected={(answer) =>
-                                        handleAnswerSelected(answer, question.correctAnswer)
-                                    }
-                                />
-                            ))}
-                        </Carousel>
-                    )}
+        <Box
+            sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                minHeight: '100vh',
+                py: 4
+            }}
+        >
+            <Paper
+                elevation={3}
+                sx={{
+                    padding: 4,
+                    margin: 2,
+                    maxWidth: 800,
+                    width: '100%',
+                    borderRadius: 2,
+                    position: 'relative',
+                    overflow: 'hidden'
+                }}
+            >
+                {/* Quiz Header */}
+                <Box
+                    sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 2,
+                        mb: 4,
+                        borderBottom: '1px solid #eaeaea',
+                        pb: 2
+                    }}
+                >
+                    <SecurityIcon color="primary" sx={{ fontSize: 40 }} />
+                    <Box>
+                        <Typography variant="h4" gutterBottom sx={{ fontWeight: 'bold', color: '#1976d2' }}>
+                            Cybersecurity Challenge
+                        </Typography>
+                        <Typography variant="body1" color="text.secondary">
+                            Test your knowledge of cybersecurity basics
+                        </Typography>
+                    </Box>
                 </Box>
+
+                {/* Progress Indicator */}
+                {!isQuizCompleted && (
+                    <Box sx={{ mb: 3 }}>
+                        <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
+                            <Typography variant="body2" color="text.secondary">
+                                Question {activeStep + 1} of {quizQuestions.length}
+                            </Typography>
+                            <Chip
+                                icon={<LockIcon />}
+                                label={`Score: ${score}/${quizQuestions.length}`}
+                                color="primary"
+                                variant="outlined"
+                            />
+                        </Box>
+                        <LinearProgress
+                            variant="determinate"
+                            value={(activeStep / quizQuestions.length) * 100}
+                            sx={{
+                                height: 10,
+                                borderRadius: 5,
+                                backgroundColor: '#e0e0e0',
+                                '& .MuiLinearProgress-bar': {
+                                    backgroundColor: '#1976d2',
+                                }
+                            }}
+                        />
+                    </Box>
+                )}
+
+                {/* Carousel for Questions */}
+                {!isQuizCompleted ? (
+                    <Carousel
+                        index={activeStep}
+                        autoPlay={false}
+                        sx={{ overflow: 'hidden' }}
+                        navButtonsAlwaysInvisible={true}
+                        indicators={false}
+                    >
+                        {quizQuestions.map((questionData, index) => (
+                            <Question
+                                key={index}
+                                question={questionData.question}
+                                options={questionData.options}
+                                correctAnswer={questionData.correctAnswer}
+                                onAnswerSelected={(answer) => handleAnswerSelected(answer, questionData.correctAnswer)}
+                                answered={answeredQuestions.has(index)}
+                            />
+                        ))}
+                    </Carousel>
+                ) : (
+                    getFeedback()
+                )}
+
+                {/* Quiz Completion Button */}
+                {isQuizCompleted && (
+                    <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3 }}>
+                        <Button variant="contained" color="primary" onClick={restartQuiz}>
+                            Restart Quiz
+                        </Button>
+                    </Box>
+                )}
             </Paper>
         </Box>
     );

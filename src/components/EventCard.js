@@ -2,19 +2,25 @@ import React, { useState } from 'react';
 import { Box, Card, CardContent, CardActions, Typography } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 import { StyledButton } from './StyledComponents';
+
 const EventCard = ({ event, hoverEffect = true }) => {
     const [isHovered, setIsHovered] = useState(false);
+
     const handleMouseEnter = () => {
         if (hoverEffect) setIsHovered(true);
     };
+
     const handleMouseLeave = () => {
         if (hoverEffect) setIsHovered(false);
     };
+
     return (
         <Box
             sx={{
                 position: 'relative',
                 zIndex: isHovered ? 1 : 'auto',
+                height: '100%', // Ensure the Box takes full height
+                display: 'flex' // Enable flex container
             }}
         >
             <AnimatePresence>
@@ -39,6 +45,11 @@ const EventCard = ({ event, hoverEffect = true }) => {
                 )}
             </AnimatePresence>
             <motion.div
+                style={{
+                    width: '100%', // Ensure motion.div takes full width
+                    height: '100%', // Ensure motion.div takes full height
+                    display: 'flex' // Enable flex container
+                }}
                 whileHover={
                     hoverEffect
                         ? {
@@ -53,32 +64,49 @@ const EventCard = ({ event, hoverEffect = true }) => {
             >
                 <Card
                     sx={{
-                        height: '100%',
+                        width: '100%', // Ensure card takes full width
+                        height: '100%', // Ensure card takes full height
                         display: 'flex',
                         flexDirection: 'column',
-                        justifyContent: 'space-between',
                         transition: 'all 0.3s ease',
                         boxShadow: isHovered
                             ? '0 10px 20px rgba(0, 0, 0, 0.2)'
                             : 'none',
                     }}
                 >
-                    <CardContent>
-                        <Typography variant="h5" component="div" gutterBottom>
+                    <CardContent
+                        sx={{
+                            flexGrow: 1, // Allow content to fill available space
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: 2
+                        }}
+                    >
+                        <Typography variant="h5" component="div">
                             {event.event}
                         </Typography>
-                        <Typography variant="body2">
-                            Date: {event.date}
+                        <Typography variant="body2" sx={{ mt: 'auto' }}>
+                            Date: {event.date || 'Ongoing'}
                         </Typography>
                     </CardContent>
-                    <CardActions>
-                        <StyledButton size="small" href={event.href}>
-                            Learn More
-                        </StyledButton>
+                    <CardActions sx={{ p: 2, pt: 0 }}>
+                        {
+                            event.href && (
+                                <StyledButton
+                                    size="small"
+                                    variant={"outlined"}
+                                    href={event.href}
+                                    fullWidth // Make button take full width
+                                >
+                                    {event.buttonLabel || 'Learn More'}
+                                </StyledButton>
+                            )
+                        }
                     </CardActions>
                 </Card>
             </motion.div>
         </Box>
     );
 };
+
 export default EventCard;
