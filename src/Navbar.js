@@ -1,20 +1,26 @@
-// Navbar.js
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import {
-    AppBar, Toolbar, Typography, Button, IconButton, Box, useScrollTrigger, Slide,
-    Grow
+    AppBar,
+    Toolbar,
+    Typography,
+    Button,
+    IconButton,
+    Box,
+    useScrollTrigger,
+    Slide,
+    Grow,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import {styled} from '@mui/system';
-import {CrypticText} from "./components/Members";
+import { styled, useTheme } from '@mui/system';
+import { CrypticText } from "./components/Members";
 
-const NavBox = styled(Box)(({theme}) => ({
+const NavBox = styled(Box)(({ theme }) => ({
     position: 'absolute',
     top: '100%',
     left: 0,
     right: 0,
     width: '100%',
-    opacity: "0.4",
+    opacity: 0.9, // Adjusted opacity for better visibility
     backgroundColor: theme.palette.background.paper,
     borderBottom: `2px solid ${theme.palette.primary.main}`,
     padding: theme.spacing(2),
@@ -25,7 +31,7 @@ const NavBox = styled(Box)(({theme}) => ({
     transformOrigin: 'top',
 }));
 
-const NavButton = styled(Button)(({theme}) => ({
+const NavButton = styled(Button)(({ theme }) => ({
     color: theme.palette.text.primary,
     fontSize: '1.3rem',
     width: '100%',
@@ -37,7 +43,7 @@ const NavButton = styled(Button)(({theme}) => ({
 }));
 
 function HideOnScroll(props) {
-    const {children, isOpen} = props;
+    const { children, isOpen } = props;
     const trigger = useScrollTrigger();
 
     return (
@@ -47,9 +53,10 @@ function HideOnScroll(props) {
     );
 }
 
-const Navbar = ({config}) => {
+const Navbar = ({ config }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const theme = useTheme(); // Access the theme
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -61,7 +68,7 @@ const Navbar = ({config}) => {
             if (scrolled !== isScrolled) {
                 setIsScrolled(scrolled);
                 if (scrolled) {
-                    setIsOpen(false);
+                    setIsOpen(false); // Close the NavBox when scrolling
                 }
             }
         };
@@ -82,28 +89,30 @@ const Navbar = ({config}) => {
         <>
             <HideOnScroll isOpen={isOpen}>
                 <AppBar position="fixed" sx={{
-                    backgroundColor: "#000000"
+                    opacity: 0.9, // Adjusted opacity for better visibility
+                    backgroundColor: theme.palette.background.paper,
+                    boxShadow: 'none', // Remove any shadow for a cleaner look
                 }}>
                     <Toolbar sx={{
-                        backgroundColor: "rgba(255,255,255,0.11)"
+                        opacity: 0.9, // Adjusted opacity for better visibility
+                        backgroundColor: theme.palette.background.paper,
                     }}>
                         <Box
                             sx={{
-
+                                backgroundColor: 'transparent', // Set the background to transparent
                                 width: '100%',
-                                display:'flex',
-
+                                display: 'flex',
                             }}
                         >
                             <Typography
                                 variant="h3"
                                 component="div"
-                                sx={{cursor: "pointer"}}
+                                sx={{ cursor: "pointer", py: 1 }}
                                 fontFamily={"Space Mono"}
                                 fontWeight={400}
                                 onClick={() => window.location.href = '/'}
                             >
-                                <CrypticText text={config.title} isHovered={true}/>
+                                <CrypticText text={config.title} isHovered={true} />
                             </Typography>
                         </Box>
                         <IconButton
@@ -113,7 +122,7 @@ const Navbar = ({config}) => {
                             aria-label="menu"
                             onClick={toggleMenu}
                         >
-                            <MenuIcon/>
+                            <MenuIcon />
                         </IconButton>
                     </Toolbar>
                     <Grow in={isOpen} timeout={300}>
@@ -134,7 +143,7 @@ const Navbar = ({config}) => {
                     </Grow>
                 </AppBar>
             </HideOnScroll>
-            <Toolbar/> {/* This empty Toolbar acts as a spacer */}
+            <Toolbar /> {/* This empty Toolbar acts as a spacer */}
         </>
     );
 };
