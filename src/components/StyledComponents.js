@@ -1,4 +1,4 @@
-import { Button } from '@mui/material';
+import {Button, Paper} from '@mui/material';
 import { styled } from '@mui/system';
 export const StyledButton = styled(Button)(({ theme }) => ({
     backgroundColor: theme.palette.secondary.main,
@@ -15,4 +15,9 @@ export const StyledButton = styled(Button)(({ theme }) => ({
         color: theme.palette.primary.main,
         borderColor: theme.palette.primary.main,
     },
+}));
+
+export const TransparentPaper = styled(Paper)(({ theme }) => ({
+    opacity:0.8,
+    p:2
 }));

@@ -20,6 +20,7 @@ import {
     TimelineContent,
     TimelineDot,
 } from "@mui/lab";
+import {TransparentPaper} from "./StyledComponents";
 
 const FocusArea = () => {
     const focusAreas = [
@@ -49,7 +50,7 @@ const FocusArea = () => {
     };
 
     return (
-        <Paper sx={{ width: '100%',p:2}}>
+        <TransparentPaper sx={{ width: '100%',p:4}}>
             <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <Typography variant="h4" gutterBottom component="div">
                     Our Focus Areas
@@ -143,7 +144,7 @@ const FocusArea = () => {
                     </Button>
                 </DialogActions>
             </Dialog>
-        </Paper>
+        </TransparentPaper>
     );
 };
 

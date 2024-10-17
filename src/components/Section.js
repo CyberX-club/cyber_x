@@ -1,7 +1,7 @@
 import React from 'react';
-import {Typography, Box, Container, Grid, Slide, Fade} from '@mui/material';
+import {Typography, Box, Container, Grid, Slide, Fade, Paper} from '@mui/material';
 import {useInView} from '../hooks/useInView';
-import {StyledButton} from "./StyledComponents";
+import {StyledButton, TransparentPaper} from "./StyledComponents";
 
 
 
@@ -30,16 +30,18 @@ const Section = ({ image, title, content, order, buttonLabel, buttonLink }) => {
 
     const contentGridItem = (
         <Grid item xs={12} md={6}>
-            <Typography variant="h4" component="h2" gutterBottom>
-                {title}
-            </Typography>
-            <Typography>{content}</Typography>
-            {/* Render the StyledButton if buttonLabel and buttonLink are provided */}
-            {buttonLabel && buttonLink && (
-                <StyledButton href={buttonLink} variant="contained" sx={{ mt: 2 }}>
-                    {buttonLabel}
-                </StyledButton>
-            )}
+            <TransparentPaper sx={{opacity:0.8, p:2}}>
+                <Typography variant="h4" component="h2" gutterBottom>
+                    {title}
+                </Typography>
+                <Typography>{content}</Typography>
+                {/* Render the StyledButton if buttonLabel and buttonLink are provided */}
+                {buttonLabel && buttonLink && (
+                    <StyledButton href={buttonLink} variant="contained" sx={{ mt: 2 }}>
+                        {buttonLabel}
+                    </StyledButton>
+                )}
+            </TransparentPaper>
         </Grid>
     );
 
