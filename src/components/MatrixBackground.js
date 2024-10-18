@@ -32,7 +32,7 @@ const MatrixBackground = () => {
             window.addEventListener('resize', updateDimensions);
 
             const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+-=[]{}|;:,.<>?';
-            const fontSize = 10;
+            const fontSize = 25;
             const colors = ['#00FF0090'];
 
             const initializeArrays = () => {
@@ -55,6 +55,7 @@ const MatrixBackground = () => {
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
                 ctx.font = `${fontSize}px monospace`;
+
 
                 for (let i = 0; i < drops.length; i++) {
                     const text = characters[Math.floor(Math.random() * characters.length)];
