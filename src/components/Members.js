@@ -124,7 +124,7 @@ const membersData = {
         {name: 'Akshit Shubham', role: 'Technical Head', image: 'Akshit Shubham.jpeg'},
         {name: 'Swastika Dubey', role: 'Event Head', image: 'Swastika Dubey12 F.jpg'},
         {name: 'Tanush Jayara', role: 'Member', image: 'Tanush Jayara 12 E.png'},
-        {name: 'Aaahana Mehrotra', role: 'Member' ,image: 'path/to/member7.jpg'},
+        {name: 'Aaahana Mehrotra', role: 'Member' ,image: 'Aaahana Mehrotra.jpg'},
         {name: 'Vishisht',role: 'Member',image:'Vishisht  12L .JPG'},
     ],
     11: [
