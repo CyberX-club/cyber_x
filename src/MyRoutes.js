@@ -5,10 +5,12 @@ import Quiz from "./Quiz";
 import Navbar from "./Navbar";
 import React from "react";
 import CyberXApp from "./components/Members";
-import {Box, Container, Typography} from "@mui/material";
+import {Box, Container, Switch, Typography} from "@mui/material";
 import Footer from "./Footer";
 import About from "./components/About";
 import Resources from "./components/Resources";
+import MagzineEntry from "./components/MagzineEntry";
+import Magazine from "./components/Magzine";
 
 const MyRoutes = () => {
     const navConfig = {
@@ -98,7 +100,9 @@ const MyRoutes = () => {
                 <Route path={"/members"} element={<CyberXApp/>}/>
                 <Route path={"/about"} element={<About/>}/>
                 <Route path={"/resources"} element={<Resources resources={resources}/>}/>
+                <Route path="/magazine-2024/:slug" element={<Magazine />} />
             </Routes>
+
 
             <Footer email={email} socialMedia={socialMedia} />
         </BrowserRouter>
