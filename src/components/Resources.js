@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {
     Box,
     Typography,
@@ -14,18 +14,16 @@ import {
     ListItem,
     ListItemText,
     Grow,
-    Fade,
+    Fade, Backdrop, CircularProgress,
 } from '@mui/material';
-import {GoogleDriveUtils} from "../Utils";
-import Endpoints from "../Endpoints";
 import {LaunchSharp} from "@mui/icons-material";
+import Endpoints from "../Endpoints";
 
-const Resources = ({resources}) => {
-    const FETCH_IMAGE = false;
-    const [open, setOpen] = useState(false);
-    const [selectedResource, setSelectedResource] = useState(null);
-    const [fetchedResources, setFetchedResources] = useState(resources);
-    const [imageCache, setImageCache] = useState({});
+const Resources = ({}) => {
+    const [resources, setResources] = React.useState([]);
+    const [open, setOpen] = React.useState(false);
+    const [loading, setLoading] = React.useState(true);
+    const [selectedResource, setSelectedResource] = React.useState(null);
 
     const handleClickOpen = (resource) => {
         setSelectedResource(resource);
@@ -37,41 +35,17 @@ const Resources = ({resources}) => {
         setSelectedResource(null);
     };
 
-    const fetchImage = async (resource) => {
-        if (resource.urls && !imageCache[resource.urls[0]]) {
-            try {
-                const fileId = GoogleDriveUtils.extractFileId(resource.urls[0]);
-                const response = await fetch(Endpoints.get_thumbnail(fileId));
-
-                if (response.status === 429) {
-                    throw new Error("Too many requests");
-                }
-
-                const data = await response.json();
-                const thumbnailLink = data.thumbnailLink;
-
-                setImageCache((prev) => ({...prev, [resource.urls[0]]: thumbnailLink}));
-
-                return thumbnailLink;
-            } catch (error) {
-                console.error("Error fetching thumbnail:", error);
-                return resource.img;
-            }
-        }
-        return imageCache[resource.urls[0]] || resource.img;
-    };
-
     useEffect(() => {
-        const fetchImages = async () => {
-            const updatedResources = await Promise.all(resources.map(async (resource) => {
-                const imageUrl = FETCH_IMAGE  ?await fetchImage(resource) : resource.img ? `${window.location.origin}/resources/${resource.img}` : null;
-                return {...resource, fetchedImage: imageUrl};
-            }));
-            setFetchedResources(updatedResources);
-        };
-
-        fetchImages();
-    }, [resources]);
+        fetch(Endpoints.GET_RESOURCES())
+            .then(response => response.json())
+            .then(data => {
+                setResources(data['resources']);
+            })
+            .catch(err => {
+                console.error(err);
+            })
+            .finally(() => setLoading(false));
+    }, []);
 
     return (
         <Box
@@ -81,11 +55,17 @@ const Resources = ({resources}) => {
             p={3}
             minHeight="100vh"
         >
+            <Backdrop
+                sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
+                open={loading}
+            >
+                <CircularProgress color="inherit" />
+            </Backdrop>
             <Typography variant="h4" gutterBottom align="center" sx={{marginBottom: 2}}>
                 Resources
             </Typography>
             <Box width="100%" maxWidth="800px">
-                {fetchedResources.map((resource, index) => (
+                {resources.map((resource, index) => (
                     <Grow
                         in={true}
                         key={index}
@@ -105,10 +85,10 @@ const Resources = ({resources}) => {
                             }}
                             onClick={() => handleClickOpen(resource)}
                         >
-                            {resource.fetchedImage && (
+                            {resource.img && (
                                 <CardMedia
                                     component="img"
-                                    image={resource.fetchedImage}
+                                    image={`${resource.img}`}
                                     alt={resource.label}
                                     sx={{height: 140, objectFit: 'cover'}}
                                     onError={(e) => {
@@ -171,10 +151,10 @@ const Resources = ({resources}) => {
                             </Typography>
                         </DialogTitle>
                         <DialogContent>
-                            {selectedResource?.fetchedImage && (
+                            {selectedResource?.img && (
                                 <CardMedia
                                     component="img"
-                                    image={selectedResource.fetchedImage}
+                                    image={`${window.location.origin}/resources/${selectedResource.img}`}
                                     alt={selectedResource.label}
                                     sx={{height: 140, objectFit: 'cover', marginBottom: 2}}
                                     onError={(e) => {
@@ -208,7 +188,7 @@ const Resources = ({resources}) => {
                                                         href={url}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        endIcon={<LaunchSharp/>}
+                                                        endIcon={<LaunchSharp />}
                                                     >
                                                         View Pdf {idx + 1}
                                                     </Button>
