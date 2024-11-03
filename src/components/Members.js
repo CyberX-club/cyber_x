@@ -192,6 +192,8 @@ const membersData = {
       image: "",
     },
     { name: "Swapnil Suraj", role: "Member", image: "" },
+    { name: "Prakhar Shandilya", role: "Member", image: "" },
+    { name: "Arahant Singh", role: "Member", image: "" },
   ],
   10: [
     { name: "Vidhan Garg", role: "Core Member", image: "Vidhan Garg 10C.png" },
