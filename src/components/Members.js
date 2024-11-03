@@ -192,7 +192,7 @@ const membersData = {
       image: "",
     },
     { name: "Swapnil Suraj", role: "Member", image: "" },
-    { name: "Prakhar Shandilya", role: "Member", image: "" },
+    { name: "Prakhar Shandilya", role: "Member", image: "Prakhar.jpg" },
     { name: "Arahant Singh", role: "Member", image: "" },
   ],
   10: [
