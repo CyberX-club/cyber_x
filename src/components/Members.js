@@ -186,7 +186,7 @@ const membersData = {
     {
       name: "Rayhaan Rajkumar",
       role: "Member",
-      image: "rayhaan,jpg",
+      image: "rayhaan.jpg",
     },
     {
       name: "Heisnam Satyananda Singh",
