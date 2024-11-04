@@ -158,9 +158,11 @@ const membersData = {
       role: "Event Head",
       image: "Swastika Dubey12 F.jpg",
     },
+    { name: "Vrinda Aggarwal", role: "Treasurer", image: "" },
     { name: "Tanush Jayara", role: "Member", image: "Tanush Jayara 12 E.png" },
     { name: "Aaahana Mehrotra", role: "Member", image: "Aaahana Mehrotra.jpg" },
     { name: "Vishisht", role: "Member", image: "Vishisht  12L .JPG" },
+    { name: "Vrinda Aggarwal", role: "Treasurer", image: "" },
   ],
   11: [
     { name: "Anisha Mahajan", role: "Member", image: "Anisha Mahajan 11F.png" },
@@ -184,16 +186,16 @@ const membersData = {
     {
       name: "Rayhaan Rajkumar",
       role: "Member",
-      image: "",
+      image: "rayhaan,jpg",
     },
     {
       name: "Heisnam Satyananda Singh",
       role: "Member",
-      image: "",
+      image: "Satya.jpg",
     },
-    { name: "Swapnil Suraj", role: "Member", image: "" },
+    { name: "Swapnil Suraj", role: "Member", image: "swapnil.jpg" },
     { name: "Prakhar Shandilya", role: "Member", image: "Prakhar.jpg" },
-    { name: "Arahant Singh", role: "Member", image: "" },
+    { name: "Arahant Singh", role: "Member", image: "arahant.jpg" },
   ],
   10: [
     { name: "Vidhan Garg", role: "Core Member", image: "Vidhan Garg 10C.png" },
