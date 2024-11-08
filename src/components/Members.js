@@ -168,8 +168,9 @@ const membersData = {
     { name: "Anisha Mahajan", role: "Member", image: "Anisha Mahajan 11F.png" },
     { name: "Naija Sukhija", role: "Member", image: "Naija Sukhija 11F.jpg" },
     { name: "Suhani Mishra", role: "Member", image: "Suhani Mishra 11F.png" },
-    { name: "Agrani Sah", role: "Member", image: "Agrani Sah 11G.jpeg" },
+    { name: "Agrani Sah", role: "Core Member", image: "Agrani Sah 11G.jpeg" },
     { name: "Goutam Behera", role: "Core Member", image: "Gouttam 11G.jpeg" },
+    { name: "Numair Khan", role: "Member" ,image:""},
     {
       name: "Aryaman Singh Samyal",
       role: "Member",
