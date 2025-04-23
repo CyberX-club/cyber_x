@@ -29,7 +29,7 @@ const Footer = ({email, socialMedia = []}) => {
         >
             <Container maxWidth="lg">
                 <Typography variant="body2" align="center" gutterBottom>
-                    &copy; 2024 CyberX DPSRKP. All rights reserved.
+                    &copy; 2025 CyberX DPSRKP. All rights reserved.
                 </Typography>
 
                 <Box display="flex" justifyContent="center" mb={2}>
