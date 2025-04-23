@@ -4,7 +4,7 @@ import App from "./App";
 import Quiz from "./Quiz";
 import Navbar from "./Navbar";
 import React from "react";
-import CyberXApp from "./components/Members";
+import CyberXApp, { AlumniApp } from "./components/Members";
 import { Box, Container, Switch, Typography } from "@mui/material";
 import Footer from "./Footer";
 import About from "./components/About";
@@ -175,6 +175,7 @@ const MyRoutes = () => {
         <Route path="/" element={<App />} />
         <Route path={"/quiz"} element={<Quiz />} />
         <Route path={"/members"} element={<CyberXApp />} />
+        <Route path={"/alumini"} element={<AlumniApp />} />
         <Route path={"/about"} element={<About />} />
         <Route
           path={"/resources"}
