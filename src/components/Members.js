@@ -139,32 +139,9 @@ const Card3D = ({ member }) => {
 };
 
 const membersData = {
+
   12: [
-    { name: "Atharva Singh", role: "Director", image: "ATHARVA SINGH.jpeg" },
-    { name: "Gyanshu Raj", role: "Director", image: "Gyanshu Raj 12 E.png" },
-    {
-      name: "Atharvajeet Singh",
-      role: "Chief Advisor",
-      image: "ATHARVAJEET.jpeg",
-    },
-    { name: "Twamadi Sar", role: "Creative Head", image: "Twamadi Sar.jpg" },
-    {
-      name: "Akshit Shubham",
-      role: "Technical Head",
-      image: "Akshit Shubham.jpeg",
-    },
-    {
-      name: "Swastika Dubey",
-      role: "Event Head",
-      image: "Swastika Dubey12 F.jpg",
-    },
-    { name: "Vrinda Aggarwal", role: "Treasurer", image: "Vrinda.jpg" },
-    { name: "Tanush Jayara", role: "Member", image: "Tanush Jayara 12 E.png" },
-    { name: "Aaahana Mehrotra", role: "Member", image: "Aaahana Mehrotra.jpg" },
-    { name: "Vishisht", role: "Member", image: "Vishisht  12L .JPG" },
-  ],
-  11: [
-    { name: "Anisha Mahajan", role: "Member", image: "Anisha Mahajan 11F.png" },
+
     { name: "Naija Sukhija", role: "Member", image: "Naija Sukhija 11F.jpg" },
     { name: "Suhani Mishra", role: "Member", image: "Suhani Mishra 11F.png" },
     { name: "Agrani Sah", role: "Core Member", image: "Agrani Sah 11G.jpeg" },
@@ -175,7 +152,7 @@ const membersData = {
       role: "Member",
       image: "Aryaman Singh Samyal 11M .png",
     },
-    { name: "Shaurya Pratap Srivastava", role: "Member", image: "path.jpg" },
+   
     {
       name: "Aryaman Aggarwal",
       role: "Member",
@@ -197,19 +174,19 @@ const membersData = {
     { name: "Prakhar Shandilya", role: "Member", image: "Prakhar.jpg" },
     { name: "Arahant Singh", role: "Member", image: "arahant.jpg" },
   ],
-  10: [
+  11: [
     { name: "Vidhan Garg", role: "Core Member", image: "Vidhan Garg 10C.png" },
-    { name: "Chayanika Negi", role: "Member", image: "Chayanika Negi 10J.jpg" },
   ],
-  9: [{ name: "Devansh Kumar", role: "Member", image: "Devansh Kumar 9H.jpg" }],
-  7: [
+  10: [{ name: "Devansh Kumar", role: "Member", image: "Devansh Kumar 9H.jpg" }],
+  9: [{ name: "Aaaratrika Singh", role: "Member", image: ""}],
+  8: [
     {
       name: "Samanyu Aggarwal",
       role: "Member",
       image: "Samanyu Aggarwal 7D.png",
     },
   ],
-  6: [
+  7: [
     {
       name: "Anureet Kaur Sandhu",
       role: "Member",
