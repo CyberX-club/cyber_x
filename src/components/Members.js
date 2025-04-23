@@ -198,7 +198,7 @@ const membersData = {
 };
 
 const CyberXApp = () => {
-  const orderedSections = ["12", "11", "10", "9", "7", "6"];
+  const orderedSections = ["12", "11", "10", "9", "8", "7", "6"];
 
   return (
     <>
