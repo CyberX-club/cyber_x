@@ -20,6 +20,7 @@ const MyRoutes = () => {
       { label: "Home", href: "/" },
       { label: "About", href: "/about" },
       { label: "Members", href: "/members" },
+      { label: "Alumni", href: "/alumini" },
       { label: "Resources", href: "/resources" },
       { label: "Contact", onClick: () => console.log("Contact clicked") },
     ],
