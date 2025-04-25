@@ -11,8 +11,8 @@ const Events = () => (
             <Grid container spacing={4}>
                 {[
                     {
-                        event: "Workshop on Cybersecurity Basics Dated Below",
-                        date: "July 17, 2024",
+                        event: "CyberX Phsihing Phantom & ReconX Event ",
+                        date: "May 10, 2025",
 
                     },
                     {
