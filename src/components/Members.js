@@ -8,6 +8,7 @@ const membersData = {
     { name: "Suhani Mishra", role: "Member", image: "Suhani Mishra 11F.png" },
     { name: "Agrani Sah", role: "Core Member", image: "Agrani Sah 11G.jpeg" },
     { name: "Goutam Behera", role: "Core Member", image: "Gouttam 11G.jpeg" },
+    {name: "Numair Khan" , role: "Member" , image: "Numair.jpeg"},
     { name: "Aryaman Singh Samyal", role: "Member", image: "Aryaman Singh Samyal 11M .png" },
     { name: "Aryaman Aggarwal", role: "Member", image: "aryaman aggarwal 11 I.jpeg" },
     { name: "Sabeer Ranjan", role: "Member", image: "SABEER RANJAN.jpg" },
