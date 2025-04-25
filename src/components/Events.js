@@ -16,7 +16,7 @@ const Events = () => (
 
                     },
                     {
-                        event: "Cybersecurity Challenge 2024",
+                        event: "Cybersecurity Challenge 2025",
                         date: "",
                         href: "/quiz",
                         buttonLabel: 'Take Challenge'
