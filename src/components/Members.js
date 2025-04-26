@@ -35,7 +35,7 @@ const membersData = {
 
 // Sample alumni data
 const alumniData = {
-  2024: [
+  2025: [
     { name: "Atharva Singh", role: "Director", image: "ATHARVA SINGH.jpeg" },
     { name: "Gyanshu Raj", role: "Director", image: "Gyanshu Raj 12 E.png" },
     {
@@ -70,7 +70,7 @@ const CyberXApp = () => {
 
 // Alumni app showing graduation years instead of classes
 const AlumniApp = () => {
-  const orderedSections = ["2024", "2023", "2022"];
+  const orderedSections = ["2025"];
   
   return <Alumni peopleData={alumniData} orderedSections={orderedSections} />;
 };
@@ -80,7 +80,7 @@ const CombinedApp = ({ showAlumni }) => {
   return showAlumni 
     ? <Alumni 
         peopleData={alumniData} 
-        orderedSections={["2024", "2023", "2022"]} 
+        orderedSections={["2025"]} 
       />
     : <Members 
         peopleData={membersData} 
