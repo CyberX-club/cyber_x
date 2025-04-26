@@ -21,6 +21,7 @@ const membersData = {
   ],
   11: [
     { name: "Vidhan Garg", role: "Core Member", image: "Vidhan Garg 10C.png" },
+    { name : "Vitabhay" , role: "Member" , image: "Vitabhay.png"},
   ],
   10: [{ name: "Devansh Kumar", role: "Member", image: "Devansh Kumar 9H.jpg" }],
   9: [{ name: "Aaaratrika Singh", role: "Member", image: "" }],
@@ -34,17 +35,29 @@ const membersData = {
 
 // Sample alumni data
 const alumniData = {
-  2024: [
-    { name: "Arnav Sharma", role: "Former President", image: "arnav.jpg" },
-    { name: "Priya Gupta", role: "Former Core Member", image: "priya.jpg" },
-    { name: "Rahul Khanna", role: "Former Member", image: "rahul.jpg" }
-  ],
-  2023: [
-    { name: "Aditya Patel", role: "Former Core Member", image: "aditya.jpg" },
-    { name: "Neha Singh", role: "Former Member", image: "neha.jpg" }
-  ],
-  2022: [
-    { name: "Vikram Malhotra", role: "Former President", image: "vikram.jpg" }
+  2024-25: [
+    { name: "Atharva Singh", role: "Director", image: "ATHARVA SINGH.jpeg" },
+    { name: "Gyanshu Raj", role: "Director", image: "Gyanshu Raj 12 E.png" },
+    {
+      name: "Atharvajeet Singh",
+      role: "Chief Advisor",
+      image: "ATHARVAJEET.jpeg",
+    },
+    { name: "Twamadi Sar", role: "Creative Head", image: "Twamadi Sar.jpg" },
+    {
+      name: "Akshit Shubham",
+      role: "Technical Head",
+      image: "Akshit Shubham.jpeg",
+    },
+    {
+      name: "Swastika Dubey",
+      role: "Event Head",
+      image: "Swastika Dubey12 F.jpg",
+    },
+    { name: "Vrinda Aggarwal", role: "Treasurer", image: "Vrinda.jpg" },
+    { name: "Tanush Jayara", role: "Member", image: "Tanush Jayara 12 E.png" },
+    { name: "Aaahana Mehrotra", role: "Member", image: "Aaahana Mehrotra.jpg" },
+    { name: "Vishisht", role: "Member", image: "Vishisht  12L .JPG" },
   ]
 };
 
