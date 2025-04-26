@@ -35,7 +35,7 @@ const membersData = {
 
 // Sample alumni data
 const alumniData = {
-  2024-25: [
+  2024: [
     { name: "Atharva Singh", role: "Director", image: "ATHARVA SINGH.jpeg" },
     { name: "Gyanshu Raj", role: "Director", image: "Gyanshu Raj 12 E.png" },
     {
