@@ -72,61 +72,66 @@ const Section = ({ image, title, content, order, buttonLabel, buttonLink }) => {
 
 const SponsorSection = ({ sponsors }) => {
     const [ref, isInView] = useInView({
-        threshold: 0.5,
+        threshold: 0.1,
         triggerOnce: true,
     });
 
     return (
-        <>
-            <Box ref={ref} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <Typography variant="h4" component="h2" gutterBottom>
-                    Our Sponsors
-                </Typography>
-            </Box>
-            <Box ref={ref} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <Box ref={ref} sx={{ py: 4, bgcolor: 'background.default' }}>
+            <Container maxWidth={false} sx={{ width: '80%' }}>
+                <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <Typography variant="h4" component="h2" gutterBottom>
+                        Our Sponsors
+                    </Typography>
+                </Box>
+                
                 <Fade appear={false} in={isInView} timeout={1000}>
-                    <Box sx={{ py: 8, width: '100%' }}>
-                        <Container maxWidth="lg" sx={{ backgroundColor: "#ffffff" }}>
-                            <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
-                                {sponsors.map((sponsor, index) => (
-                                    <Box
-                                        key={index}
-                                        component="a"
-                                        href={sponsor.link} // Redirect to the sponsor's website
-                                        target="_blank" // Open in a new tab
-                                        rel="noopener noreferrer" // Security feature
-                                        sx={{
-                                            position: 'relative',
-                                            overflow: 'hidden',
-                                            mx: 2,
-                                            my: 2,
-                                            transition: 'transform 0.3s ease',
-                                            '&:hover': {
-                                                transform: 'scale(1.1)', // Zoom effect on hover
-                                            },
-                                        }}
-                                    >
-                                        <Box
-                                            component="img"
-                                            src={sponsor.image}
-                                            alt={sponsor.name}
-                                            sx={{
-                                                width: '100%',
-                                                height: 'auto',
-                                                maxHeight: { xs: 300, sm: 400 },
-                                                objectFit: 'contain',
-                                                display: 'block',
-                                                margin: '0 auto',
-                                            }}
-                                        />
-                                    </Box>
-                                ))}
+                    <Box sx={{ 
+                        display: 'flex', 
+                        flexWrap: 'wrap', 
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        gap: { xs: 3, sm: 5 },
+                        mx: 'auto',
+                        width: '100%'
+                    }}>
+                        {sponsors.map((sponsor, index) => (
+                            <Box
+                                key={index}
+                                component="a"
+                                href={sponsor.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                sx={{
+                                    position: 'relative',
+                                    overflow: 'hidden',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    width: { xs: '45%', sm: '22%' },
+                                    height: 140,
+                                    transition: 'transform 0.3s ease',
+                                    '&:hover': {
+                                        transform: 'scale(1.1)',
+                                    },
+                                }}
+                            >
+                                <Box
+                                    component="img"
+                                    src={sponsor.image}
+                                    alt={sponsor.name}
+                                    sx={{
+                                        maxWidth: '100%',
+                                        maxHeight: '100%',
+                                        objectFit: 'contain',
+                                    }}
+                                />
                             </Box>
-                        </Container>
+                        ))}
                     </Box>
                 </Fade>
-            </Box>
-        </>
+            </Container>
+        </Box>
     );
 };
 
