@@ -42,7 +42,7 @@ const App = () => {
                         {
                             name: 'Malhotra Color Labs',
                             image: 'Malhotra.png',
-                            link: '#',
+                            link: 'https://www.facebook.com/people/Malhotra-Color-Lab/100063600862644/',
                         },
                         {
                             name: 'Manav Rachna',
