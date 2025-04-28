@@ -21,7 +21,7 @@ const membersData = {
   ],
   11: [
     { name: "Vidhan Garg", role: "Core Member", image: "Vidhan Garg 10C.png" },
-    { name : "Vitabhay" , role: "Member" , image: "Vitabhay.png"},
+    { name : "Vitabhay Garg" , role: "Member" , image: "Vitabhay.png"},
   ],
   10: [{ name: "Devansh Kumar", role: "Member", image: "Devansh Kumar 9H.jpg" }],
   9: [{ name: "Aaaratrika Singh", role: "Member", image: "" }],
