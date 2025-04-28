@@ -47,7 +47,7 @@ const App = () => {
                         {
                             name: 'Manav Rachna',
                             image: 'ManavRachna.png',
-                            link: 'https://mris.edu.in/',
+                            link: 'https://manavrachna.edu.in/',
                         },
                         {
                             name: 'Express Builders',
