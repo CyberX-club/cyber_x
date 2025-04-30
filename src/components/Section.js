@@ -86,9 +86,9 @@ const SponsorSection = ({ sponsors }) => {
                 </Box>
                 
                 <Fade appear={false} in={isInView} timeout={1000}>
-                    <Grid container spacing={3} justifyContent="center" alignItems="center" wrap="wrap">
+                    <Grid container spacing={3} justifyContent="center" alignItems="center">
                         {sponsors.map((sponsor, index) => (
-                            <Grid item key={index} xs={12} sm={6}>
+                            <Grid item xs={12} sm={6} key={index}>
                                 <Box
                                     component="a"
                                     href={sponsor.link}
@@ -121,6 +121,7 @@ const SponsorSection = ({ sponsors }) => {
                                 </Box>
                             </Grid>
                         ))}
+
                     </Grid>
                 </Fade>
             </Container>
