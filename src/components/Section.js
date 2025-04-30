@@ -86,49 +86,42 @@ const SponsorSection = ({ sponsors }) => {
                 </Box>
                 
                 <Fade appear={false} in={isInView} timeout={1000}>
-                    <Box sx={{ 
-                        display: 'flex', 
-                        flexWrap: 'wrap', 
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        gap: { xs: 3, sm: 5 },
-                        mx: 'auto',
-                        width: '100%'
-                    }}>
+                    <Grid container spacing={3} justifyContent="center" alignItems="center">
                         {sponsors.map((sponsor, index) => (
-                            <Box
-                                key={index}
-                                component="a"
-                                href={sponsor.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                sx={{
-                                    position: 'relative',
-                                    overflow: 'hidden',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    width: { xs: '45%', sm: '22%' },
-                                    height: 140,
-                                    transition: 'transform 0.3s ease',
-                                    '&:hover': {
-                                        transform: 'scale(1.1)',
-                                    },
-                                }}
-                            >
+                            <Grid item xs={12} sm={6} key={index}>
                                 <Box
-                                    component="img"
-                                    src={sponsor.image}
-                                    alt={sponsor.name}
+                                    component="a"
+                                    href={sponsor.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     sx={{
-                                        maxWidth: '100%',
-                                        maxHeight: '100%',
-                                        objectFit: 'contain',
+                                        position: 'relative',
+                                        overflow: 'hidden',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        width: '100%',
+                                        height: 140,
+                                        transition: 'transform 0.3s ease',
+                                        '&:hover': {
+                                            transform: 'scale(1.1)',
+                                        },
                                     }}
-                                />
-                            </Box>
+                                >
+                                    <Box
+                                        component="img"
+                                        src={sponsor.image}
+                                        alt={sponsor.name}
+                                        sx={{
+                                            maxWidth: '90%',
+                                            maxHeight: '90%',
+                                            objectFit: 'contain',
+                                        }}
+                                    />
+                                </Box>
+                            </Grid>
                         ))}
-                    </Box>
+                    </Grid>
                 </Fade>
             </Container>
         </Box>

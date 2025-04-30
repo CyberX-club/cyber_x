@@ -1,23 +1,34 @@
 import { useState, useEffect, useRef } from 'react';
-export function useInView(options) {
-    const [isInView, setIsInView] = useState(false);
-    const [hasBeenViewed, setHasBeenViewed] = useState(false);
-    const ref = useRef(null);
-    useEffect(() => {
-        const observer = new IntersectionObserver(([entry]) => {
-            if (!hasBeenViewed && entry.intersectionRatio >= 0.2) {
-                setIsInView(true);
-                setHasBeenViewed(true);
-            }
-        }, {...options});
-        if (ref.current) {
-            observer.observe(ref.current);
-        }
-        return () => {
-            if (ref.current) {
-                observer.unobserve(ref.current);
-            }
-        };
-    }, [ref, options]);
-    return [ref, isInView || hasBeenViewed];
+
+export function useInView(options = {}) {
+  const [isInView, setIsInView] = useState(false);
+  const [hasBeenViewed, setHasBeenViewed] = useState(false);
+  const ref = useRef(null);
+  
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+    
+    const observer = new IntersectionObserver(([entry]) => {
+      const visible = entry.isIntersecting;
+      setIsInView(visible);
+      
+      if (visible && !hasBeenViewed) {
+        setHasBeenViewed(true);
+      }
+    }, {
+      threshold: options.threshold || 0.1,
+      rootMargin: options.rootMargin || '0px',
+      root: options.root || null
+    });
+    
+    observer.observe(element);
+    
+    return () => {
+      observer.unobserve(element);
+      observer.disconnect();
+    };
+  }, [hasBeenViewed, options.threshold, options.rootMargin, options.root]);
+  
+  return [ref, isInView || hasBeenViewed];
 }
