@@ -40,14 +40,19 @@ const App = () => {
                     <CyberTimeline/>
                     <SponsorSection sponsors={[
                         {
-                            name: 'Malhotra Color Labs',
-                            image: 'Malhotra.png',
-                            link: 'https://www.facebook.com/people/Malhotra-Color-Lab/100063600862644/',
-                        },
-                        {
                             name: 'Manav Rachna',
                             image: 'ManavRachna.png',
                             link: 'https://manavrachna.edu.in/',
+                        },
+                        {
+                            name: 'Pebble India',
+                            image: 'pebble.png',
+                            link: 'https://pebbleindia.in/',
+                        },
+                        {
+                            name: 'Malhotra Color Labs',
+                            image: 'Malhotra.png',
+                            link: 'https://www.facebook.com/people/Malhotra-Color-Lab/100063600862644/',
                         },
                         {
                             name: 'Express Builders',
