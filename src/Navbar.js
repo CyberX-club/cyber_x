@@ -16,6 +16,19 @@ import { CrypticText } from "./components/Members";
 
 
 
+const config = {
+  title: "CyberX",
+  menuItems: [
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Events", href: "/events" }, // ✅ Add this line
+    { label: "Contact", href: "/contact" },
+  ]
+};
+
+
+
+
 const NavBox = styled(Box)(({ theme }) => ({
     position: 'absolute',
     top: '100%',
