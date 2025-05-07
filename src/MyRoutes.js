@@ -12,6 +12,8 @@ import Resources from "./components/Resources";
 import MagzineEntry from "./components/MagzineEntry";
 import  InterviewEntry from "./InterviewEntry";
 import Magazine from "./components/Magzine";
+import Contact from './components/Contact';
+
 
 const MyRoutes = () => {
   const navConfig = {
@@ -178,6 +180,8 @@ const MyRoutes = () => {
         <Route path={"/members"} element={<CyberXApp />} />
         <Route path={"/alumini"} element={<AlumniApp />} />
         <Route path={"/about"} element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+
         <Route
           path={"/resources"}
           element={<Resources resources={resources} />}
