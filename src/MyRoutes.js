@@ -12,6 +12,10 @@ import Resources from "./components/Resources";
 import MagzineEntry from "./components/MagzineEntry";
 import  InterviewEntry from "./InterviewEntry";
 import Magazine from "./components/Magzine";
+import Events from './components/Events'; // or adjust path as needed
+
+
+
 
 
 
@@ -181,6 +185,7 @@ const MyRoutes = () => {
         <Route path={"/alumini"} element={<AlumniApp />} />
         <Route path={"/about"} element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/events" element={<Events />} /> 
 
         <Route
           path={"/resources"}
