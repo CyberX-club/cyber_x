@@ -24,7 +24,7 @@ const MyRoutes = () => {
       { label: "Members", href: "/members" },
       { label: "Alumni", href: "/alumini" },
       { label: "Resources", href: "/resources" },
-      { label: "Contact", onClick: () => console.log("Contact clicked") },
+      { label: "Contact", href:"/contact"},
     ],
   };
 
