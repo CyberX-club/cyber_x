@@ -13,10 +13,7 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import { styled, useTheme } from '@mui/system';
 import { CrypticText } from "./components/Members";
-import { Link } from 'react-router-dom';
 
-// Then use:
-<li><Link to="/contact">Contact</Link></li>
 
 
 const NavBox = styled(Box)(({ theme }) => ({
