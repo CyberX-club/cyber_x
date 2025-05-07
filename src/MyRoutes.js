@@ -29,6 +29,7 @@ const MyRoutes = () => {
       { label: "Alumni", href: "/alumini" },
       { label: "Resources", href: "/resources" },
       { label: "Contact", href:"/contact"},
+      { label: "Events",href:"/events"
     ],
   };
 
@@ -184,7 +185,6 @@ const MyRoutes = () => {
         <Route path={"/members"} element={<CyberXApp />} />
         <Route path={"/alumini"} element={<AlumniApp />} />
         <Route path={"/about"} element={<About />} />
-        <Route path="/contact" element={<Contact />} />
         <Route path="/events" element={<Events />} /> 
 
         <Route
