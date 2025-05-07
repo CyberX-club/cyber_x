@@ -12,7 +12,6 @@ import Resources from "./components/Resources";
 import MagzineEntry from "./components/MagzineEntry";
 import  InterviewEntry from "./InterviewEntry";
 import Magazine from "./components/Magzine";
-import Events from './components/Events'; // or adjust path as needed
 
 
 
