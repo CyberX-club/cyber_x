@@ -19,20 +19,6 @@ import Events from './components/Events'; // or adjust path as needed
 
 
 
-const MyRoutes = () => {
-  const navConfig = {
-    title: "CyberX",
-    menuItems: [
-      { label: "Home", href: "/" },
-      { label: "About", href: "/about" },
-      { label: "Members", href: "/members" },
-      { label: "Alumni", href: "/alumini" },
-      { label: "Resources", href: "/resources" },
-      { label: "Contact", href:"/contact"},
-      { label: "Events",href:"/events"
-    ],
-  };
-
   const email = "cybersecurity@dpsrkp.net";
   const socialMedia = [
     { platform: "Facebook", url: "https://www.facebook.com/CyberX" },
@@ -185,7 +171,7 @@ const MyRoutes = () => {
         <Route path={"/members"} element={<CyberXApp />} />
         <Route path={"/alumini"} element={<AlumniApp />} />
         <Route path={"/about"} element={<About />} />
-        <Route path="/events" element={<Events />} /> 
+        
 
         <Route
           path={"/resources"}
