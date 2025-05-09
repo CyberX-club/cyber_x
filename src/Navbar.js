@@ -1,20 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import {
-    AppBar,
-    Toolbar,
-    Typography,
-    Button,
-    IconButton,
-    Box,
-    useScrollTrigger,
-    Slide,
-    Grow,
+    AppBar, Toolbar, Typography, Button, IconButton, Box,
+    useScrollTrigger, Slide, Grow
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { styled, useTheme } from '@mui/system';
+import { useNavigate } from "react-router-dom";
 import { CrypticText } from "./components/Members";
-
-
 
 const NavBox = styled(Box)(({ theme }) => ({
     position: 'absolute',
@@ -22,7 +14,7 @@ const NavBox = styled(Box)(({ theme }) => ({
     left: 0,
     right: 0,
     width: '100%',
-    opacity: 0.9, // Adjusted opacity for better visibility
+    opacity: 0.95,
     backgroundColor: theme.palette.background.paper,
     borderBottom: `2px solid ${theme.palette.primary.main}`,
     padding: theme.spacing(2),
@@ -30,12 +22,11 @@ const NavBox = styled(Box)(({ theme }) => ({
     flexDirection: 'column',
     alignItems: 'center',
     zIndex: theme.zIndex.appBar - 1,
-    transformOrigin: 'top',
 }));
 
 const NavButton = styled(Button)(({ theme }) => ({
     color: theme.palette.text.primary,
-    fontSize: '1.3rem',
+    fontSize: '1.2rem',
     width: '100%',
     margin: theme.spacing(1),
     '&:hover': {
@@ -44,10 +35,8 @@ const NavButton = styled(Button)(({ theme }) => ({
     },
 }));
 
-function HideOnScroll(props) {
-    const { children, isOpen } = props;
+function HideOnScroll({ children, isOpen }) {
     const trigger = useScrollTrigger();
-
     return (
         <Slide appear={false} direction="down" in={!trigger || isOpen}>
             {children}
@@ -58,7 +47,8 @@ function HideOnScroll(props) {
 const Navbar = ({ config }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
-    const theme = useTheme(); // Access the theme
+    const theme = useTheme();
+    const navigate = useNavigate();
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -69,20 +59,15 @@ const Navbar = ({ config }) => {
             const scrolled = window.scrollY > 0;
             if (scrolled !== isScrolled) {
                 setIsScrolled(scrolled);
-                if (scrolled) {
-                    setIsOpen(false); // Close the NavBox when scrolling
-                }
+                if (scrolled) setIsOpen(false);
             }
         };
-
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, [isScrolled]);
 
     useEffect(() => {
-        const handleResize = () => {
-            setIsOpen(false);
-        };
+        const handleResize = () => setIsOpen(false);
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
@@ -91,37 +76,26 @@ const Navbar = ({ config }) => {
         <>
             <HideOnScroll isOpen={isOpen}>
                 <AppBar position="fixed" sx={{
-                    opacity: 0.9, // Adjusted opacity for better visibility
+                    opacity: 0.95,
                     backgroundColor: theme.palette.background.paper,
-                    boxShadow: 'none', // Remove any shadow for a cleaner look
+                    boxShadow: 'none',
                 }}>
-                    <Toolbar sx={{
-                        opacity: 0.9, // Adjusted opacity for better visibility
-                        backgroundColor: theme.palette.background.paper,
-                    }}>
-                        <Box
-                            sx={{
-                                backgroundColor: 'transparent', // Set the background to transparent
-                                width: '100%',
-                                display: 'flex',
-                            }}
-                        >
+                    <Toolbar>
+                        <Box sx={{ flexGrow: 1 }}>
                             <Typography
-                                variant="h3"
-                                component="div"
+                                variant="h4"
                                 sx={{ cursor: "pointer", py: 1 }}
-                                fontFamily={"Space Mono"}
+                                fontFamily="Space Mono"
                                 fontWeight={700}
-                                onClick={() => window.location.href = '/'}
+                                onClick={() => navigate("/")}
                             >
                                 <CrypticText text={config.title} isHovered={true} />
                             </Typography>
                         </Box>
                         <IconButton
                             size="large"
-                            edge="start"
+                            edge="end"
                             color="inherit"
-                            aria-label="menu"
                             onClick={toggleMenu}
                         >
                             <MenuIcon />
@@ -134,9 +108,9 @@ const Navbar = ({ config }) => {
                                     key={index}
                                     onClick={() => {
                                         toggleMenu();
-                                        if (item.onClick) item.onClick();
+                                        if (item.href) navigate(item.href);
+                                        else if (item.onClick) item.onClick();
                                     }}
-                                    href={item.href ? item.href : "#"}
                                 >
                                     {item.label}
                                 </NavButton>
@@ -145,10 +119,9 @@ const Navbar = ({ config }) => {
                     </Grow>
                 </AppBar>
             </HideOnScroll>
-            <Toolbar /> {/* This empty Toolbar acts as a spacer */}
+            <Toolbar />
         </>
     );
 };
 
-export
- default Navbar;
+export default Navbar;
