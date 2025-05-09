@@ -38,6 +38,7 @@ const AnswerAvatar = styled(Avatar)(({ theme }) => ({
   height: 32,
 }));
 
+
 const InterviewEntry = ({ 
   title = "Interview",
   subtitle,
@@ -56,7 +57,7 @@ const InterviewEntry = ({
       boxShadow: theme.shadows[3],
     }}>
       <CardContent>
-        {/* Image Section */}
+
         {imageSrc && (
           <Box sx={{ 
             display: 'flex', 
@@ -75,7 +76,7 @@ const InterviewEntry = ({
           </Box>
         )}
 
-        {/* Title Section */}
+
         <Box sx={{ textAlign: 'center', mb: 6 }}>
           <Typography 
             variant="h3" 
@@ -102,7 +103,7 @@ const InterviewEntry = ({
           )}
         </Box>
 
-        {/* Questions and Answers */}
+        
         {questions.map((question, index) => (
           <Box key={index}>
             <QuestionBox>
@@ -148,29 +149,61 @@ const InterviewEntry = ({
 
 export default InterviewEntry;
 
-// Example usage:
-/*
-const ExampleUsage = () => {
-  const interviewData = {
-    title: "Principal's Interview",
-    subtitle: "Insights on Digital Ethics & Cyber Safety",
-    imageSrc: "/path/to/principal-image.jpg",
-    questions: [
-      "The concept of 'Dharma' in Hindu philosophy...",
-      "With social media having become such a big part...",
-      "In your opinion, what are the biggest challenges...",
-      "Have you ever had a personal experience..."
-    ],
-    answers: [
-      "Was Arjun a good or bad person...",
-      "I would say to make the most of it...",
-      "Inexperience. The overuse of technology...",
-      "Yes, I have experienced a similar situation..."
-    ]
-  };
 
-  return (
-    <InterviewEntry {...interviewData} />
-  );
+
+
+// Example data objects
+export const interviewData = {
+  title: "Principal's Interview",
+  subtitle: "Insights on Digital Ethics & Cyber Safety",
+  imageSrc: "/path/to/principal-image.jpg",
+  questions: [
+    "The concept of 'Dharma' in Hindu philosophy...",
+    "With social media having become such a big part...",
+    "In your opinion, what are the biggest challenges...",
+    "Have you ever had a personal experience..."
+  ],
+  answers: [
+    "Was Arjun a good or bad person...",
+    "I would say to make the most of it...",
+    "Inexperience. The overuse of technology...",
+    "Yes, I have experienced a similar situation..."
+  ]
 };
-*/
+
+export const vpcInterviewData = {
+  title: "Vice Principal's Interview",
+  subtitle: "Insights on Digital Ethics & Cyber Safety",
+  imageSrc: "/path/to/principal-image.jpg",
+  questions: [
+    "The concept of 'Dharma' in Hindu philosophy...",
+    "With social media having become such a big part...",
+    "In your opinion, what are the biggest challenges...",
+    "Have you ever had a personal experience..."
+  ],
+  answers: [
+    "Was Arjun a good or bad person...",
+    "I would say to make the most of it...",
+    "Inexperience. The overuse of technology...",
+    "Yes, I have experienced a similar situation..."
+  ]
+};
+
+export const vpCyberSecurityInterviewData = {
+  title: "Vice Principal's Cyber Security Interview",
+  subtitle: "Insights on Digital Ethics & Cyber Safety",
+  imageSrc: "/path/to/principal-image.jpg",
+  questions: [
+    "The concept of 'Dharma' in Hindu philosophy...",
+    "With social media having become such a big part...",
+    "In your opinion, what are the biggest challenges...",
+    "Have you ever had a personal experience..."
+  ],
+  answers: [
+    "Was Arjun a good or bad person...",
+    "I would say to make the most of it...",
+    "Inexperience. The overuse of technology...",
+    "Yes, I have experienced a similar situation..."
+  ]
+};
+
