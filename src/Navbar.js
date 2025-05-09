@@ -24,7 +24,7 @@ const NavBox = styled(Box)(({ theme }) => ({
     width: '100%',
     opacity: 0.9, // Adjusted opacity for better visibility
     backgroundColor: theme.palette.background.paper,
-    borderBottom: 2px solid ${theme.palette.primary.main},
+    borderBottom: `2px solid ${theme.palette.primary.main}`,
     padding: theme.spacing(2),
     display: 'flex',
     flexDirection: 'column',
@@ -151,4 +151,4 @@ const Navbar = ({ config }) => {
 };
 
 export
- default Navbar;\
+ default Navbar;

@@ -10,7 +10,7 @@ import Footer from "./Footer";
 import About from "./components/About";
 import Resources from "./components/Resources";
 import MagzineEntry from "./components/MagzineEntry";
-import  InterviewEntry from "./InterviewEntry";
+import InterviewEntry, { interviewData, vpcInterviewData, vpCyberSecurityInterviewData } from "./InterviewEntry.js";
 import Magazine from "./components/Magzine";
 import Contact from './components/Contact';
 
@@ -37,8 +37,7 @@ const MyRoutes = () => {
     { platform: "Instagram", url: "https://www.instagram.com/CyberX.CLUB" },
   ];
 
-  const resources = [
-@@ -157,41 +159,43 @@
+  const resources = {
     answers: [
       "Absolutely! In Indian culture, we've always valued being cautious and prepared. We can apply this mindset by teaching students to think ahead by inculcating cyber safe practices like using strong passwords, avoiding suspicious links, and keeping personal information safe. It's all about making students aware of digital risks, so they can avoid problems before they happen.",
 
