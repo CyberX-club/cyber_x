@@ -19,7 +19,7 @@ import {
   VPInterview_NM_volume2,
   VPInterview_AK_volume2,
   VPInterview_MK_volume2,
-  InchargeInterview_volume2
+  InchargeMessage_volume2
 } from "./InterviewEntry.js";
 const { InterviewEntry, GeneralEntry } = InterviewEntryComponents;
 
@@ -73,7 +73,7 @@ const MyRoutes = () => {
           <Route path="/vprincipal-nm-message" element={<InterviewEntry {...VPInterview_NM_volume2} />} />
           <Route path="/vprincipal-ak-message" element={<InterviewEntry {...VPInterview_AK_volume2} />} />
           <Route path="/vprincipal-mk-message" element={<InterviewEntry {...VPInterview_MK_volume2} />} />
-          <Route path="/incharge-message" element={<GeneralEntry {...InchargeInterview_volume2} />} />
+          <Route path="/incharge-message" element={<GeneralEntry {...InchargeMessage_volume2} />} />
         </Routes>
         <Footer email={email} socialMedia={socialMedia} />
       </BrowserRouter>

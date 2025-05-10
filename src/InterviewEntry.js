@@ -346,8 +346,8 @@ export const VPInterview_MK_volume2 = {
   ]
 };
 
-export const InchargeInterview_volume2 = {
-  title: "Founder & Incharge's Interview",
+export const InchargeMessage_volume2 = {
+  title: "Founder & Incharge's Message",
   subtitle: "Ms. Sarika Kaushal",
   imageSrc: "/sarikakaushal.png",
   content: "Cybersecurity has become critical in the contemporary digital landscape, as students are increasingly interconnected. The internet presents remarkable opportunities for education and communication; however, it also poses significant risks, including identity theft, cyberbullying, and online fraud. Given the ever-evolving nature of cyber threats, mere technological proficiency is insufficient—awareness and preparedness are paramount. The Cyber Security Club was established in response to a group of students recognising the alarming rise in cybercrimes and seeking to implement proactive measures. This initiative has fostered a community that promotes online safety and advocates for responsible digital practices. \n\nOur mission is to educate and empower students by equipping them with the knowledge and tools to navigate the internet safely. We aspire to enhance awareness and instil confidence in recognising and addressing cyber threats through interactive workshops, expert presentations, and peer-led discussions. Whether identifying a phishing scam or comprehending digital privacy issues, our club is committed to cultivating a generation of ethical, vigilant, and proactive digital citizens."
