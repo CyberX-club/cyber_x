@@ -64,7 +64,7 @@ const InterviewEntry = ({
             display: 'flex', 
             justifyContent: 'center',
             mb: 4,
-            mt: 2, // Added top margin for better spacing
+            mt: 2,
           }}>
             <Avatar
               src={imageSrc}
@@ -163,7 +163,7 @@ const GeneralEntry = ({
       margin: '32px auto',
       borderRadius: 2,
       boxShadow: theme.shadows[3],
-      overflow: 'hidden', // Ensures content doesn't overflow rounded corners
+      overflow: 'hidden',
       transition: 'transform 0.2s, box-shadow 0.2s',
       '&:hover': {
         transform: 'translateY(-4px)',
@@ -176,7 +176,7 @@ const GeneralEntry = ({
             display: 'flex', 
             justifyContent: 'center',
             mb: 4,
-            mt: 2, // Added top margin for better spacing
+            mt: 2,
           }}>
             <Avatar
               src={imageSrc}
@@ -264,6 +264,8 @@ const GeneralEntry = ({
 export { InterviewEntry, GeneralEntry };
 export default { InterviewEntry, GeneralEntry };
 
+// NOTE: For Future Developers, if you're reading this, I'm sorry.
+// If you want to add more Interviews, Just copy the below code and paste it with the data you want to add. Or just edit the existing one. Make sure to make appropriate changes in MyRoutes.js.
 
 // Bro who keeps using AI ;-;
 export const PrincipalInterview_volume2 = {
