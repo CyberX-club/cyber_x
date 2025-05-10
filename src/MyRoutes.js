@@ -9,8 +9,9 @@ import CyberXApp, { AlumniApp } from "./components/Members";
 import About from "./components/About";
 import Resources from "./components/Resources";
 import MagzineEntry from "./components/MagzineEntry";
-import InterviewEntry, {
-  GeneralEntry,
+import InterviewEntries from "./InterviewEntry.js";
+const { InterviewEntry, GeneralEntry } = InterviewEntries;
+import {
   PrincipalInterview_volume2,
   VPInterview_NM_volume2,
   VPInterview_AK_volume2,
@@ -71,7 +72,7 @@ const MyRoutes = () => {
           <Route path="/vprincipal-nm-message" element={<InterviewEntry {...VPInterview_NM_volume2} />} />
           <Route path="/vprincipal-ak-message" element={<InterviewEntry {...VPInterview_AK_volume2} />} />
           <Route path="/vprincipal-mk-message" element={<InterviewEntry {...VPInterview_MK_volume2} />} />
-          <Route path="/incharges-message" element={<GeneralEntry {...InchargeInterview_volume2} />} />
+          <Route path="/incharge-message" element={<GeneralEntry {...InchargeInterview_volume2} />} />
         </Routes>
         <Footer email={email} socialMedia={socialMedia} />
       </BrowserRouter>

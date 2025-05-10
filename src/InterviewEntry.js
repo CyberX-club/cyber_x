@@ -227,10 +227,8 @@ const GeneralEntry = ({
   );
 };
 
-export default {
-  InterviewEntry,
-  GeneralEntry
-};
+export { InterviewEntry, GeneralEntry };
+export default { InterviewEntry, GeneralEntry };
 
 
 // Bro who keeps using AI ;-;
