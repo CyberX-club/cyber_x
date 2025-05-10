@@ -10,9 +10,10 @@ import About from "./components/About";
 import Resources from "./components/Resources";
 import MagzineEntry from "./components/MagzineEntry";
 import InterviewEntry, {
-  interviewData,
-  vpcInterviewData,
-  vpCyberSecurityInterviewData,
+  PrincipalInterview_volume2,
+  VPInterview_NM_volume2,
+  VPInterview_AK_volume2,
+  VPInterview_MK_volume2
 } from "./InterviewEntry.js";
 import Magazine from "./components/Magzine";
 import Contact from "./components/Contact";
@@ -64,9 +65,10 @@ const MyRoutes = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/event2025" element={<Event2025 />} /> {/* NEW */}
           <Route path="/magazine-2024/:slug" element={<Magazine />} />
-          <Route path="/principals-message" element={<InterviewEntry {...interviewData} />} />
-          <Route path="/vprincipal-m-s-message" element={<InterviewEntry {...vpcInterviewData} />} />
-          <Route path="/vprincipal-a-s-message" element={<InterviewEntry {...vpCyberSecurityInterviewData} />} />
+          <Route path="/principals-message" element={<InterviewEntry {...PrincipalInterview_volume2} />} />
+          <Route path="/vprincipal-nm-message" element={<InterviewEntry {...VPInterview_NM_volume2} />} />
+          <Route path="/vprincipal-ak-message" element={<InterviewEntry {...VPInterview_AK_volume2} />} />
+          <Route path="/vprincipal-mk-message" element={<InterviewEntry {...VPInterview_MK_volume2} />} />
         </Routes>
         <Footer email={email} socialMedia={socialMedia} />
       </BrowserRouter>
