@@ -9,6 +9,7 @@ import {
   useTheme,
   styled
 } from '@mui/material';
+import { alpha } from '@mui/material/styles';
 
 // Styled components
 const QuestionBox = styled(Box)(({ theme }) => ({
@@ -53,8 +54,8 @@ const InterviewEntry = ({
     <Card sx={{ 
       maxWidth: '800px', 
       margin: '32px auto',
-      borderRadius: 3,
-      boxShadow: theme.shadows[4],
+      borderRadius: 2,
+      boxShadow: theme.shadows[3],
       overflow: 'hidden',
     }}>
       <CardContent sx={{ padding: 4 }}>
@@ -62,8 +63,8 @@ const InterviewEntry = ({
           <Box sx={{ 
             display: 'flex', 
             justifyContent: 'center',
-            mt: 2,
-            mb: 4 
+            mb: 4,
+            mt: 2, // Added top margin for better spacing
           }}>
             <Avatar
               src={imageSrc}
@@ -72,7 +73,6 @@ const InterviewEntry = ({
                 width: 200,
                 height: 200,
                 boxShadow: theme.shadows[3],
-                border: `4px solid ${theme.palette.background.paper}`,
               }}
             />
           </Box>
@@ -96,15 +96,14 @@ const InterviewEntry = ({
               variant="subtitle1"
               sx={{ 
                 fontFamily: 'Space Mono',
-                color: theme.palette.text.secondary,
-                fontSize: '1.1rem'
+                color: theme.palette.text.secondary 
               }}
             >
               {subtitle}
             </Typography>
           )}
         </Box>
-
+        
         {questions.map((question, index) => (
           <Box key={index}>
             <QuestionBox>
@@ -162,50 +161,37 @@ const GeneralEntry = ({
     <Card sx={{ 
       maxWidth: '800px', 
       margin: '32px auto',
-      borderRadius: 3,
-      boxShadow: theme.shadows[4],
-      overflow: 'hidden',
-      background: `linear-gradient(to bottom, ${theme.palette.background.default}, ${theme.palette.background.paper})`,
+      borderRadius: 2,
+      boxShadow: theme.shadows[3],
+      overflow: 'hidden', // Ensures content doesn't overflow rounded corners
+      transition: 'transform 0.2s, box-shadow 0.2s',
+      '&:hover': {
+        transform: 'translateY(-4px)',
+        boxShadow: theme.shadows[6],
+      }
     }}>
       <CardContent sx={{ padding: 4 }}>
         {imageSrc && (
           <Box sx={{ 
             display: 'flex', 
             justifyContent: 'center',
-            mt: 2,
-            mb: 5,
-            position: 'relative'
+            mb: 4,
+            mt: 2, // Added top margin for better spacing
           }}>
             <Avatar
               src={imageSrc}
               alt={imageAlt}
               sx={{
-                width: 220,
-                height: 220,
-                boxShadow: theme.shadows[4],
+                width: 200,
+                height: 200,
+                boxShadow: theme.shadows[3],
                 border: `4px solid ${theme.palette.background.paper}`,
-                transition: 'transform 0.3s ease',
-                '&:hover': {
-                  transform: 'scale(1.05)',
-                },
               }}
             />
-            <Box sx={{
-              position: 'absolute',
-              width: '100%',
-              height: '50%',
-              bottom: 0,
-              background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 70%)',
-              zIndex: -1,
-            }} />
           </Box>
         )}
 
-        <Box sx={{ 
-          textAlign: 'center', 
-          mb: 6,
-          position: 'relative' 
-        }}>
+        <Box sx={{ textAlign: 'center', mb: 4 }}>
           <Typography 
             variant="h3" 
             component="h1"
@@ -213,18 +199,18 @@ const GeneralEntry = ({
               fontFamily: 'Space Mono',
               fontWeight: 'bold',
               color: theme.palette.text.primary,
-              mb: 2,
+              mb: 1,
               position: 'relative',
               display: 'inline-block',
               '&::after': {
                 content: '""',
                 position: 'absolute',
-                bottom: -8,
-                left: '10%',
-                width: '80%',
-                height: 3,
-                background: theme.palette.primary.main,
-                borderRadius: 4,
+                width: '60%',
+                height: '3px',
+                bottom: '-8px',
+                left: '20%',
+                backgroundColor: theme.palette.primary.main,
+                borderRadius: '2px',
               }
             }}
           >
@@ -236,7 +222,6 @@ const GeneralEntry = ({
               sx={{ 
                 fontFamily: 'Space Mono',
                 color: theme.palette.text.secondary,
-                fontSize: '1.1rem',
                 mt: 2
               }}
             >
@@ -245,22 +230,27 @@ const GeneralEntry = ({
           )}
         </Box>
 
-        <Box sx={{ 
-          px: 4, 
-          py: 2,
-          backgroundColor: theme.palette.mode === 'dark' 
-            ? 'rgba(255,255,255,0.03)' 
-            : 'rgba(0,0,0,0.01)',
-          borderRadius: 2,
-          border: `1px solid ${theme.palette.divider}`,
-        }}>
+        <Box 
+          sx={{ 
+            px: { xs: 2, sm: 3, md: 4 },
+            py: 2,
+            backgroundColor: alpha(theme.palette.background.paper, 0.4),
+            borderRadius: theme.shape.borderRadius,
+            borderLeft: `4px solid ${theme.palette.primary.main}`,
+          }}
+        >
           <Typography 
             sx={{ 
               fontFamily: 'Space Mono',
               color: theme.palette.text.secondary,
               lineHeight: 1.8,
-              letterSpacing: '0.01em',
               textAlign: 'justify',
+              '& p': {
+                marginBottom: 2
+              },
+              '& p:last-child': {
+                marginBottom: 0
+              }
             }}
           >
             {content}
