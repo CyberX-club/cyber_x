@@ -33,7 +33,7 @@ Include:
 • Footprint Analysis
 • 5 Privacy Tips
 
-Disqualified if AI or cheating used.
+Disqualified if AI or cheating have used.
 
 Judging:
 • Accuracy
