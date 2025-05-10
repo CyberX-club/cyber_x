@@ -67,7 +67,7 @@ const MyRoutes = () => {
           <Route path="/about" element={<About />} />
           <Route path="/resources" element={<Resources resources={resources} />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/event2025" element={<Event2025 />} /> {/* NEW */}
+          <Route path="/event2025" element={<Event2025 />} />
           <Route path="/magazine-2024/:slug" element={<Magazine />} />
           <Route path="/principals-message" element={<InterviewEntry {...PrincipalInterview_volume2} />} />
           <Route path="/vprincipal-nm-message" element={<InterviewEntry {...VPInterview_NM_volume2} />} />
