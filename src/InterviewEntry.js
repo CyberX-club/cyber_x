@@ -156,7 +156,7 @@ export default InterviewEntry;
 export const PrincipalInterview_volume2 = {
   title: "Principal's Interview",
   subtitle: "Mr. Anil Kumar",
-  imageSrc: "/path/to/principal-image.jpg",
+  imageSrc: "../AnilKumar.png",
   questions: [
     "If cybersecurity and technology were taught like Maths and Science in school, how would students’ relationship with tech change? Would it be beneficial?",
     "You firmly believe in keeping one’s mind peaceful and steady. What does that look like in a digital world of negativity and overstimulation?",
@@ -175,8 +175,8 @@ export const PrincipalInterview_volume2 = {
 
 export const VPInterview_NM_volume2 = {
   title: "Vice Principal's Interview",
-  subtitle: "Mr. Naresh Miglani",
-  imageSrc: "/path/to/principal-image.jpg",
+  subtitle: "Mr. Naresh Kumar Miglani",
+  imageSrc: "../NareshKumarMiglani.png",
   questions: [
     "How do you see AI and emerging technologies transforming how we teach and learn in the classroom?",
     "How is our curriculum evolving to keep up with digital literacy and 21st-century skills?",
@@ -196,7 +196,7 @@ export const VPInterview_NM_volume2 = {
 export const VPInterview_AK_volume2 = {
   title: "Vice Principal's Interview",
   subtitle: "Mr. Anil Kathuria",
-  imageSrc: "/path/to/principal-image.jpg",
+  imageSrc: "../AnilKathuria.png",
   questions: [
     "Technology has become central to students' lives. How do you strike a balance between screen time and mental well-being?",
     "What role does digital citizenship play in student development today?",
@@ -216,7 +216,7 @@ export const VPInterview_AK_volume2 = {
 export const VPInterview_MK_volume2 = {
   title: "Vice Principal's Interview",
   subtitle: "Mr. Mukesh Kumar",
-  imageSrc: "/path/to/principal-image.jpg",
+  imageSrc: "../MukeshKumar.png",
   questions: [
     "Our school stores much data about students and faculty members. What current contingencies are in place to protect student and staff data? And what, in your opinion, could be improved?",
     "Have you or the school experienced any malicious attacks online? How devastating was it, and how did you deal with it?",
