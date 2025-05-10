@@ -11,7 +11,7 @@ import Resources from "./components/Resources";
 import MagzineEntry from "./components/MagzineEntry";
 import Magazine from "./components/Magzine";
 import Contact from "./components/Contact";
-import Event2025 from "./components/Event2025"; // NEW
+import Event2025 from "./components/Event2025";
 
 import InterviewEntryComponents from "./InterviewEntry.js";
 import {
@@ -32,7 +32,7 @@ const MyRoutes = () => {
       { label: "Members", href: "/members" },
       { label: "Alumni", href: "/alumini" },
       { label: "Resources", href: "/resources" },
-      { label: "Events 2025", href: "/event2025" }, // NEW
+      { label: "Events 2025", href: "/event2025" },
       { label: "Contact", href: "/contact" },
     ],
   };
