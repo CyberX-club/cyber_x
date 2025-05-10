@@ -12,9 +12,9 @@ const Events = () => (
                 {[
                     {
                         event: "Digex X CyberX Invite ",
-                        date: "May 10, 2025",
+                        date: "Postponed",
                         href: "https://docs.google.com/document/d/1_YWj_r52ZrZNWsPbp48VZGpF1adU-ixoO456uVO8frs/edit?tab=t.0" ,
-                        buttonLabel: 'Register Now',
+                        buttonLabel: 'Register Now'
 
                     },
                     {
