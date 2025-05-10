@@ -18,7 +18,7 @@ const membersData = {
     { name: "Swapnil Suraj", role: "Member", image: "swapnil.jpg" },
     { name: "Prakhar Shandilya", role: "Member", image: "Prakhar.jpg" },
     { name: "Arahant Singh", role: "Member", image: "arahant.jpg" },
-    { name: "Arjun Atroley" , role: "Member" , image: " ArjunAtroley12E.jpeg"},
+    { name: "Arjun Atroley" , role: "Member" , image: "ArjunAtroley12E.jpeg"}
     
   ],
   11: [
