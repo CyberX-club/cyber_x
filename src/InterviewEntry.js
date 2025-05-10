@@ -53,15 +53,16 @@ const InterviewEntry = ({
     <Card sx={{ 
       maxWidth: '800px', 
       margin: '32px auto',
-      borderRadius: 2,
-      boxShadow: theme.shadows[3],
+      borderRadius: 3,
+      boxShadow: theme.shadows[4],
+      overflow: 'hidden',
     }}>
-      <CardContent>
-
+      <CardContent sx={{ padding: 4 }}>
         {imageSrc && (
           <Box sx={{ 
             display: 'flex', 
             justifyContent: 'center',
+            mt: 2,
             mb: 4 
           }}>
             <Avatar
@@ -71,11 +72,11 @@ const InterviewEntry = ({
                 width: 200,
                 height: 200,
                 boxShadow: theme.shadows[3],
+                border: `4px solid ${theme.palette.background.paper}`,
               }}
             />
           </Box>
         )}
-
 
         <Box sx={{ textAlign: 'center', mb: 6 }}>
           <Typography 
@@ -95,7 +96,8 @@ const InterviewEntry = ({
               variant="subtitle1"
               sx={{ 
                 fontFamily: 'Space Mono',
-                color: theme.palette.text.secondary 
+                color: theme.palette.text.secondary,
+                fontSize: '1.1rem'
               }}
             >
               {subtitle}
@@ -103,7 +105,6 @@ const InterviewEntry = ({
           )}
         </Box>
 
-        
         {questions.map((question, index) => (
           <Box key={index}>
             <QuestionBox>
@@ -161,31 +162,50 @@ const GeneralEntry = ({
     <Card sx={{ 
       maxWidth: '800px', 
       margin: '32px auto',
-      borderRadius: 2,
-      boxShadow: theme.shadows[3],
+      borderRadius: 3,
+      boxShadow: theme.shadows[4],
+      overflow: 'hidden',
+      background: `linear-gradient(to bottom, ${theme.palette.background.default}, ${theme.palette.background.paper})`,
     }}>
-      <CardContent>
-
+      <CardContent sx={{ padding: 4 }}>
         {imageSrc && (
           <Box sx={{ 
             display: 'flex', 
             justifyContent: 'center',
-            mb: 4 
+            mt: 2,
+            mb: 5,
+            position: 'relative'
           }}>
             <Avatar
               src={imageSrc}
               alt={imageAlt}
               sx={{
-                width: 200,
-                height: 200,
-                boxShadow: theme.shadows[3],
+                width: 220,
+                height: 220,
+                boxShadow: theme.shadows[4],
+                border: `4px solid ${theme.palette.background.paper}`,
+                transition: 'transform 0.3s ease',
+                '&:hover': {
+                  transform: 'scale(1.05)',
+                },
               }}
             />
+            <Box sx={{
+              position: 'absolute',
+              width: '100%',
+              height: '50%',
+              bottom: 0,
+              background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 70%)',
+              zIndex: -1,
+            }} />
           </Box>
         )}
 
-
-        <Box sx={{ textAlign: 'center', mb: 6 }}>
+        <Box sx={{ 
+          textAlign: 'center', 
+          mb: 6,
+          position: 'relative' 
+        }}>
           <Typography 
             variant="h3" 
             component="h1"
@@ -193,7 +213,19 @@ const GeneralEntry = ({
               fontFamily: 'Space Mono',
               fontWeight: 'bold',
               color: theme.palette.text.primary,
-              mb: 1
+              mb: 2,
+              position: 'relative',
+              display: 'inline-block',
+              '&::after': {
+                content: '""',
+                position: 'absolute',
+                bottom: -8,
+                left: '10%',
+                width: '80%',
+                height: 3,
+                background: theme.palette.primary.main,
+                borderRadius: 4,
+              }
             }}
           >
             {title}
@@ -203,7 +235,9 @@ const GeneralEntry = ({
               variant="subtitle1"
               sx={{ 
                 fontFamily: 'Space Mono',
-                color: theme.palette.text.secondary 
+                color: theme.palette.text.secondary,
+                fontSize: '1.1rem',
+                mt: 2
               }}
             >
               {subtitle}
@@ -211,12 +245,22 @@ const GeneralEntry = ({
           )}
         </Box>
 
-        <Box sx={{ px: 3 }}>
+        <Box sx={{ 
+          px: 4, 
+          py: 2,
+          backgroundColor: theme.palette.mode === 'dark' 
+            ? 'rgba(255,255,255,0.03)' 
+            : 'rgba(0,0,0,0.01)',
+          borderRadius: 2,
+          border: `1px solid ${theme.palette.divider}`,
+        }}>
           <Typography 
             sx={{ 
               fontFamily: 'Space Mono',
               color: theme.palette.text.secondary,
-              lineHeight: 1.6,
+              lineHeight: 1.8,
+              letterSpacing: '0.01em',
+              textAlign: 'justify',
             }}
           >
             {content}
@@ -313,8 +357,8 @@ export const VPInterview_MK_volume2 = {
 };
 
 export const InchargeInterview_volume2 = {
-  title: "Incharge's Interview",
+  title: "Founder & Incharge's Interview",
   subtitle: "Ms. Sarika Kaushal",
   imageSrc: "/sarikakaushal.png",
-  content: "Cybersecurity has become critical in the contemporary digital landscape, as students are increasingly interconnected. The internet presents remarkable opportunities for education and communication; however, it also poses significant risks, including identity theft, cyberbullying, and online fraud. Given the ever-evolving nature of cyber threats, mere technological proficiency is insufficient—awareness and preparedness are paramount. The Cyber Security Club was established in response to a group of students recognising the alarming rise in cybercrimes and seeking to implement proactive measures. This initiative has fostered a community that promotes online safety and advocates for responsible digital practices. Our mission is to educate and empower students by equipping them with the knowledge and tools to navigate the internet safely. We aspire to enhance awareness and instil confidence in recognising and addressing cyber threats through interactive workshops, expert presentations, and peer-led discussions. Whether identifying a phishing scam or comprehending digital privacy issues, our club is committed to cultivating a generation of ethical, vigilant, and proactive digital citizens."
+  content: "Cybersecurity has become critical in the contemporary digital landscape, as students are increasingly interconnected. The internet presents remarkable opportunities for education and communication; however, it also poses significant risks, including identity theft, cyberbullying, and online fraud. Given the ever-evolving nature of cyber threats, mere technological proficiency is insufficient—awareness and preparedness are paramount. The Cyber Security Club was established in response to a group of students recognising the alarming rise in cybercrimes and seeking to implement proactive measures. This initiative has fostered a community that promotes online safety and advocates for responsible digital practices. \n\nOur mission is to educate and empower students by equipping them with the knowledge and tools to navigate the internet safely. We aspire to enhance awareness and instil confidence in recognising and addressing cyber threats through interactive workshops, expert presentations, and peer-led discussions. Whether identifying a phishing scam or comprehending digital privacy issues, our club is committed to cultivating a generation of ethical, vigilant, and proactive digital citizens."
 };
