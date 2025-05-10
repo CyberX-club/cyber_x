@@ -147,9 +147,90 @@ const InterviewEntry = ({
   );
 };
 
-export default InterviewEntry;
+
+const GeneralEntry = ({ 
+  title = "Entry",
+  subtitle,
+  imageSrc,
+  imageAlt = "Entry subject",
+  content = ""
+}) => {
+  const theme = useTheme();
+
+  return (
+    <Card sx={{ 
+      maxWidth: '800px', 
+      margin: '32px auto',
+      borderRadius: 2,
+      boxShadow: theme.shadows[3],
+    }}>
+      <CardContent>
+
+        {imageSrc && (
+          <Box sx={{ 
+            display: 'flex', 
+            justifyContent: 'center',
+            mb: 4 
+          }}>
+            <Avatar
+              src={imageSrc}
+              alt={imageAlt}
+              sx={{
+                width: 200,
+                height: 200,
+                boxShadow: theme.shadows[3],
+              }}
+            />
+          </Box>
+        )}
 
 
+        <Box sx={{ textAlign: 'center', mb: 6 }}>
+          <Typography 
+            variant="h3" 
+            component="h1"
+            sx={{ 
+              fontFamily: 'Space Mono',
+              fontWeight: 'bold',
+              color: theme.palette.text.primary,
+              mb: 1
+            }}
+          >
+            {title}
+          </Typography>
+          {subtitle && (
+            <Typography 
+              variant="subtitle1"
+              sx={{ 
+                fontFamily: 'Space Mono',
+                color: theme.palette.text.secondary 
+              }}
+            >
+              {subtitle}
+            </Typography>
+          )}
+        </Box>
+
+        <Box sx={{ px: 3 }}>
+          <Typography 
+            sx={{ 
+              fontFamily: 'Space Mono',
+              color: theme.palette.text.secondary,
+              lineHeight: 1.6,
+            }}
+          >
+            {content}
+          </Typography>
+        </Box>
+      </CardContent>
+    </Card>
+  );
+};
+
+export default {
+  InterviewEntry,
+  GeneralEntry
+};
 
 
 // Bro who keeps using AI ;-;
@@ -231,4 +312,11 @@ export const VPInterview_MK_volume2 = {
     "Google was very revolutionary.  It grew from a straightforward search engine to a powerful cloud. Nothing grew as much as he saw the growth. Since then, for over 2 decades, Google has never stopped growing and has become an integral part of our lives. I am intrigued by what kind of future awaits us, especially since technology will play a crucial role.",
     "With the introduction of Google, the world started moving to a different sphere. Before that, there was Hotmail. So, one of the students invited me to Google. At that time, it was not allowed for the public. One and a half months after Gmail was introduced, it grew from a straightforward search engine to a powerful cloud. Nothing has grown as much as Google, and it will help us see our future."
   ]
+};
+
+export const InchargeInterview_volume2 = {
+  title: "Incharge's Interview",
+  subtitle: "Ms. Sarika Kaushal",
+  imageSrc: "/sarikakaushal.png",
+  content: "Cybersecurity has become critical in the contemporary digital landscape, as students are increasingly interconnected. The internet presents remarkable opportunities for education and communication; however, it also poses significant risks, including identity theft, cyberbullying, and online fraud. Given the ever-evolving nature of cyber threats, mere technological proficiency is insufficient—awareness and preparedness are paramount. The Cyber Security Club was established in response to a group of students recognising the alarming rise in cybercrimes and seeking to implement proactive measures. This initiative has fostered a community that promotes online safety and advocates for responsible digital practices. Our mission is to educate and empower students by equipping them with the knowledge and tools to navigate the internet safely. We aspire to enhance awareness and instil confidence in recognising and addressing cyber threats through interactive workshops, expert presentations, and peer-led discussions. Whether identifying a phishing scam or comprehending digital privacy issues, our club is committed to cultivating a generation of ethical, vigilant, and proactive digital citizens."
 };
