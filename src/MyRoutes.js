@@ -9,8 +9,11 @@ import CyberXApp, { AlumniApp } from "./components/Members";
 import About from "./components/About";
 import Resources from "./components/Resources";
 import MagzineEntry from "./components/MagzineEntry";
-import InterviewEntries from "./InterviewEntry.js";
-const { InterviewEntry, GeneralEntry } = InterviewEntries;
+import Magazine from "./components/Magzine";
+import Contact from "./components/Contact";
+import Event2025 from "./components/Event2025"; // NEW
+
+import InterviewEntryComponents from "./InterviewEntry.js";
 import {
   PrincipalInterview_volume2,
   VPInterview_NM_volume2,
@@ -18,9 +21,7 @@ import {
   VPInterview_MK_volume2,
   InchargeInterview_volume2
 } from "./InterviewEntry.js";
-import Magazine from "./components/Magzine";
-import Contact from "./components/Contact";
-import Event2025 from "./components/Event2025"; // NEW
+const { InterviewEntry, GeneralEntry } = InterviewEntryComponents;
 
 const MyRoutes = () => {
   const navConfig = {
