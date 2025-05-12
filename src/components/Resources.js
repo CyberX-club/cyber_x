@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     Box,
     Typography,
@@ -14,16 +14,18 @@ import {
     ListItem,
     ListItemText,
     Grow,
-    Fade, Backdrop, CircularProgress,
+    Fade,
+    Backdrop,
+    CircularProgress,
 } from '@mui/material';
-import {LaunchSharp} from "@mui/icons-material";
+import { LaunchSharp } from "@mui/icons-material";
 import Endpoints from "../Endpoints";
 
-const Resources = ({}) => {
-    const [resources, setResources] = React.useState([]);
-    const [open, setOpen] = React.useState(false);
-    const [loading, setLoading] = React.useState(true);
-    const [selectedResource, setSelectedResource] = React.useState(null);
+const Resources = ({ resources: propResources }) => {
+    const [resources, setResources] = useState(propResources || []);
+    const [open, setOpen] = useState(false);
+    const [loading, setLoading] = useState(!propResources);
+    const [selectedResource, setSelectedResource] = useState(null);
 
     const handleClickOpen = (resource) => {
         setSelectedResource(resource);
@@ -36,16 +38,22 @@ const Resources = ({}) => {
     };
 
     useEffect(() => {
+        if (propResources && propResources.length > 0) {
+            setResources(propResources);
+            setLoading(false);
+            return;
+        }
+
         fetch(Endpoints.GET_RESOURCES())
             .then(response => response.json())
             .then(data => {
                 setResources(data['resources']);
             })
             .catch(err => {
-                console.error(err);
+                console.error("Error fetching resources:", err);
             })
             .finally(() => setLoading(false));
-    }, []);
+    }, [propResources]);
 
     return (
         <Box
@@ -61,11 +69,11 @@ const Resources = ({}) => {
             >
                 <CircularProgress color="inherit" />
             </Backdrop>
-            <Typography variant="h4" gutterBottom align="center" sx={{marginBottom: 2}}>
+            <Typography variant="h4" gutterBottom align="center" sx={{ marginBottom: 2 }}>
                 Resources
             </Typography>
             <Box width="100%" maxWidth="800px">
-                {resources.map((resource, index) => (
+                {resources && resources.map((resource, index) => (
                     <Grow
                         in={true}
                         key={index}
@@ -88,9 +96,9 @@ const Resources = ({}) => {
                             {resource.img && (
                                 <CardMedia
                                     component="img"
-                                    image={`${resource.img}`}
+                                    image={resource.img}
                                     alt={resource.label}
-                                    sx={{height: 140, objectFit: 'cover'}}
+                                    sx={{ height: 140, objectFit: 'cover' }}
                                     onError={(e) => {
                                         e.target.onerror = null;
                                         e.target.src = '';
@@ -105,7 +113,7 @@ const Resources = ({}) => {
                                     {resource.description}
                                 </Typography>
                                 <Typography variant="body2" color="text.secondary">
-                                    Author: {resource.author}
+                                    Author: {resource.author || "Unknown"}
                                 </Typography>
                                 {resource.postedAt && (
                                     <Typography variant="body2" color="text.secondary">
@@ -116,6 +124,11 @@ const Resources = ({}) => {
                         </Card>
                     </Grow>
                 ))}
+                {!loading && (!resources || resources.length === 0) && (
+                    <Typography variant="body1" align="center">
+                        No resources available.
+                    </Typography>
+                )}
             </Box>
 
             <Dialog
@@ -143,67 +156,69 @@ const Resources = ({}) => {
                     }
                 }}
             >
-                <Fade in={open} timeout={600}>
-                    <Card sx={{maxWidth: 700}}>
-                        <DialogTitle>
-                            <Typography variant={"h5"} fontWeight={800}>
-                                {selectedResource?.label}
-                            </Typography>
-                        </DialogTitle>
-                        <DialogContent>
-                            {selectedResource?.img && (
-                                <CardMedia
-                                    component="img"
-                                    image={`${window.location.origin}/resources/${selectedResource.img}`}
-                                    alt={selectedResource.label}
-                                    sx={{height: 140, objectFit: 'cover', marginBottom: 2}}
-                                    onError={(e) => {
-                                        e.target.onerror = null;
-                                        e.target.src = '';
-                                    }}
-                                />
-                            )}
-                            <Typography variant="body2" paragraph>
-                                {selectedResource?.description}
-                            </Typography>
-                            {selectedResource?.author && (
-                                <Typography variant="body2" color="text.secondary">
-                                    Author: {selectedResource.author}
+                {selectedResource && (
+                    <Fade in={open} timeout={600}>
+                        <Card sx={{ maxWidth: 700 }}>
+                            <DialogTitle>
+                                <Typography variant={"h5"} fontWeight={800}>
+                                    {selectedResource.label}
                                 </Typography>
-                            )}
-                            {selectedResource?.postedAt && (
-                                <Typography variant="body2" color="text.secondary">
-                                    Posted at: {new Date(selectedResource.postedAt).toLocaleDateString()}
+                            </DialogTitle>
+                            <DialogContent>
+                                {selectedResource.img && (
+                                    <CardMedia
+                                        component="img"
+                                        image={selectedResource.img}
+                                        alt={selectedResource.label}
+                                        sx={{ height: 140, objectFit: 'cover', marginBottom: 2 }}
+                                        onError={(e) => {
+                                            e.target.onerror = null;
+                                            e.target.src = '';
+                                        }}
+                                    />
+                                )}
+                                <Typography variant="body2" paragraph>
+                                    {selectedResource.description}
                                 </Typography>
-                            )}
-                            {selectedResource?.urls && selectedResource.urls.length > 0 && (
-                                <List>
-                                    {selectedResource.urls.map((url, idx) => (
-                                        <ListItem key={idx}>
-                                            <ListItemText
-                                                primary={
-                                                    <Button
-                                                        variant="outlined"
-                                                        color="warning"
-                                                        href={url}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        endIcon={<LaunchSharp />}
-                                                    >
-                                                        View Pdf {idx + 1}
-                                                    </Button>
-                                                }
-                                            />
-                                        </ListItem>
-                                    ))}
-                                </List>
-                            )}
-                        </DialogContent>
-                        <DialogActions>
-                            <Button onClick={handleClose} color="secondary">Close</Button>
-                        </DialogActions>
-                    </Card>
-                </Fade>
+                                {selectedResource.author && (
+                                    <Typography variant="body2" color="text.secondary">
+                                        Author: {selectedResource.author}
+                                    </Typography>
+                                )}
+                                {selectedResource.postedAt && (
+                                    <Typography variant="body2" color="text.secondary">
+                                        Posted at: {new Date(selectedResource.postedAt).toLocaleDateString()}
+                                    </Typography>
+                                )}
+                                {selectedResource.urls && selectedResource.urls.length > 0 && (
+                                    <List>
+                                        {selectedResource.urls.map((url, idx) => (
+                                            <ListItem key={idx}>
+                                                <ListItemText
+                                                    primary={
+                                                        <Button
+                                                            variant="outlined"
+                                                            color="warning"
+                                                            href={url}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            endIcon={<LaunchSharp />}
+                                                        >
+                                                            View Pdf {idx + 1}
+                                                        </Button>
+                                                    }
+                                                />
+                                            </ListItem>
+                                        ))}
+                                    </List>
+                                )}
+                            </DialogContent>
+                            <DialogActions>
+                                <Button onClick={handleClose} color="secondary">Close</Button>
+                            </DialogActions>
+                        </Card>
+                    </Fade>
+                )}
             </Dialog>
         </Box>
     );
