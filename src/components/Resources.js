@@ -39,7 +39,13 @@ const Resources = ({ resources: propResources }) => {
 
     useEffect(() => {
         if (propResources && propResources.length > 0) {
-            setResources(propResources);
+            const updatedResources = propResources.map(resource => {
+                if (resource.img && !resource.img.startsWith('http') && !resource.img.startsWith('/')) {
+                    return { ...resource, img: `/${resource.img}` };
+                }
+                return resource;
+            });
+            setResources(updatedResources);
             setLoading(false);
             return;
         }
@@ -47,7 +53,13 @@ const Resources = ({ resources: propResources }) => {
         fetch(Endpoints.GET_RESOURCES())
             .then(response => response.json())
             .then(data => {
-                setResources(data['resources']);
+                const updatedResources = data['resources'].map(resource => {
+                    if (resource.img && !resource.img.startsWith('http') && !resource.img.startsWith('/')) {
+                        return { ...resource, img: `/${resource.img}` };
+                    }
+                    return resource;
+                });
+                setResources(updatedResources);
             })
             .catch(err => {
                 console.error("Error fetching resources:", err);
@@ -100,8 +112,9 @@ const Resources = ({ resources: propResources }) => {
                                     alt={resource.label}
                                     sx={{ height: 140, objectFit: 'cover' }}
                                     onError={(e) => {
+                                        console.error(`Failed to load image: ${resource.img}`);
                                         e.target.onerror = null;
-                                        e.target.src = '';
+                                        e.target.style.display = 'none';
                                     }}
                                 />
                             )}
@@ -172,8 +185,9 @@ const Resources = ({ resources: propResources }) => {
                                         alt={selectedResource.label}
                                         sx={{ height: 140, objectFit: 'cover', marginBottom: 2 }}
                                         onError={(e) => {
+                                            console.error(`Failed to load image in dialog: ${selectedResource.img}`);
                                             e.target.onerror = null;
-                                            e.target.src = '';
+                                            e.target.style.display = 'none';
                                         }}
                                     />
                                 )}
