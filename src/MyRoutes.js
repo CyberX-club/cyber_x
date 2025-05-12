@@ -46,15 +46,61 @@ const MyRoutes = () => {
     { platform: "Instagram", url: "https://www.instagram.com/CyberX.CLUB" },
   ];
 
-  const resources = {
-    answers: [
-      "Absolutely! In Indian culture, we've always valued being cautious and prepared...",
-      "Cyber awareness is more important than ever...",
-      "We can start by educating students about how cybersecurity is relevant to them...",
-      "Students can make a big difference by promoting a safe and secure environment...",
-      "Students should adopt simple but effective habits..."
-    ],
-  };
+  const resources = [
+    {
+      label: "Shielding Cyber Attacks",
+      img: "protection_against.png",
+      description:
+        "Guarding the Future: Your First Line of Defense Against Cyber Attacks",
+      author: "Goutam Behera",
+      postedAt: "2024-07-24",
+      urls: [
+        "https://drive.google.com/file/d/1zVQ4w58pCVHm200fSv9PkDMwW8ET3deU/view?usp=drive_link",
+      ],
+    },
+
+    {
+      label: "Cyber Security Awareness Guide",
+      description:
+        "A comprehensive guide on the best practices for staying safe online, covering topics such as password management, phishing, and social engineering.",
+      img: "ser-bg2.jpg",
+      author: "Atharva Singh",
+      postedAt: "2024-10-15",
+      urls: [
+        "https://drive.google.com/file/d/1CBtkmEu_aHNBnOQJqCHB02_py61Ed1PD/view?usp=sharing",
+      ],
+    },
+    {
+      label: "Intro To Trending Cyber Crime Attacks Over Network",
+      description:
+        "Your Guide to the Top Web Application Security Risks and How to Defend Against Them: A Comprehensive Resource on the Latest Network Security Threats",
+      img: "ser-bg.jpg",
+      author: "Goutam Behera",
+      postedAt: "2024-07-24",
+      urls: [
+        "https://drive.google.com/file/d/19lYngEhdcWWgF4PEE_4W4-nzzBxnpg4Z/view?usp=sharing",
+      ],
+    },
+    {
+      label: "Introduction to Network Security",
+      description:
+        "This PDF resource covers the fundamentals of network security, including firewalls, intrusion detection systems, and secure protocols.",
+      author: "Atharva Singh",
+      img: "ser-bg.jpeg",
+      urls: [
+        "https://drive.google.com/file/d/1hGLfmLrqDPV1cxBc6HdeLU4cLPxGPMZ2/view?usp=sharing",
+      ],
+    },
+    {
+      label: "DPSRKP Cyber Security Brochure",
+      description:
+        "Stay up-to-date with the latest news and trends in the world of cyber security, including recent cyber attacks, vulnerabilities, and patches.",
+      img: "dpsrkpcyberx.png",
+      urls: [
+        "https://drive.google.com/file/d/1fUkmDSicRRzUAl6R1rBlZXWZ1-MmsPhS/view?usp=sharing",
+      ],
+    },
+  ];
 
   return (
       <BrowserRouter>
