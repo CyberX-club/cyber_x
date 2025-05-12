@@ -46,6 +46,7 @@ const MyRoutes = () => {
     { platform: "Instagram", url: "https://www.instagram.com/CyberX.CLUB" },
   ];
 
+// CHECK WHAT CHANGES AI IS MAKING BEFORE IMPLEMENTING THEM!!!
   const resources = [
     {
       label: "Shielding Cyber Attacks",
