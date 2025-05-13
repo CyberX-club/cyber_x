@@ -40,7 +40,11 @@ const Resources = ({ resources: propResources }) => {
     const getImagePath = (imgPath) => {
         if (!imgPath) return null;
         
-        if (imgPath.startsWith('http') || imgPath.startsWith('/')) {
+        if (imgPath.startsWith('http')) {
+            return imgPath;
+        }
+        
+        if (imgPath.startsWith('/')) {
             return imgPath;
         }
         
@@ -52,7 +56,7 @@ const Resources = ({ resources: propResources }) => {
             const updatedResources = propResources.map(resource => {
                 return { 
                     ...resource, 
-                    img: getImagePath(resource.img)
+                    img: resource.img ? getImagePath(resource.img) : null
                 };
             });
             setResources(updatedResources);
@@ -66,7 +70,7 @@ const Resources = ({ resources: propResources }) => {
                 const updatedResources = data['resources'].map(resource => {
                     return { 
                         ...resource, 
-                        img: getImagePath(resource.img)
+                        img: resource.img ? getImagePath(resource.img) : null
                     };
                 });
                 setResources(updatedResources);
@@ -127,7 +131,7 @@ const Resources = ({ resources: propResources }) => {
                                     onError={(e) => {
                                         console.error(`Failed to load image: ${resource.img}`);
                                         e.target.onerror = null;
-                                        e.target.src = '/ser-bg.jpeg';
+                                        e.target.src = '/resources/ser-bg.jpeg';
                                     }}
                                 />
                             )}
@@ -201,7 +205,7 @@ const Resources = ({ resources: propResources }) => {
                                         onError={(e) => {
                                             console.error(`Failed to load image in dialog: ${selectedResource.img}`);
                                             e.target.onerror = null;
-                                            e.target.src = '/ser-bg.jpeg'; // TODO: Make an actual placeholder banner, will use ser-bg until then :P
+                                            e.target.src = '/resources/ser-bg.jpeg';
                                         }}
                                     />
                                 )}
