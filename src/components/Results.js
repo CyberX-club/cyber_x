@@ -7,7 +7,7 @@ const Results = () => {
   const results = [
     {
       eventName: 'ReconX',
-      color: '#00ff4c',
+      color: '#ff5a5a',
       winners: [
         { position: 'FIRST', school: 'DPS SUSHANT LOK', participants: 'DESVANSH YADAV, AARYAN PARVEEN' },
         { position: 'SECOND', school: 'AMITY INTERNATIONAL SCHOOL SECTOR 46', participants: 'ISHIT, SHAMAR' },
@@ -40,7 +40,7 @@ const Results = () => {
   };
 
   return (
-    <Box sx={{ position: 'relative', overflow: 'hidden', minHeight: '100vh', backgroundColor: '#000' }}>
+    <Box sx={{ position: 'relative', overflow: 'hidden', minHeight: '100vh' }}>
       <MatrixBackground />
       
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2, py: 8 }}>
@@ -54,7 +54,8 @@ const Results = () => {
             align="center"
             fontFamily="Space Mono"
             sx={{
-              color: '#00ff4c',
+              color: 'white',
+              textShadow: '0 0 10px rgba(0, 255, 0, 0.7)',
               mb: 8,
               fontWeight: 700,
               letterSpacing: 2
@@ -77,7 +78,8 @@ const Results = () => {
               fontFamily="Space Mono"
               align="center"
               sx={{ 
-                color: event.color,
+                color: 'white',
+                textShadow: `0 0 10px ${event.color}`,
                 mb: 4,
                 letterSpacing: 1
               }}
@@ -86,22 +88,23 @@ const Results = () => {
             </Typography>
 
             <TableContainer sx={{ 
-              backgroundColor: 'rgba(0, 0, 0, 0.7)',
+              backgroundColor: 'rgba(20, 20, 20, 0.85)',
               borderRadius: 2,
               overflow: 'hidden',
-              border: `1px solid ${event.color}30`
+              border: `1px solid ${event.color}`,
+              boxShadow: `0 0 20px rgba(0, 0, 0, 0.7)`,
             }}>
               <Table>
                 <TableHead>
                   <TableRow sx={{ 
-                    backgroundColor: 'rgba(0, 0, 0, 0.5)'
+                    backgroundColor: `${event.color}15`
                   }}>
                     <TableCell 
                       sx={{ 
                         color: 'white', 
                         fontFamily: 'Space Mono',
                         fontWeight: 'bold',
-                        borderBottom: `2px solid ${event.color}50`,
+                        borderBottom: `2px solid ${event.color}`,
                         py: 2,
                         width: '20%'
                       }}
@@ -113,7 +116,7 @@ const Results = () => {
                         color: 'white', 
                         fontFamily: 'Space Mono',
                         fontWeight: 'bold',
-                        borderBottom: `2px solid ${event.color}50`,
+                        borderBottom: `2px solid ${event.color}`,
                         py: 2,
                         width: '40%'
                       }}
@@ -125,7 +128,7 @@ const Results = () => {
                         color: 'white', 
                         fontFamily: 'Space Mono',
                         fontWeight: 'bold',
-                        borderBottom: `2px solid ${event.color}50`,
+                        borderBottom: `2px solid ${event.color}`,
                         py: 2,
                         width: '40%'
                       }}
@@ -140,9 +143,10 @@ const Results = () => {
                       key={i}
                       sx={{ 
                         '&:hover': { 
-                          backgroundColor: 'rgba(0, 0, 0, 0.4)',
+                          backgroundColor: `${event.color}15`,
                         },
-                        borderBottom: i < event.winners.length - 1 ? `1px solid ${event.color}20` : 'none'
+                        transition: 'background-color 0.2s',
+                        borderBottom: i < event.winners.length - 1 ? `1px solid ${event.color}30` : 'none'
                       }}
                     >
                       <TableCell 
@@ -151,7 +155,8 @@ const Results = () => {
                           fontWeight: 'bold',
                           fontFamily: 'Space Mono',
                           py: 3,
-                          borderBottom: 'none'
+                          borderBottom: 'none',
+                          textShadow: winner.position === 'FIRST' ? `0 0 5px ${positionColors[winner.position]}80` : 'none'
                         }}
                       >
                         {winner.position}
