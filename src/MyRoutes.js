@@ -12,6 +12,7 @@ import MagzineEntry from "./components/MagzineEntry";
 import Magazine from "./components/Magzine";
 import Contact from "./components/Contact";
 import Event2025 from "./components/Event2025";
+import Results from "./components/Results";
 
 import InterviewEntryComponents from "./InterviewEntry.js";
 import {
@@ -115,6 +116,7 @@ const MyRoutes = () => {
           <Route path="/resources" element={<Resources resources={resources} />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/event2025" element={<Event2025 />} />
+          <Route path="/results" element={<Results />} />
           <Route path="/magazine-2024/:slug" element={<Magazine />} />
           <Route path="/principals-message" element={<InterviewEntry {...PrincipalInterview_volume2} />} />
           <Route path="/vprincipal-nm-message" element={<InterviewEntry {...VPInterview_NM_volume2} />} />
