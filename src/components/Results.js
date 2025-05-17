@@ -60,7 +60,7 @@ const Results = () => {
               letterSpacing: 2
             }}
           >
-            Digex x CyberX 2025 Results
+            Digex 2025 Results
           </Typography>
         </motion.div>
 
