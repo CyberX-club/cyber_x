@@ -55,13 +55,12 @@ const Results = () => {
             fontFamily="Space Mono"
             sx={{
               color: 'white',
-              textShadow: '0 0 10px rgba(0, 255, 0, 0.7)',
               mb: 8,
               fontWeight: 700,
               letterSpacing: 2
             }}
           >
-            Event 2025 Results
+            Digex x CyberX 2025 Results
           </Typography>
         </motion.div>
 
