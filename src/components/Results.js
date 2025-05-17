@@ -10,18 +10,18 @@ const Results = () => {
       eventName: 'ReconX',
       color: '#ff5a5a',
       winners: [
-        { position: 'FIRST', school: 'DPS SUSHANT LOK', participants: 'DESVANSH YADAV, AARYAN PARVEEN', driveLink: '#' }, //TODO: Add the links
-        { position: 'SECOND', school: 'AMITY INTERNATIONAL SCHOOL SECTOR 46', participants: 'ISHIT, SHAMAR', driveLink: '#' },
-        { position: 'THIRD', school: 'TAGORE INTERNATIONAL EAST OF KAILASH', participants: 'MEHAR GUVALANI, MISHIKA', driveLink: '#' }
+        { position: 'FIRST', school: 'DPS SUSHANT LOK', participants: 'DESVANSH YADAV, AARYAN PARVEEN', driveLink: 'https://drive.google.com/drive/u/2/folders/1O4vTGx6NxnUMg2AaZkjrfIb6XKwQT5Yr' },
+        { position: 'SECOND', school: 'AMITY INTERNATIONAL SCHOOL SECTOR 46', participants: 'ISHIT, SHAMAR', driveLink: 'https://drive.google.com/drive/u/2/folders/1O4BYwPp_dhEnxhP2o6dt2y405vmheBl-' },
+        { position: 'THIRD', school: 'TAGORE INTERNATIONAL EAST OF KAILASH', participants: 'MEHAR GUVALANI, MISHIKA', driveLink: 'https://drive.google.com/drive/u/2/folders/1NxHzSZabwlcLrQOoLKiod4fQIpXs4w5b' }
       ]
     },
     {
       eventName: 'Phishing Phantom',
       color: '#9966ff',
       winners: [
-        { position: 'FIRST', school: 'DPS PANIPAT REFINERY', participants: 'PARIMOKSHA, AAKANCHA SAHU', driveLink: '#' },
-        { position: 'SECOND', school: 'RYAN INTERNATIONAL SCHOOL', participants: 'MACHUN, ARSHIYA', driveLink: '#' },
-        { position: 'THIRD', school: 'SPRINGDALES SCHOOL DHAULA KUAN', participants: 'SAION GUPTA, ADITYA GUPTA', driveLink: '#' }
+        { position: 'FIRST', school: 'DPS PANIPAT REFINERY', participants: 'PARIMOKSHA, AAKANCHA SAHU', driveLink: 'https://drive.google.com/drive/u/2/folders/1NwAk7QT5leWkH1ikS_bLLkTvNE97OOH6' },
+        { position: 'SECOND', school: 'RYAN INTERNATIONAL SCHOOL', participants: 'MACHUN, ARSHIYA', driveLink: 'https://drive.google.com/drive/u/2/folders/1NqMdcrQsdevOEylbT5VUEY1HgoCzGnjY' },
+        { position: 'THIRD', school: 'SPRINGDALES SCHOOL DHAULA KUAN', participants: 'SAION GUPTA, ADITYA GUPTA', driveLink: 'https://drive.google.com/drive/u/2/folders/1Nkdws_5_yUBKHvFqnMNE_oWKxORTT6_7' }
       ]
     }
   ];
