@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Grid } from '@mui/material';
+import { Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Container } from '@mui/material';
 import MatrixBackground from './MatrixBackground';
 import { motion } from 'framer-motion';
 
@@ -7,6 +7,7 @@ const Results = () => {
   const results = [
     {
       eventName: 'ReconX',
+      color: '#00ff4c',
       winners: [
         { position: 'FIRST', school: 'DPS SUSHANT LOK', participants: 'DESVANSH YADAV, AARYAN PARVEEN' },
         { position: 'SECOND', school: 'AMITY INTERNATIONAL SCHOOL SECTOR 46', participants: 'ISHIT, SHAMAR' },
@@ -15,6 +16,7 @@ const Results = () => {
     },
     {
       eventName: 'Phishing Phantom',
+      color: '#9966ff',
       winners: [
         { position: 'FIRST', school: 'DPS PANIPAT REFINERY', participants: 'PARIMOKSHA, AAKANCHA SAHU' },
         { position: 'SECOND', school: 'RYAN INTERNATIONAL SCHOOL', participants: 'MACHUN, ARSHIYA' },
@@ -23,171 +25,165 @@ const Results = () => {
     }
   ];
 
-  const containerVariants = {
+  const fadeIn = {
     hidden: { opacity: 0 },
-    visible: {
+    visible: { 
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
+      transition: { duration: 0.6 }
     }
   };
 
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: 'spring',
-        stiffness: 100
-      }
-    }
+  const positionColors = {
+    FIRST: '#ffdf00',
+    SECOND: '#c0c0c0',
+    THIRD: '#cd7f32'
   };
 
   return (
-    <Box sx={{ position: 'relative', overflow: 'hidden' }}>
+    <Box sx={{ position: 'relative', overflow: 'hidden', minHeight: '100vh', backgroundColor: '#000' }}>
       <MatrixBackground />
-      <Box sx={{ position: 'relative', zIndex: 2, p: { xs: 2, sm: 4 }, minHeight: '100vh' }}>
-        <Typography
-          variant="h3"
-          align="center"
-          gutterBottom
-          fontFamily="Space Mono"
-          sx={{
-            color: 'white',
-            mb: 6,
-            textShadow: '0 0 10px rgba(0, 255, 0, 0.7)'
-          }}
+      
+      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2, py: 8 }}>
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={fadeIn}
         >
-          Event 2025 Results
-        </Typography>
+          <Typography
+            variant="h2"
+            align="center"
+            fontFamily="Space Mono"
+            sx={{
+              color: '#00ff4c',
+              mb: 8,
+              fontWeight: 700,
+              letterSpacing: 2
+            }}
+          >
+            Event 2025 Results
+          </Typography>
+        </motion.div>
 
-        <Grid container spacing={6} justifyContent="center">
-          {results.map((event, index) => (
-            <Grid item xs={12} key={index}>
-              <motion.div
-                initial="hidden"
-                animate="visible"
-                variants={containerVariants}
-              >
-                <motion.div variants={itemVariants}>
-                  <Typography
-                    variant="h4"
-                    fontFamily="Space Mono"
-                    color="white"
-                    align="center"
-                    sx={{ mb: 3, textShadow: event.eventName === 'ReconX' 
-                      ? '0 0 8px rgba(255, 100, 100, 0.6)' 
-                      : '0 0 8px rgba(180, 100, 255, 0.6)'
-                    }}
-                  >
-                    {event.eventName}
-                  </Typography>
-                </motion.div>
+        {results.map((event, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.2 }}
+            style={{ marginBottom: 80 }}
+          >
+            <Typography
+              variant="h3"
+              fontFamily="Space Mono"
+              align="center"
+              sx={{ 
+                color: event.color,
+                mb: 4,
+                letterSpacing: 1
+              }}
+            >
+              {event.eventName}
+            </Typography>
 
-                <motion.div variants={itemVariants}>
-                  <TableContainer 
-                    component={Paper} 
-                    sx={{ 
-                      backgroundColor: 'rgba(15, 15, 15, 0.85)',
-                      backdropFilter: 'blur(10px)',
-                      borderRadius: 3,
-                      overflow: 'hidden',
-                      boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
-                      border: event.eventName === 'ReconX' 
-                        ? '1px solid rgba(255, 100, 100, 0.3)' 
-                        : '1px solid rgba(180, 100, 255, 0.3)',
-                      mb: 6
-                    }}
-                  >
-                    <Table>
-                      <TableHead>
-                        <TableRow sx={{ 
-                          backgroundColor: event.eventName === 'ReconX' 
-                            ? 'rgba(255, 100, 100, 0.15)'
-                            : 'rgba(180, 100, 255, 0.15)'
-                        }}>
-                          <TableCell 
-                            sx={{ 
-                              color: 'white', 
-                              fontFamily: 'Space Mono', 
-                              fontWeight: 'bold',
-                              width: '15%' 
-                            }}
-                          >
-                            Position
-                          </TableCell>
-                          <TableCell 
-                            sx={{ 
-                              color: 'white', 
-                              fontFamily: 'Space Mono', 
-                              fontWeight: 'bold',
-                              width: '40%'
-                            }}
-                          >
-                            School
-                          </TableCell>
-                          <TableCell 
-                            sx={{ 
-                              color: 'white', 
-                              fontFamily: 'Space Mono', 
-                              fontWeight: 'bold',
-                              width: '45%'
-                            }}
-                          >
-                            Participants
-                          </TableCell>
-                        </TableRow>
-                      </TableHead>
-                      <TableBody>
-                        {event.winners.map((winner, i) => (
-                          <TableRow 
-                            key={i}
-                            sx={{ 
-                              '&:hover': { 
-                                backgroundColor: event.eventName === 'ReconX' 
-                                  ? 'rgba(255, 100, 100, 0.1)' 
-                                  : 'rgba(180, 100, 255, 0.1)'
-                              },
-                              backgroundColor: winner.position === 'FIRST' 
-                                ? 'rgba(255, 215, 0, 0.1)'
-                                : 'transparent'
-                            }}
-                          >
-                            <TableCell 
-                              sx={{ 
-                                color: winner.position === 'FIRST' 
-                                  ? 'gold' 
-                                  : winner.position === 'SECOND' 
-                                    ? 'silver' 
-                                    : '#cd7f32',
-                                fontWeight: 'bold',
-                                fontFamily: 'Space Mono',
-                                textShadow: winner.position === 'FIRST' 
-                                  ? '0 0 5px rgba(255, 215, 0, 0.5)' 
-                                  : 'none'
-                              }}
-                            >
-                              {winner.position}
-                            </TableCell>
-                            <TableCell sx={{ color: 'white', fontFamily: 'Space Mono' }}>
-                              {winner.school}
-                            </TableCell>
-                            <TableCell sx={{ color: 'white', fontFamily: 'Space Mono' }}>
-                              {winner.participants}
-                            </TableCell>
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </TableContainer>
-                </motion.div>
-              </motion.div>
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
+            <TableContainer sx={{ 
+              backgroundColor: 'rgba(0, 0, 0, 0.7)',
+              borderRadius: 2,
+              overflow: 'hidden',
+              border: `1px solid ${event.color}30`
+            }}>
+              <Table>
+                <TableHead>
+                  <TableRow sx={{ 
+                    backgroundColor: 'rgba(0, 0, 0, 0.5)'
+                  }}>
+                    <TableCell 
+                      sx={{ 
+                        color: 'white', 
+                        fontFamily: 'Space Mono',
+                        fontWeight: 'bold',
+                        borderBottom: `2px solid ${event.color}50`,
+                        py: 2,
+                        width: '20%'
+                      }}
+                    >
+                      Position
+                    </TableCell>
+                    <TableCell 
+                      sx={{ 
+                        color: 'white', 
+                        fontFamily: 'Space Mono',
+                        fontWeight: 'bold',
+                        borderBottom: `2px solid ${event.color}50`,
+                        py: 2,
+                        width: '40%'
+                      }}
+                    >
+                      School
+                    </TableCell>
+                    <TableCell 
+                      sx={{ 
+                        color: 'white', 
+                        fontFamily: 'Space Mono',
+                        fontWeight: 'bold',
+                        borderBottom: `2px solid ${event.color}50`,
+                        py: 2,
+                        width: '40%'
+                      }}
+                    >
+                      Participants
+                    </TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {event.winners.map((winner, i) => (
+                    <TableRow 
+                      key={i}
+                      sx={{ 
+                        '&:hover': { 
+                          backgroundColor: 'rgba(0, 0, 0, 0.4)',
+                        },
+                        borderBottom: i < event.winners.length - 1 ? `1px solid ${event.color}20` : 'none'
+                      }}
+                    >
+                      <TableCell 
+                        sx={{ 
+                          color: positionColors[winner.position],
+                          fontWeight: 'bold',
+                          fontFamily: 'Space Mono',
+                          py: 3,
+                          borderBottom: 'none'
+                        }}
+                      >
+                        {winner.position}
+                      </TableCell>
+                      <TableCell 
+                        sx={{ 
+                          color: 'white', 
+                          fontFamily: 'Space Mono',
+                          py: 3,
+                          borderBottom: 'none'
+                        }}
+                      >
+                        {winner.school}
+                      </TableCell>
+                      <TableCell 
+                        sx={{ 
+                          color: 'white', 
+                          fontFamily: 'Space Mono',
+                          py: 3,
+                          borderBottom: 'none'
+                        }}
+                      >
+                        {winner.participants}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </motion.div>
+        ))}
+      </Container>
     </Box>
   );
 };
