@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Container } from '@mui/material';
 import MatrixBackground from './MatrixBackground';
 import { motion } from 'framer-motion';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 const Results = () => {
   const results = [
@@ -9,18 +10,18 @@ const Results = () => {
       eventName: 'ReconX',
       color: '#ff5a5a',
       winners: [
-        { position: 'FIRST', school: 'DPS SUSHANT LOK', participants: 'DESVANSH YADAV, AARYAN PARVEEN' },
-        { position: 'SECOND', school: 'AMITY INTERNATIONAL SCHOOL SECTOR 46', participants: 'ISHIT, SHAMAR' },
-        { position: 'THIRD', school: 'TAGORE INTERNATIONAL EAST OF KAILASH', participants: 'MEHAR GUVALANI, MISHIKA' }
+        { position: 'FIRST', school: 'DPS SUSHANT LOK', participants: 'DESVANSH YADAV, AARYAN PARVEEN', driveLink: '#' }, //TODO: Add the links
+        { position: 'SECOND', school: 'AMITY INTERNATIONAL SCHOOL SECTOR 46', participants: 'ISHIT, SHAMAR', driveLink: '#' },
+        { position: 'THIRD', school: 'TAGORE INTERNATIONAL EAST OF KAILASH', participants: 'MEHAR GUVALANI, MISHIKA', driveLink: '#' }
       ]
     },
     {
       eventName: 'Phishing Phantom',
       color: '#9966ff',
       winners: [
-        { position: 'FIRST', school: 'DPS PANIPAT REFINERY', participants: 'PARIMOKSHA, AAKANCHA SAHU' },
-        { position: 'SECOND', school: 'RYAN INTERNATIONAL SCHOOL', participants: 'MACHUN, ARSHIYA' },
-        { position: 'THIRD', school: 'SPRINGDALES SCHOOL DHAULA KUAN', participants: 'SAION GUPTA, ADITYA GUPTA' }
+        { position: 'FIRST', school: 'DPS PANIPAT REFINERY', participants: 'PARIMOKSHA, AAKANCHA SAHU', driveLink: '#' },
+        { position: 'SECOND', school: 'RYAN INTERNATIONAL SCHOOL', participants: 'MACHUN, ARSHIYA', driveLink: '#' },
+        { position: 'THIRD', school: 'SPRINGDALES SCHOOL DHAULA KUAN', participants: 'SAION GUPTA, ADITYA GUPTA', driveLink: '#' }
       ]
     }
   ];
@@ -37,6 +38,10 @@ const Results = () => {
     FIRST: '#ffdf00',
     SECOND: '#c0c0c0',
     THIRD: '#cd7f32'
+  };
+
+  const handleRowClick = (link) => {
+    window.open(link, '_blank');
   };
 
   return (
@@ -78,7 +83,6 @@ const Results = () => {
               align="center"
               sx={{ 
                 color: 'white',
-                textShadow: `0 0 10px ${event.color}`,
                 mb: 4,
                 letterSpacing: 1
               }}
@@ -117,7 +121,7 @@ const Results = () => {
                         fontWeight: 'bold',
                         borderBottom: `2px solid ${event.color}`,
                         py: 2,
-                        width: '40%'
+                        width: '35%'
                       }}
                     >
                       School
@@ -129,10 +133,22 @@ const Results = () => {
                         fontWeight: 'bold',
                         borderBottom: `2px solid ${event.color}`,
                         py: 2,
-                        width: '40%'
+                        width: '35%'
                       }}
                     >
                       Participants
+                    </TableCell>
+                    <TableCell 
+                      sx={{ 
+                        color: 'white', 
+                        fontFamily: 'Space Mono',
+                        fontWeight: 'bold',
+                        borderBottom: `2px solid ${event.color}`,
+                        py: 2,
+                        width: '10%'
+                      }}
+                    >
+                      Files
                     </TableCell>
                   </TableRow>
                 </TableHead>
@@ -140,9 +156,11 @@ const Results = () => {
                   {event.winners.map((winner, i) => (
                     <TableRow 
                       key={i}
+                      onClick={() => handleRowClick(winner.driveLink)}
                       sx={{ 
                         '&:hover': { 
-                          backgroundColor: `${event.color}15`,
+                          backgroundColor: `${event.color}30`,
+                          cursor: 'pointer'
                         },
                         transition: 'background-color 0.2s',
                         borderBottom: i < event.winners.length - 1 ? `1px solid ${event.color}30` : 'none'
@@ -179,6 +197,25 @@ const Results = () => {
                         }}
                       >
                         {winner.participants}
+                      </TableCell>
+                      <TableCell 
+                        sx={{ 
+                          color: 'white', 
+                          fontFamily: 'Space Mono',
+                          py: 3,
+                          borderBottom: 'none',
+                          textAlign: 'center'
+                        }}
+                      >
+                        <OpenInNewIcon 
+                          sx={{ 
+                            color: event.color,
+                            transition: 'transform 0.2s',
+                            '&:hover': {
+                              transform: 'scale(1.2)'
+                            }
+                          }} 
+                        />
                       </TableCell>
                     </TableRow>
                   ))}

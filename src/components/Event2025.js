@@ -10,11 +10,13 @@ import {
     DialogTitle,
     DialogContent,
     IconButton,
-    Slide
+    Slide,
+    Button
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import MatrixBackground from './MatrixBackground';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 // Slide transition for dialog (fixes scrollTop bug)
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -170,9 +172,44 @@ const Events = () => {
                         </IconButton>
                     </DialogTitle>
                     <DialogContent dividers>
-                        <Typography variant="body1" sx={{ whiteSpace: 'pre-line', fontSize: '1.1rem' }}>
+                        <Typography variant="body1" sx={{ whiteSpace: 'pre-line', fontSize: '1.1rem', mb: 4 }}>
                             {selectedEvent?.content}
                         </Typography>
+                        
+                        <Box sx={{ 
+                            display: 'flex', 
+                            justifyContent: 'center', 
+                            mt: 3,
+                            mb: 1
+                        }}>
+                            <Button
+                                component={Link}
+                                to="/results"
+                                variant="contained"
+                                size="large"
+                                onClick={handleClose}
+                                sx={{
+                                    fontFamily: 'Space Mono',
+                                    fontWeight: 'bold',
+                                    fontSize: { xs: '0.9rem', sm: '1.1rem' },
+                                    py: 1.5,
+                                    px: { xs: 3, sm: 5 },
+                                    borderRadius: 2,
+                                    background: 'linear-gradient(45deg, #00ff9d 0%, #00b8ff 100%)',
+                                    boxShadow: '0 5px 15px rgba(0, 255, 157, 0.3)',
+                                    color: '#000',
+                                    transition: 'transform 0.3s, box-shadow 0.3s',
+                                    '&:hover': {
+                                        background: 'linear-gradient(45deg, #00ff9d 30%, #00b8ff 90%)',
+                                        boxShadow: '0 8px 25px rgba(0, 255, 157, 0.5)',
+                                        transform: 'translateY(-2px)'
+                                    },
+                                    textTransform: 'none'
+                                }}
+                            >
+                                View Results
+                            </Button>
+                        </Box>
                     </DialogContent>
                 </Dialog>
             </Box>
