@@ -57,7 +57,7 @@ const MyRoutes = () => {
       author: "Numair Khan",
       postedAt: "2025-5-25",
       urls: [
-        "https://drive.google.com/file/d/1ABpfWmzY3lkWlBfU44LV4h5m1-tdNelO/view",
+        "https://drive.google.com/file/d/1CRrhDCgtBJuAFayQLEk2yNJ2pHz7uU03/view?usp=sharing",
       ],
     },
     {
