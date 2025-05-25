@@ -50,6 +50,17 @@ const MyRoutes = () => {
 // CHECK WHAT CHANGES AI IS MAKING BEFORE IMPLEMENTING THEM!!!
   const resources = [
     {
+      label: "Introduction to Cybersecurity",
+      img: "/resources/intro2cyber.png",
+      description:
+        "A basic guide on Cybersecurity and Ethical Hacking.",
+      author: "Numair Khan",
+      postedAt: "2025-5-25",
+      urls: [
+        "https://drive.google.com/file/d/1ABpfWmzY3lkWlBfU44LV4h5m1-tdNelO/view",
+      ],
+    },
+    {
       label: "Shielding Cyber Attacks",
       img: "/resources/protection_against.png",
       description:
