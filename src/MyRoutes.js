@@ -40,9 +40,8 @@ const MyRoutes = () => {
 
   const email = "cybersecurity@dpsrkp.net";
   const socialMedia = [
-    { platform: "Facebook", url: "https://www.facebook.com/CyberX" },
-    { platform: "Twitter", url: "https://twitter.com/CyberX" },
-    { platform: "LinkedIn", url: "https://www.linkedin.com/company/cyberx" },
+    { platform: "Twitter", url: "https://x.com/ClubCyberx" },
+    { platform: "LinkedIn", url: "https://www.linkedin.com/in/cyberx-club-221535326" },
     { platform: "GitHub", url: "https://github.com/CyberX-club/" },
     { platform: "Instagram", url: "https://www.instagram.com/CyberX.CLUB" },
   ];

@@ -11,13 +11,6 @@ const Events = () => (
             <Grid container spacing={4}>
                 {[
                     {
-                        event: "Digex X CyberX Invite ",
-                        date: "Postponed",
-                        href: "https://docs.google.com/document/d/1_YWj_r52ZrZNWsPbp48VZGpF1adU-ixoO456uVO8frs/edit?tab=t.0" ,
-                        buttonLabel: 'Register Now'
-
-                    },
-                    {
                         event: "Cybersecurity Challenge 2025",
                         date: "",
                         href: "/quiz",
