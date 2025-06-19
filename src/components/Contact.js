@@ -17,23 +17,18 @@ const socialLinks = [
         label: 'Instagram'
     },
     {
-        icon: <FacebookIcon sx={{ color: '#4267B2' }} />,
-        url: 'https://www.facebook.com/CyberX',
-        label: 'Facebook'
-    },
-    {
         icon: <GitHubIcon sx={{ color: '#fff' }} />,
         url: 'https://github.com/CyberX-club/',
         label: 'GitHub'
     },
     {
         icon: <LinkedInIcon sx={{ color: '#0077b5' }} />,
-        url: 'https://www.linkedin.com/company/cyberx',
+        url: 'https://www.linkedin.com/in/cyberx-club-221535326',
         label: 'LinkedIn'
     },
     {
         icon: <TwitterIcon sx={{ color: '#1DA1F2' }} />,
-        url: 'https://twitter.com/CyberX',
+        url: 'https://x.com/ClubCyberx',
         label: 'Twitter'
     },
 ];
