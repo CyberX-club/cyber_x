@@ -38,7 +38,7 @@ const membersData = {
   9: [{ name: "Aaratrika Singh", role: "Ad-Hoc", image: "" } ,
       { name: "Ayan Srivastava" , role: "Ad-Hoc" , image: "" } , ],
 
-  8: [ {name: "Amartya Samajhdar" , role: "Ad-Hoc" , image : " "}
+  8: [ {name: "Amartya Samajhdar" , role: "Ad-Hoc" , image : " "},
        {name: "Arshia Batheja" , role: "Ad-Hoc" , image : " "} , ],
 
   7: [
