@@ -5,7 +5,7 @@ import { Members, Alumni, CrypticText, Card3D } from "./PeopleBase";
 const membersData = {
   12: [
     { name: "Arahant Singh", role: "Core Member", image: "arahant.jpg" },
-    { name: "Atharwa Navyam", role: "Core Member", image: "Atharwa Navyam 11I.png" },
+    { name: "Atharwa Navyam", role: "Core Member", image: "Atharwa Navyam 12F.jpg" },
     { name: "Arjun Atroley" , role: "Core Member" , image: "ArjunAtroley12E.jpeg"},
     { name: "Aryaman Aggarwal", role: "Core Member", image: "aryaman aggarwal 11 I.jpeg" },
     { name: "Goutam Behera", role: "Core Member", image: "Gouttam 11G.jpeg" },
@@ -32,7 +32,7 @@ const membersData = {
        { name: "Kiara Kapoor" , role: "Ad-Hoc" , image: "KiaraXJ"  } ,
 
   ],
-  9: [{ name: "Aaaratrika Singh", role: "Ad-Hoc", image: "" } ,
+  9: [{ name: "Aaratrika Singh", role: "Ad-Hoc", image: "" } ,
       { name: "Ayan Srivastava" , role: "Ad-Hoc" , image: "" } , ],
 
   8: [ {name: "Amartya Samajhdar" , role: "Ad-Hoc" , image : " "} , ],
