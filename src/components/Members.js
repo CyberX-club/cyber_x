@@ -14,7 +14,7 @@ const membersData = {
     { name: "Naija Sukhija", role: "Member", image: "Naija Sukhija 11F.jpg" },
     { name: "Sabeer Ranjan", role: "Member", image: "SABEER RANJAN.jpg" },
     { name: "Abhigyan Jhunjhunwala" , role: "Ad-Hoc" , image: "AbhigyanXIIC.jpg"},
-    { name: "Shesh Shiromani", role: "Ad-Hoc", image: "" },
+    { name: "Shesh Shiromani", role: "Ad-Hoc", image: "Shesh12G.jpg" },
     { name: "Advaith The Panda" , role: "Ad-Hoc" , image: "panda.jpeg"},
 
 
