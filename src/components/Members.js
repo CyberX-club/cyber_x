@@ -14,6 +14,9 @@ const membersData = {
     { name: "Naija Sukhija", role: "Member", image: "Naija Sukhija 11F.jpg" },
     { name: "Sabeer Ranjan", role: "Member", image: "SABEER RANJAN.jpg" },
     { name: "Abhigyan Jhunjhunwala" , role: "Ad-Hoc" , image: "AbhigyanXIIC.jpg"},
+    { name: "Shesh Shiromani", role: "Ad-Hoc", image: "" },
+    { name: "Advaith The Panda" , role: "Ad-Hoc" , image: "panda.jpeg"},
+
 
 
     
@@ -35,7 +38,8 @@ const membersData = {
   9: [{ name: "Aaratrika Singh", role: "Ad-Hoc", image: "" } ,
       { name: "Ayan Srivastava" , role: "Ad-Hoc" , image: "" } , ],
 
-  8: [ {name: "Amartya Samajhdar" , role: "Ad-Hoc" , image : " "} , ],
+  8: [ {name: "Amartya Samajhdar" , role: "Ad-Hoc" , image : " "}
+       {name: "Arshia Batheja" , role: "Ad-Hoc" , image : " "} , ],
 
   7: [
       { name: "Ranveer Kalra", role: "Member", image: "Ranveer Kalra 6d.png" } ,
