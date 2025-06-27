@@ -6,8 +6,8 @@ const membersData = {
   12: [
     { name: "Arahant Singh", role: "Core Member", image: "arahant.jpg" },
     { name: "Atharwa Navyam", role: "Core Member", image: "Atharwa Navyam 12F.jpg" },
-    { name: "Arjun Atroley" , role: "Core Member" , image: "ArjunAtroley12E.jpeg"},
-    { name: "Swapnil Suraj", role: "Core Member", image: "swapnil.jpg" },
+    { name: "Swapnil Suraj" , role: "Core Member" , image: "swapnil.jpg"},
+    { name: "Arjun Atroley", role: "Core Member", image: "ArjunAtroley12E.jpeg" },
     { name: "Goutam Behera", role: "Core Member", image: "Gouttam 11G.jpeg" },
     { name: "Numair Khan" , role: "Core Member" , image: "Numair.jpeg"},
     { name: "Aryaman Aggarwal", role: "Core Member", image: "aryaman aggarwal 11 I.jpeg" },
