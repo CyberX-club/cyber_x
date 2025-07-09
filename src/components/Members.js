@@ -27,6 +27,7 @@ const membersData = {
     { name: "Siddharth Srivastava" , role: "Ad-Hoc" , image: ""},
     { name : "Farzooque Hasan" , role: "Ad-Hoc" , image: ""},
     { name : "Aarya" , role:"Ad-Hoc" , image: "aarya11.png"},
+    { name : "Elina Aggarwal" , role:"Ad-Hoc" , image: "Elina11.png"}
 
   ],
   10: [{ name: "Devansh Kumar", role: "Member", image: "Devansh Kumar 9H.jpg" } ,
