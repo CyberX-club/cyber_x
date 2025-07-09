@@ -14,8 +14,8 @@ const membersData = {
     { name: "Naija Sukhija", role: "Member", image: "Naija Sukhija 11F.jpg" },
     { name: "Sabeer Ranjan", role: "Member", image: "SABEER RANJAN.jpg" },
     { name: "Abhigyan Jhunjhunwala" , role: "Ad-Hoc" , image: "AbhigyanXIIC.jpg"},
-    { name: "Shesh Shiromani", role: "Ad-Hoc", image: "" }, //Shesh12G.jpg
-    { name: "Advaith The Panda" , role: "Ad-Hoc" , image: "panda.jpeg"},
+    { name: "Shesh Shiromani", role: "Ad-Hoc", image: "Shesh12G.jpg" }, 
+    { name: "Advaith The Panda" , role: "Ad-Hoc" , image: "advaith12h.png"},
 
 
 
@@ -24,15 +24,15 @@ const membersData = {
   11: [
     { name: "Vidhan Garg", role: "Core Member", image: "Vidhan Garg 10C.png" },
     { name : "Vitabhay Garg" , role: "Core Member" , image: "Vitabhay Garg.jpg"},
-    { name: "Siddharth Srivastava" , role: "Ad-Hoc" , image: "Sidhhart XIJ"},
-    { name : "Farzooque Hasan" , role: "Ad-Hoc" , image: "FarzooqueXIW"},
-    { name : "Aarya" , role:"Ad-Hoc" , image: "AaryaXIL"},
+    { name: "Siddharth Srivastava" , role: "Ad-Hoc" , image: ""},
+    { name : "Farzooque Hasan" , role: "Ad-Hoc" , image: ""},
+    { name : "Aarya" , role:"Ad-Hoc" , image: "aarya11.png"},
 
   ],
   10: [{ name: "Devansh Kumar", role: "Member", image: "Devansh Kumar 9H.jpg" } ,
-       { name: "Aviral Goyal" , role : "Ad-Hoc" , image: "AviralXN" } ,
-       { name: "Esh Sinha" , role: "Ad-Hoc" , image: "EshXD" } ,
-       { name: "Kiara Kapoor" , role: "Ad-Hoc" , image: "KiaraXJ"  } ,
+       { name: "Aviral Goyal" , role : "Ad-Hoc" , image: "" } ,
+       { name: "Esh Sinha" , role: "Ad-Hoc" , image: "" } ,
+       { name: "Kiara Kapoor" , role: "Ad-Hoc" , image: ""  } ,
 
   ],
   9: [{ name: "Aaratrika Singh", role: "Ad-Hoc", image: "" } ,
@@ -47,7 +47,7 @@ const membersData = {
   ],
 
   6: [
-    {name:"Pranika Gupta" , role : "Ad-Hoc" , image : ""},
+    {name:"Pranika Gupta" , role : "Ad-Hoc" , image : "Pranika6G.png"},
     { name: "Keshav Karthikeye Valluri", role: "Ad-Hoc", image: "" },
   ],
 
