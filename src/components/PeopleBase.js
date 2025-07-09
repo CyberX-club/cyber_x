@@ -147,12 +147,14 @@ class PeopleBase extends React.Component {
 
   renderSectionTitle(key) {
     // To be implemented by child classes
-    throw new Error("Method renderSectionTitle must be implemented by child classes");
+    throw new Error(
+      "Method renderSectionTitle must be implemented by child classes"
+    );
   }
 
   renderSections() {
     const { peopleData, orderedSections } = this.props;
-    
+
     return orderedSections.map((section) => (
       <Box key={section} mb={4}>
         {this.renderSectionTitle(section)}
@@ -193,23 +195,13 @@ class Members extends PeopleBase {
   renderSectionTitle(grade) {
     if (grade === "AdHocs") {
       return (
-        <Typography
-          variant="h2"
-          component="h2"
-          align="center"
-          gutterBottom
-        >
+        <Typography variant="h2" component="h2" align="center" gutterBottom>
           Member
         </Typography>
       );
     } else {
       return (
-        <Typography
-          variant="h2"
-          component="h2"
-          align="center"
-          gutterBottom
-        >
+        <Typography variant="h2" component="h2" align="center" gutterBottom>
           Class {grade}
         </Typography>
       );
@@ -217,17 +209,11 @@ class Members extends PeopleBase {
   }
 }
 
-
 // Alumni class that extends PeopleBase - shows graduation years
 class Alumni extends PeopleBase {
   renderSectionTitle(year) {
     return (
-      <Typography
-        variant="h2"
-        component="h2"
-        align="center"
-        gutterBottom
-      >
+      <Typography variant="h2" component="h2" align="center" gutterBottom>
         Batch of {year}
       </Typography>
     );
@@ -236,8 +222,6 @@ class Alumni extends PeopleBase {
 
 // Example of how to use these components:
 
-
-
 // For Alumni
 const AlumniApp = () => {
   const orderedSections = ["2024", "2023", "2022", "2021"];
@@ -245,10 +229,18 @@ const AlumniApp = () => {
   const alumniData = {
     2024: [
       { name: "John Doe", role: "Former President", image: "john_doe.jpg" },
-      { name: "Jane Smith", role: "Former Core Member", image: "jane_smith.jpg" },
+      {
+        name: "Jane Smith",
+        role: "Former Core Member",
+        image: "jane_smith.jpg",
+      },
     ],
     2023: [
-      { name: "Alex Johnson", role: "Former Member", image: "alex_johnson.png" },
+      {
+        name: "Alex Johnson",
+        role: "Former Member",
+        image: "alex_johnson.png",
+      },
     ],
     // ... other graduation years
   };

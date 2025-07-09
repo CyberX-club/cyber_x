@@ -20,7 +20,7 @@ import {
   VPInterview_NM_volume2,
   VPInterview_AK_volume2,
   VPInterview_MK_volume2,
-  InchargeMessage_volume2
+  InchargeMessage_volume2,
 } from "./InterviewEntry.js";
 const { InterviewEntry, GeneralEntry } = InterviewEntryComponents;
 
@@ -41,18 +41,20 @@ const MyRoutes = () => {
   const email = "cybersecurity@dpsrkp.net";
   const socialMedia = [
     { platform: "Twitter", url: "https://x.com/ClubCyberx" },
-    { platform: "LinkedIn", url: "https://www.linkedin.com/in/cyberx-club-221535326" },
+    {
+      platform: "LinkedIn",
+      url: "https://www.linkedin.com/in/cyberx-club-221535326",
+    },
     { platform: "GitHub", url: "https://github.com/CyberX-club/" },
     { platform: "Instagram", url: "https://www.instagram.com/CyberX.CLUB" },
   ];
 
-// CHECK WHAT CHANGES AI IS MAKING BEFORE IMPLEMENTING THEM!!!
+  // CHECK WHAT CHANGES AI IS MAKING BEFORE IMPLEMENTING THEM!!!
   const resources = [
     {
       label: "Introduction to Cybersecurity",
       img: "/resources/intro2cyber.png",
-      description:
-        "A basic guide on Cybersecurity and Ethical Hacking.",
+      description: "A basic guide on Cybersecurity and Ethical Hacking.",
       author: "Numair Khan",
       postedAt: "2025-5-25",
       urls: [
@@ -115,27 +117,45 @@ const MyRoutes = () => {
   ];
 
   return (
-      <BrowserRouter>
-        <Navbar config={navConfig} />
-        <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/quiz" element={<Quiz />} />
-          <Route path="/members" element={<CyberXApp />} />
-          <Route path="/alumini" element={<AlumniApp />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/resources" element={<Resources resources={resources} />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/event2025" element={<Event2025 />} />
-          <Route path="/results" element={<Results />} />
-          <Route path="/magazine-2024/:slug" element={<Magazine />} />
-          <Route path="/principals-message" element={<InterviewEntry {...PrincipalInterview_volume2} />} />
-          <Route path="/vprincipal-nm-message" element={<InterviewEntry {...VPInterview_NM_volume2} />} />
-          <Route path="/vprincipal-ak-message" element={<InterviewEntry {...VPInterview_AK_volume2} />} />
-          <Route path="/vprincipal-mk-message" element={<InterviewEntry {...VPInterview_MK_volume2} />} />
-          <Route path="/incharge-message" element={<GeneralEntry {...InchargeMessage_volume2} />} />
-        </Routes>
-        <Footer email={email} socialMedia={socialMedia} />
-      </BrowserRouter>
+    <BrowserRouter>
+      <Navbar config={navConfig} />
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/quiz" element={<Quiz />} />
+        <Route path="/members" element={<CyberXApp />} />
+        <Route path="/alumini" element={<AlumniApp />} />
+        <Route path="/about" element={<About />} />
+        <Route
+          path="/resources"
+          element={<Resources resources={resources} />}
+        />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/event2025" element={<Event2025 />} />
+        <Route path="/results" element={<Results />} />
+        <Route path="/magazine-2024/:slug" element={<Magazine />} />
+        <Route
+          path="/principals-message"
+          element={<InterviewEntry {...PrincipalInterview_volume2} />}
+        />
+        <Route
+          path="/vprincipal-nm-message"
+          element={<InterviewEntry {...VPInterview_NM_volume2} />}
+        />
+        <Route
+          path="/vprincipal-ak-message"
+          element={<InterviewEntry {...VPInterview_AK_volume2} />}
+        />
+        <Route
+          path="/vprincipal-mk-message"
+          element={<InterviewEntry {...VPInterview_MK_volume2} />}
+        />
+        <Route
+          path="/incharge-message"
+          element={<GeneralEntry {...InchargeMessage_volume2} />}
+        />
+      </Routes>
+      <Footer email={email} socialMedia={socialMedia} />
+    </BrowserRouter>
   );
 };
 
