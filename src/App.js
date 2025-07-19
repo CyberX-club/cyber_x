@@ -15,7 +15,7 @@ const App = () => {
       <Box sx={{ zIndex: 2 }}>
         <Sections>
           <Section
-            image="laptop-1.png"
+            image="laptopvitabhay.png"
             title="About Us"
             content="CyberX, the Cyber Security Club of Delhi Public School R.K. Puram, was established in 2023 to equip students with essential skills in cybersecurity and ethical hacking. Our mission is to create a tech-savvy community prepared to tackle the challenges of the digital world."
             order="image-first"
