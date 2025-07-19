@@ -10,7 +10,7 @@ const membersData = {
       role: "Core Member",
       image: "Atharwa Navyam 12F.jpg",
     },
-    { name: "Arjun Atroley", role: "Core Member", image: "ArjunAtroley12E.jpeg" },
+    { name: "Arjun Atroley", role: "Core Member", image: "arjunatroley.jpg" },
     {
       name: "Swapnil Suraj",
       role: "Core Member",
