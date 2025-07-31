@@ -63,7 +63,7 @@ const membersData = {
   ],
 
   6: [
-    { name: "Pranika Gupta", role: "Ad-Hoc", image: "Pranika6G.png" },
+    { name: "Pranika Gupta", role: "Ad-Hoc", image: "" },
     { name: "Keshav Karthikeye Valluri", role: "Ad-Hoc", image: "" },
   ],
 };
