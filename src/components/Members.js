@@ -59,7 +59,7 @@ const membersData = {
 
   7: [
     { name: "Ranveer Kalra", role: "Member", image: "Ranveer Kalra 6d.png" },
-    { name: "N Akshay Kumar", role: "Ad-Hoc", image: "" },
+    { name: "N Akshay Kumar", role: "Ad-Hoc", image: "Akshay7D.png" },
   ],
 
   6: [

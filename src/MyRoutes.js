@@ -52,11 +52,19 @@ const MyRoutes = () => {
   // CHECK WHAT CHANGES AI IS MAKING BEFORE IMPLEMENTING THEM!!!
   const resources = [
     {
+      label: "Unlocking the Mathematical Code Behind Cybersecurity",
+      img: "/resources/math.jpg",
+      description: "This paper aims to demystify the mathematical foundations of cybersecurity, making them understandable for high schoolers and educators, and highlights the urgent need for basic cybersecurity awareness in Indian classrooms.",
+      author: "Shesh Shiromani",
+      urls: [
+        "https://drive.google.com/file/d/1AJ4EOu0BVmBFAR3AgyDOqnUvyfnLhS8E/view?usp=sharing",
+      ],
+    },
+    {
       label: "Introduction to Cybersecurity",
       img: "/resources/intro2cyber.png",
       description: "A basic guide on Cybersecurity and Ethical Hacking.",
       author: "Numair Khan",
-      postedAt: "2025-5-25",
       urls: [
         "https://drive.google.com/file/d/1CRrhDCgtBJuAFayQLEk2yNJ2pHz7uU03/view?usp=sharing",
       ],
@@ -67,7 +75,6 @@ const MyRoutes = () => {
       description:
         "Guarding the Future: Your First Line of Defense Against Cyber Attacks",
       author: "Goutam Behera",
-      postedAt: "2024-07-24",
       urls: [
         "https://drive.google.com/file/d/1zVQ4w58pCVHm200fSv9PkDMwW8ET3deU/view?usp=drive_link",
       ],
@@ -79,7 +86,6 @@ const MyRoutes = () => {
         "A comprehensive guide on the best practices for staying safe online, covering topics such as password management, phishing, and social engineering.",
       img: "/resources/ser-bg2.jpg",
       author: "Atharva Singh",
-      postedAt: "2024-10-15",
       urls: [
         "https://drive.google.com/file/d/1CBtkmEu_aHNBnOQJqCHB02_py61Ed1PD/view?usp=sharing",
       ],
@@ -90,7 +96,6 @@ const MyRoutes = () => {
         "Your Guide to the Top Web Application Security Risks and How to Defend Against Them: A Comprehensive Resource on the Latest Network Security Threats",
       img: "/resources/ser-bg.jpg",
       author: "Goutam Behera",
-      postedAt: "2024-07-24",
       urls: [
         "https://drive.google.com/file/d/19lYngEhdcWWgF4PEE_4W4-nzzBxnpg4Z/view?usp=sharing",
       ],
@@ -110,6 +115,7 @@ const MyRoutes = () => {
       description:
         "Stay up-to-date with the latest news and trends in the world of cyber security, including recent cyber attacks, vulnerabilities, and patches.",
       img: "/resources/dpsrkpcyberx.png",
+      author: "CyberX Team",
       urls: [
         "https://drive.google.com/file/d/1fUkmDSicRRzUAl6R1rBlZXWZ1-MmsPhS/view?usp=sharing",
       ],

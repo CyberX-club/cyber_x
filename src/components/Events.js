@@ -16,6 +16,12 @@ const Events = () => (
             href: "/quiz",
             buttonLabel: "Take Challenge",
           },
+          {
+            event: "Capture the Flag Challenge",
+            date: "",
+            href: "https://hackstreet-ctf-bank-challenge.vercel.app/",
+            buttonLabel: "Attempt CTF",
+          },
         ].map((event, index) => (
           <Grid
             item
