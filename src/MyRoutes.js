@@ -53,6 +53,15 @@ const MyRoutes = () => {
   // CHECK WHAT CHANGES AI IS MAKING BEFORE IMPLEMENTING THEM!!!
   const resources = [
     {
+      label: "Investigating AI-Powered Social Engineering Attacks",
+      img: "/resources/ai.jpg",
+      description: "The rapid developments in artificial intelligence are potentially making some facets of technology better, however, it has also given rise to unprecedented opportunities for cybercriminals. This paper will discuss the recent emerging threat of artificial intelligence accelerated social engineering attack patterns as fraudsters leverage deepfake technology, voice cloning, and AI chatbots to impersonate trusted individuals and associates.",
+      author: "Numair Khan",
+      urls: [
+        "https://drive.google.com/file/d/11zmKM5fsuL93ut19Hz7NLtQ7ZnVwgcSM/view?usp=sharing",
+      ],
+    },
+    {
       label: "Unlocking the Mathematical Code Behind Cybersecurity",
       img: "/resources/math.jpg",
       description: "This paper aims to demystify the mathematical foundations of cybersecurity, making them understandable for high schoolers and educators, and highlights the urgent need for basic cybersecurity awareness in Indian classrooms.",
