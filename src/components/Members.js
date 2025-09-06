@@ -43,6 +43,7 @@ const membersData = {
   ],
   10: [
     { name: "Devansh Kumar", role: "Member", image: "Devansh Kumar 9H.jpg" },
+    { name: "Arhaan Sharma", role: "Member", image: "" },
     { name: "Aviral Goyal", role: "Ad-Hoc", image: "" },
     { name: "Esh Sinha", role: "Ad-Hoc", image: "" },
     { name: "Kiara Kapoor", role: "Ad-Hoc", image: "" },
@@ -58,6 +59,7 @@ const membersData = {
   ],
 
   7: [
+    { name: "Anureet Kaur Sandhu", role: "Member", image: "Anureet Kaur Sandhu 6-K.jpg"},
     { name: "Ranveer Kalra", role: "Member", image: "Ranveer Kalra 6d.png" },
     { name: "N Akshay Kumar", role: "Ad-Hoc", image: "Akshay7D.png" },
   ],
