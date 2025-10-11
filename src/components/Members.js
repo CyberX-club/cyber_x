@@ -13,7 +13,7 @@ const membersData = {
     { name: "Swapnil Suraj", role: "Core Member", image: "swapnil.jpg" },
     { name: "Sabeer Ranjan", role: "Member", image: "SABEER RANJAN.jpg" },
     { name: "Advaith Sai Panda", role: "Ad-Hoc", image: "advaith12H.png" },
-    {name: "Neil Saxena", role: "Ad-Hoc", image: "AbhigyanXIIC.jpg"},
+    {name: "Neil Saxena", role: "Ad-Hoc", image: "Neil.png"},
     { name: "Shesh Shiromani", role: "Ad-Hoc", image: "Shesh12G.jpg" }
   ],
 
@@ -42,7 +42,7 @@ const membersData = {
   ],
 
   8: [
-    { name: "Amartya Samajhdar", role: "Ad-Hoc", image: " " }
+    { name: "Amartya Samajhdar", role: "Ad-Hoc", image: "amartaya.png" }
   ],
 
   7: [
