@@ -23,7 +23,7 @@ const membersData = {
     { name: "Farzooque Hasan", role: "Ad-Hoc", image: "" },
     { name: "Aarya", role: "Ad-Hoc", image: "aarya11.png" },
     { name: "Elina Aggarwal", role: "Ad-Hoc", image: "Elina11.png" },
-    { name: "Naitik Singhal", role: "Ad-Hoc", image: "naitik.jpg" },
+    { name: "Naitik Singhal", role: "Ad-Hoc", image: "naitik.png" },
     { name: "Sanjit Krishna Agarwala", role: "Ad-Hoc", image: "" },
     { name: "Siddharth Srivastava", role: "Ad-Hoc", image: "" },
   ],
