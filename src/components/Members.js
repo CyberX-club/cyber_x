@@ -20,7 +20,7 @@ const membersData = {
   11: [
     { name: "Vidhan Garg", role: "Core Member", image: "Vidhan Garg 10C.png" },
     { name: "Vitabhay Garg", role: "Core Member", image: "Vitabhay Garg.jpg" },
-    { name: "Farzooque Hasan", role: "Ad-Hoc", image: "FarzooqueHasan.png" },
+    { name: "Farzooque Hasan", role: "Member", image: "FarzooqueHasan.png" },
     { name: "Aarya", role: "Ad-Hoc", image: "aarya11.png" },
     { name: "Elina Aggarwal", role: "Ad-Hoc", image: "Elina11.png" },
     { name: "Naitik Singhal", role: "Ad-Hoc", image: "naitik.png" },
