@@ -20,12 +20,12 @@ const membersData = {
   11: [
     { name: "Vidhan Garg", role: "Core Member", image: "Vidhan Garg 10C.png" },
     { name: "Vitabhay Garg", role: "Core Member", image: "Vitabhay Garg.jpg" },
-    { name: "Farzooque Hasan", role: "Ad-Hoc", image: "" },
+    { name: "Farzooque Hasan", role: "Ad-Hoc", image: "FarzooqueHasan.png" },
     { name: "Aarya", role: "Ad-Hoc", image: "aarya11.png" },
     { name: "Elina Aggarwal", role: "Ad-Hoc", image: "Elina11.png" },
     { name: "Naitik Singhal", role: "Ad-Hoc", image: "naitik.png" },
     { name: "Sanjit Krishna Agarwala", role: "Ad-Hoc", image: "" },
-    { name: "Siddharth Srivastava", role: "Ad-Hoc", image: "" },
+    { name: "Siddharth Srivastava", role: "Ad-Hoc", image: "SiddhartSrivastava.png" },
   ],
 
   10: [
