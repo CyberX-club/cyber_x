@@ -17,16 +17,17 @@ const CrypticText = ({ text, isHovered }) => {
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
 
   useEffect(() => {
+    // Reset display text whenever the target text changes
+    setDisplayText(text);
+
     if (isHovered) {
       let iteration = 0;
       const interval = setInterval(() => {
-        setDisplayText((prev) =>
-          prev
+        setDisplayText(() =>
+          text
             .split("")
             .map((char, index) => {
-              // Preserve newlines so the layout doesn't jump
               if (text[index] === "\n") return "\n";
-              
               if (index < iteration) {
                 return text[index];
               }
@@ -39,12 +40,10 @@ const CrypticText = ({ text, isHovered }) => {
           clearInterval(interval);
         }
 
-        iteration += 1 / 3;
+        iteration += 0.6;
       }, 30);
 
       return () => clearInterval(interval);
-    } else {
-      setDisplayText(text);
     }
   }, [text, isHovered]);
 

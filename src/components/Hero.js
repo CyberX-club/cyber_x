@@ -7,7 +7,7 @@ import { ExpandCircleDownRounded } from "@mui/icons-material";
 import MatrixBackground from "./MatrixBackground";
 
 const HeroSection = styled(Box)(({ theme }) => ({
-  height: "100vh",
+  minHeight: "100vh",
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
@@ -17,7 +17,6 @@ const HeroSection = styled(Box)(({ theme }) => ({
   color: theme.palette.text.primary,
   position: "relative",
   zIndex: -1,
-  overflow: "hidden",
 }));
 
 const StyledIcon = styled(ExpandCircleDownRounded)(({ theme }) => ({
@@ -67,7 +66,7 @@ const Hero = () => {
   };
 
   return (
-    <HeroSection sx={{ minHeight: { xs: "auto", md: "100vh" }, py: { xs: 6, md: 0 } }}>
+    <HeroSection sx={{ py: { xs: 10, md: 0 } }}>
       <MatrixBackground />
       <Box
         sx={{
@@ -85,7 +84,7 @@ const Hero = () => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        style={{ zIndex: 2, padding: "0 20px", width: "100%" }}
+        style={{ zIndex: 2, padding: "0 20px", width: "100%", maxWidth: "100vw" }}
       >
         <motion.div variants={itemVariants}>
           <Typography
@@ -95,17 +94,16 @@ const Hero = () => {
             sx={{
               fontFamily: "'Space Mono', monospace",
               fontWeight: 700,
-              fontSize: { xs: "2.5rem", sm: "3.5rem", md: "5rem" },
+              fontSize: { xs: "clamp(2rem, 12vw, 3.2rem)", md: "5rem" },
               letterSpacing: "-0.02em",
               textShadow: "0 0 20px rgba(57, 255, 20, 0.3)",
               whiteSpace: "pre-line",
               lineHeight: { xs: 1.1, md: 1.2 },
-              width: "100%",
               mb: { xs: 2, md: 4 },
             }}
           >
             <CrypticText 
-              text={isMobile ? "Welcome to \n CyberX" : "Welcome to CyberX"} 
+              text={isMobile ? "Welcome to\nCyberX" : "Welcome to CyberX"} 
               isHovered={true} 
             />
           </Typography>
