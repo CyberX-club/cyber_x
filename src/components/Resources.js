@@ -20,6 +20,7 @@ import {
 } from "@mui/material";
 import { LaunchSharp } from "@mui/icons-material";
 import Endpoints from "../Endpoints";
+import StarryBackground from "../StarryBackground";
 
 const Resources = ({ resources: propResources }) => {
   const [resources, setResources] = useState(propResources || []);
@@ -83,13 +84,26 @@ const Resources = ({ resources: propResources }) => {
 
   return (
     <Box
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      p={3}
-      minHeight="100vh"
-      sx={{ backgroundColor: "#000", color: "#fff" }}
+      sx={{
+        position: "relative",
+        minHeight: "100vh",
+        backgroundColor: "#000",
+        overflow: "hidden",
+      }}
     >
+      <StarryBackground showConstellations />
+      <Box
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        p={3}
+        sx={{
+          position: "relative",
+          zIndex: 1,
+          color: "#fff",
+          pt: 12,
+        }}
+      >
       <Backdrop
         sx={(theme) => ({ color: "#fff", zIndex: theme.zIndex.drawer + 1 })}
         open={loading}
@@ -322,6 +336,7 @@ const Resources = ({ resources: propResources }) => {
           </Fade>
         )}
       </Dialog>
+      </Box>
     </Box>
   );
 };

@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const StickyAlert = ({ title, content, position = "top-left" }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [isMaximized, setIsMaximized] = useState(false);
+  return null; // Temporarily disabled by user request
 
   if (!isVisible) return null;
 
@@ -18,7 +19,7 @@ const StickyAlert = ({ title, content, position = "top-left" }) => {
         return { bottom: 100, left: 40 };
       case "bottom-right":
         return { bottom: 100, right: 40 };
-      case "centre-left":
+      case "centreleft":
       case "center-left":
         return { top: "50%", left: 40, translateY: "-50%" };
       case "centre-right":
@@ -42,55 +43,57 @@ const StickyAlert = ({ title, content, position = "top-left" }) => {
             style={{
               position: "absolute",
               ...getPositionStyles(),
-              zIndex: 1000, // Higher z-index to ensure clickability
+              zIndex: 1000,
               cursor: "grab",
               touchAction: "none",
             }}
           >
             <Paper
-              elevation={0}
+              elevation={24}
               sx={{
-                width: 260,
-                backgroundColor: "rgba(30, 30, 30, 0.4)",
-                backdropFilter: "blur(12px)",
-                border: "1px solid rgba(255, 255, 255, 0.15)",
-                borderRadius: "8px",
+                width: 280,
+                backgroundColor: "rgba(255, 255, 255, 0.08)",
+                backdropFilter: "blur(16px)",
+                border: "1px solid rgba(255, 255, 255, 0.3)",
+                borderRadius: "10px",
                 overflow: "hidden",
-                transition: "background-color 0.3s ease",
+                transition: "all 0.3s ease",
+                boxShadow: "0 10px 40px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(255, 255, 255, 0.05)",
                 "&:hover": {
-                  backgroundColor: "rgba(40, 40, 40, 0.6)",
-                  borderColor: "rgba(255, 255, 255, 0.3)",
+                  backgroundColor: "rgba(255, 255, 255, 0.12)",
+                  borderColor: "rgba(255, 255, 255, 0.5)",
+                  transform: "translateY(-2px)",
                 },
               }}
             >
               {/* Header Bar */}
               <Box
                 sx={{
-                  backgroundColor: "rgba(255, 255, 255, 0.1)",
+                  backgroundColor: "rgba(255, 50, 50, 0.25)",
                   px: 1.5,
-                  py: 0.8,
+                  py: 1,
                   display: "flex",
                   justifyContent: "space-between",
                   alignItems: "center",
-                  borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
-                  pointerEvents: "auto", // Ensure clicks pass through
+                  borderBottom: "1px solid rgba(255, 255, 255, 0.2)",
                 }}
               >
                 <Typography
                   variant="caption"
                   sx={{
-                    color: "rgba(255, 255, 255, 0.9)",
+                    color: "#ff3333",
                     fontFamily: "'Space Mono', monospace",
-                    fontWeight: "bold",
+                    fontWeight: 800,
                     textTransform: "uppercase",
-                    letterSpacing: 1,
-                    fontSize: "0.7rem",
+                    letterSpacing: 1.5,
+                    fontSize: "0.8rem",
                     userSelect: "none",
+                    textShadow: "0 0 10px rgba(255, 0, 0, 0.3)",
                   }}
                 >
                   {title}
                 </Typography>
-                <Box sx={{ display: "flex", gap: 0.5 }}>
+                <Box sx={{ display: "flex", gap: 0.8 }}>
                   <IconButton
                     size="small"
                     onClick={(e) => {
@@ -98,12 +101,12 @@ const StickyAlert = ({ title, content, position = "top-left" }) => {
                       setIsMaximized(true);
                     }}
                     sx={{
-                      color: "rgba(255, 255, 255, 0.6)",
-                      p: 0.2,
-                      "&:hover": { color: "white", backgroundColor: "rgba(255, 255, 255, 0.1)" }
+                      color: "rgba(255, 255, 255, 0.7)",
+                      p: 0.3,
+                      "&:hover": { color: "white", backgroundColor: "rgba(255, 255, 255, 0.15)" }
                     }}
                   >
-                    <FullscreenIcon sx={{ fontSize: "1rem" }} />
+                    <FullscreenIcon sx={{ fontSize: "1.1rem" }} />
                   </IconButton>
                   <IconButton
                     size="small"
@@ -112,28 +115,30 @@ const StickyAlert = ({ title, content, position = "top-left" }) => {
                       setIsVisible(false);
                     }}
                     sx={{
-                      color: "rgba(255, 255, 255, 0.6)",
-                      p: 0.2,
-                      "&:hover": { color: "white", backgroundColor: "rgba(255, 255, 255, 0.1)" }
+                      color: "rgba(255, 255, 255, 0.7)",
+                      p: 0.3,
+                      "&:hover": { color: "#ff3333", backgroundColor: "rgba(255, 0, 0, 0.1)" }
                     }}
                   >
-                    <CloseIcon sx={{ fontSize: "1rem" }} />
+                    <CloseIcon sx={{ fontSize: "1.1rem" }} />
                   </IconButton>
                 </Box>
               </Box>
 
               {/* Content Area */}
-              <Box sx={{ p: 2, pointerEvents: "none" }}>
+              <Box sx={{ p: 2.5 }}>
                 <Typography
                   variant="body2"
                   sx={{
-                    color: "rgba(255, 255, 255, 0.8)",
+                    color: "#ffffff",
                     fontFamily: "'Space Mono', monospace",
-                    lineHeight: 1.5,
-                    fontSize: "0.8rem",
+                    lineHeight: 1.6,
+                    fontSize: "0.9rem",
+                    fontWeight: 500,
+                    letterSpacing: "0.02em",
                   }}
                 >
-                  {content.length > 120 ? `${content.substring(0, 120)}...` : content}
+                  {content.length > 130 ? `${content.substring(0, 130)}...` : content}
                 </Typography>
               </Box>
             </Paper>
@@ -147,25 +152,25 @@ const StickyAlert = ({ title, content, position = "top-left" }) => {
         onClose={() => setIsMaximized(false)}
         PaperProps={{
           sx: {
-            backgroundColor: "rgba(15, 15, 15, 0.9)",
-            backdropFilter: "blur(20px)",
+            backgroundColor: "rgba(20, 20, 20, 0.95)",
+            backdropFilter: "blur(24px)",
             border: "1px solid rgba(255, 255, 255, 0.2)",
             color: "white",
             fontFamily: "'Space Mono', monospace",
-            borderRadius: "12px",
-            boxShadow: "0 24px 64px rgba(0, 0, 0, 0.9)",
+            borderRadius: "16px",
+            boxShadow: "0 32px 80px rgba(0, 0, 0, 0.9)",
           },
         }}
       >
-        <DialogContent sx={{ p: 4, pt: 5 }}>
+        <DialogContent sx={{ p: 5, pt: 6 }}>
           <IconButton
             onClick={() => setIsMaximized(false)}
             sx={{
               position: "absolute",
-              top: 16,
-              right: 16,
-              color: "rgba(255, 255, 255, 0.6)",
-              "&:hover": { color: "white" }
+              top: 20,
+              right: 20,
+              color: "rgba(255, 255, 255, 0.7)",
+              "&:hover": { color: "#ff3333" }
             }}
           >
             <CloseIcon />
@@ -176,8 +181,9 @@ const StickyAlert = ({ title, content, position = "top-left" }) => {
               color: "white",
               fontFamily: "'Space Mono', monospace",
               whiteSpace: "pre-line",
-              lineHeight: 1.6,
-              fontSize: "1.05rem"
+              lineHeight: 1.7,
+              fontSize: "1.1rem",
+              fontWeight: 500,
             }}
           >
             {content}

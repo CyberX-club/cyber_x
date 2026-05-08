@@ -1,6 +1,8 @@
 import React from "react";
 import { Members, Alumni, CrypticText, Card3D } from "./PeopleBase";
 import { alumniData } from "./Alumni";
+import { Link } from "react-router-dom";
+import { Button, Box } from "@mui/material";
 
 const membersData = {
   12: [
@@ -67,11 +69,41 @@ const membersData = {
   ]
 };
 
+
+
 // Members app - exactly like the original CyberXApp
 const CyberXApp = () => {
   const orderedSections = ["12", "11", "10", "9", "8", "7", "6"];
 
-  return <Members peopleData={membersData} orderedSections={orderedSections} />;
+  return (
+    <Box sx={{ pt: 14, pb: 10 }}>
+      <Box sx={{ display: "flex", justifyContent: "center", mb: 8 }}>
+        <Button
+          component={Link}
+          to="/alumini"
+          variant="outlined"
+          size="large"
+          sx={{
+            position: "relative",
+            zIndex: 1,
+            fontFamily: "Space Mono",
+            color: "#fff",
+            borderColor: "#00ff9d",
+            px: 4,
+            py: 1.5,
+            borderRadius: 2,
+            "&:hover": {
+              borderColor: "#00b8ff",
+              backgroundColor: "rgba(0, 255, 157, 0.1)",
+            },
+          }}
+        >
+          View Alumni
+        </Button>
+      </Box>
+      <Members peopleData={membersData} orderedSections={orderedSections} />
+    </Box>
+  );
 };
 
 // (AlumniApp removed) use src/components/Alumni.js as the canonical AlumniPage

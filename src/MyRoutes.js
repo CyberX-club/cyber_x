@@ -14,6 +14,7 @@ import Magazine from "./components/Magzine";
 import Contact from "./components/Contact";
 import Event2025 from "./components/Event2025";
 import Results from "./components/Results";
+import ScrollToTop from "./components/ScrollToTop";
 
 import {
   InterviewEntry,
@@ -31,7 +32,6 @@ const navConfig = {
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Members", href: "/members" },
-    { label: "Alumni", href: "/alumini" },
     { label: "Resources", href: "/resources" },
     { label: "Events", href: "/event2025" },
     { label: "Contact", href: "/contact" },
@@ -135,6 +135,7 @@ const resources = [
 const MyRoutes = () => {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Navbar config={navConfig} />
       <Routes>
         <Route path="/" element={<App />} />

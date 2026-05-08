@@ -5,6 +5,8 @@ import CyberTimeline from "./components/CyberTimeline";
 import Events from "./components/Events";
 import { SponsorSection } from "./components/Section";
 import { Box } from "@mui/material";
+import StickyAlert from "./components/StickyAlert";
+import { useScroll, useTransform, motion } from "framer-motion";
 
 const Sections = ({ children }) => <div id="sections">{children}</div>;
 
@@ -37,8 +39,28 @@ const sponsors = [
 ];
 
 const App = () => {
+  const { scrollY } = useScroll();
+  // Hide alerts when scrolled past 80% of the viewport height
+  const opacity = useTransform(scrollY, [0, window.innerHeight * 0.8], [1, 0]);
+  const pointerEvents = useTransform(scrollY, (value) => 
+    value > window.innerHeight * 0.8 ? "none" : "auto"
+  );
+
   return (
     <>
+      <motion.div style={{ opacity, pointerEvents, position: "fixed", inset: 0, zIndex: 1000 }}>
+        <StickyAlert
+          title="System Update"
+          content="DXC'26 Registrations are now OPEN! Head over to the events page to sign up for your favorite challenges."
+          position="centreleft"
+        />
+        <StickyAlert
+          title="Security Alert"
+          content="Remember to update your passwords regularly and enable 2FA on all important accounts. Stay safe, stay secure!"
+          position="centre-right"
+        />
+      </motion.div>
+
       <Hero />
       <Box>
         <Sections>

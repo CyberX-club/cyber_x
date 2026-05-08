@@ -64,7 +64,7 @@ Judging:
   },
   {
     title: "Camistic",
-    image: "/resources/ser-bg.jpg",
+    image: "/resources/Camistic.png",
     content: `Classes: IX-XII\nMembers: 2\nTeams: 2\nMode: OFFLINE\n
 This is an offline event. Props will be provided on-site however participants are welcomed to bring their own props. Participants will be required to make a storyboard on one of the cybersecurity topics which will be given on spot. Participants must bring their own camera, laptop and other accessories they may require, such as tripod stand, SD card readers etc. The photos must be shot within the school premises.
 
@@ -94,6 +94,7 @@ const Events = () => {
           position: "relative",
           zIndex: 2,
           p: { xs: 2, sm: 4 },
+          pt: { xs: 12, sm: 15 },
           minHeight: "100vh",
         }}
       >

@@ -104,6 +104,35 @@ const Navbar = ({ config }) => {
             boxShadow: "none",
           }}
         >
+          {/* Alert Bar */}
+          <Box
+            sx={{
+              backgroundColor: "#2e3192",
+              color: "#fff",
+              py: 1.2,
+              textAlign: "center",
+              fontSize: "0.9rem",
+              fontWeight: 700,
+              fontFamily: "Space Mono",
+              letterSpacing: 1.5,
+              boxShadow: "0 2px 10px rgba(0,0,0,0.3)",
+            }}
+          >
+            DXC'26 IS LIVE!{" "}
+            <Box
+              component="span"
+              sx={{
+                cursor: "pointer",
+                textDecoration: "underline",
+                ml: 1,
+                color: "#00ff9d", // link
+                "&:hover": { color: "#fff" },
+              }}
+              onClick={() => window.open("https://docs.google.com/forms/d/e/1FAIpQLSfbi1tQRrzBkDZZ0Viy6PaHqbKGeWGvM9WjFKNgv5gtfCxhiA/viewform", "_blank")}
+            >
+              REGISTER NOW
+            </Box>
+          </Box>
           <Toolbar>
             <Box sx={{ flexGrow: 1 }}>
               <Typography

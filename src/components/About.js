@@ -3,41 +3,51 @@ import { Paper, Typography, Box, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
 import { aboutContent } from "./content";
 import aboutImage from "../sarikakaushal.png"; // Update with the correct path to your image
+import StarryBackground from "../StarryBackground";
 
 const AboutPage = () => {
   const theme = useTheme();
 
   return (
     <Box
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      minHeight="100vh"
-      sx={{ backgroundColor: theme.palette.background.default }} // Set background color
+      sx={{
+        position: "relative",
+        minHeight: "100vh",
+        overflow: "hidden",
+      }}
     >
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        whileHover={{ scale: 1.02 }}
-        style={{ width: "80vw" }} // Maintain width for the container
+      <StarryBackground showConstellations />
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        sx={{
+          position: "relative",
+          zIndex: 1,
+          py: 12, // Add vertical padding for spacing
+          px: 2,
+        }}
       >
         <Paper
-          elevation={3}
+          elevation={24}
           sx={{
-            padding: 4,
+            maxWidth: "850px",
+            width: "100%",
+            padding: { xs: 4, md: 8 },
+            backgroundColor: "rgba(10, 10, 10, 0.8)",
+            backdropFilter: "blur(10px)",
             color: "white",
-            border: "1px solid #62ff34",
-            borderRadius: 2,
-            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
+            border: "1px solid rgba(98, 255, 52, 0.3)",
+            borderRadius: 4,
+            boxShadow: "0px 10px 40px rgba(0, 0, 0, 0.5)",
             overflow: "hidden",
             display: "flex",
-            flexDirection: "column", // Stack vertically
+            flexDirection: "column",
             alignItems: "center",
           }}
           component={motion.div}
-          initial={{ rotateX: -90 }}
-          animate={{ rotateX: 0 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
           <Box
@@ -118,7 +128,7 @@ const AboutPage = () => {
             </Typography>
           </Box>
         </Paper>
-      </motion.div>
+      </Box>
     </Box>
   );
 };

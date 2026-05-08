@@ -5,7 +5,6 @@ import { styled } from "@mui/material/styles";
 import { CrypticText } from "./Members";
 import { ExpandCircleDownRounded } from "@mui/icons-material";
 import MatrixBackground from "./MatrixBackground";
-import StickyAlert from "./StickyAlert";
 
 const HeroSection = styled(Box)(({ theme }) => ({
   height: "100vh",
@@ -17,7 +16,7 @@ const HeroSection = styled(Box)(({ theme }) => ({
   background: theme.palette.background.default,
   color: theme.palette.text.primary,
   position: "relative",
-  zIndex: 0,
+  zIndex: -1,
   overflow: "hidden",
 }));
 
@@ -66,16 +65,6 @@ const Hero = () => {
 
   return (
     <HeroSection>
-      <StickyAlert
-        title="System Update"
-        content="DXC'26 Registrations are now OPEN! Head over to the events page to sign up for your favorite challenges."
-        position="centre-left"
-      />
-      <StickyAlert
-        title="Security Alert"
-        content="Remember to update your passwords regularly and enable 2FA on all important accounts. Stay safe, stay secure!"
-        position="centre-right"
-      />
       <MatrixBackground />
       <Box
         sx={{
