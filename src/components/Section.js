@@ -196,13 +196,6 @@ const SponsorSection = ({ sponsors }) => {
                     borderRadius: 2,
                     bgcolor: "rgba(255,255,255,0.03)",
                     border: "1px solid rgba(255,255,255,0.05)",
-                    transition: "all 0.3s ease",
-                    "&:hover": {
-                      bgcolor: "rgba(57, 255, 20, 0.05)",
-                      borderColor: "#39FF14",
-                      transform: "translateY(-5px)",
-                      boxShadow: "0 10px 20px rgba(57, 255, 20, 0.1)",
-                    },
                   }}
                 >
                   <Box
@@ -213,11 +206,6 @@ const SponsorSection = ({ sponsors }) => {
                       maxWidth: "100%",
                       maxHeight: "100%",
                       objectFit: "contain",
-                      filter: "grayscale(100%) brightness(200%)",
-                      transition: "all 0.3s ease",
-                      "&:hover": {
-                        filter: "grayscale(0%) brightness(100%)",
-                      },
                     }}
                   />
                 </Box>

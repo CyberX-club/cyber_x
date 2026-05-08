@@ -107,15 +107,15 @@ const Navbar = ({ config }) => {
           {/* Alert Bar */}
           <Box
             sx={{
-              backgroundColor: "#2e3192",
-              color: "#fff",
+              backgroundColor: "#FFFF00",
+              color: "#000000",
               py: 1.2,
               textAlign: "center",
               fontSize: "0.9rem",
               fontWeight: 700,
               fontFamily: "Space Mono",
               letterSpacing: 1.5,
-              boxShadow: "0 2px 10px rgba(0,0,0,0.3)",
+              boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
             }}
           >
             DXC'26 IS LIVE!{" "}
@@ -125,8 +125,8 @@ const Navbar = ({ config }) => {
                 cursor: "pointer",
                 textDecoration: "underline",
                 ml: 1,
-                color: "#00ff9d", // link
-                "&:hover": { color: "#fff" },
+                color: "#007bff", // link (blue)
+                "&:hover": { color: "#0056b3" },
               }}
               onClick={() => window.open("https://docs.google.com/forms/d/e/1FAIpQLSfbi1tQRrzBkDZZ0Viy6PaHqbKGeWGvM9WjFKNgv5gtfCxhiA/viewform", "_blank")}
             >
