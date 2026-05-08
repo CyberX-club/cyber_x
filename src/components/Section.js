@@ -109,7 +109,7 @@ const Section = ({ image, title, content, order, buttonLabel, buttonLink }) => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
       variants={containerVariants}
-      sx={{ py: { xs: 6, md: 12 }, overflow: "hidden" }}
+      sx={{ py: { xs: 4, md: 12 }, overflow: "hidden" }}
     >
       <Container maxWidth="lg">
         <Grid

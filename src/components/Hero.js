@@ -67,7 +67,7 @@ const Hero = () => {
   };
 
   return (
-    <HeroSection sx={{ height: { xs: "auto", md: "100vh" }, py: { xs: 12, md: 0 } }}>
+    <HeroSection sx={{ minHeight: { xs: "auto", md: "100vh" }, py: { xs: 6, md: 0 } }}>
       <MatrixBackground />
       <Box
         sx={{
@@ -85,7 +85,7 @@ const Hero = () => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        style={{ zIndex: 2, padding: "0 20px" }}
+        style={{ zIndex: 2, padding: "0 20px", width: "100%" }}
       >
         <motion.div variants={itemVariants}>
           <Typography
@@ -95,11 +95,13 @@ const Hero = () => {
             sx={{
               fontFamily: "'Space Mono', monospace",
               fontWeight: 700,
-              fontSize: { xs: "3.5rem", md: "5rem" },
+              fontSize: { xs: "2.5rem", sm: "3.5rem", md: "5rem" },
               letterSpacing: "-0.02em",
               textShadow: "0 0 20px rgba(57, 255, 20, 0.3)",
               whiteSpace: "pre-line",
               lineHeight: { xs: 1.1, md: 1.2 },
+              width: "100%",
+              mb: { xs: 2, md: 4 },
             }}
           >
             <CrypticText 
@@ -119,8 +121,8 @@ const Hero = () => {
               color: "rgba(255,255,255,0.7)",
               maxWidth: "800px",
               mx: "auto",
-              mb: { xs: 4, md: 6 },
-              fontSize: { xs: "1rem", md: "1.5rem" },
+              mb: { xs: 3, md: 6 },
+              fontSize: { xs: "0.95rem", md: "1.5rem" },
               letterSpacing: 1,
             }}
           >

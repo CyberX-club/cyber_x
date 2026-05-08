@@ -24,6 +24,9 @@ const CrypticText = ({ text, isHovered }) => {
           prev
             .split("")
             .map((char, index) => {
+              // Preserve newlines so the layout doesn't jump
+              if (text[index] === "\n") return "\n";
+              
               if (index < iteration) {
                 return text[index];
               }
@@ -45,7 +48,7 @@ const CrypticText = ({ text, isHovered }) => {
     }
   }, [text, isHovered]);
 
-  return <span>{displayText}</span>;
+  return <span style={{ whiteSpace: "pre-line" }}>{displayText}</span>;
 };
 
 // Card3D component (unchanged but moved to be part of PeopleBase)
