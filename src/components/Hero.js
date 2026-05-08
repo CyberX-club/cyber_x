@@ -17,7 +17,7 @@ const HeroSection = styled(Box)(({ theme }) => ({
   background: theme.palette.background.default,
   color: theme.palette.text.primary,
   position: "relative",
-  zIndex: -1,
+  zIndex: 0,
   overflow: "hidden",
 }));
 
