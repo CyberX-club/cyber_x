@@ -1,4 +1,3 @@
-{/*disabled*/}
 import React, { useState } from "react";
 import { Box, Typography, IconButton, Paper, Dialog, DialogContent } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
@@ -194,5 +193,5 @@ const StickyAlert = ({ title, content, position = "top-left" }) => {
     </>
   );
 };
-
+{/*disabled*/}
 export default StickyAlert;
