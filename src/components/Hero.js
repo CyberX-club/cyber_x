@@ -5,6 +5,7 @@ import { styled } from "@mui/material/styles";
 import { CrypticText } from "./Members";
 import { ExpandCircleDownRounded } from "@mui/icons-material";
 import MatrixBackground from "./MatrixBackground";
+import StickyAlert from "./StickyAlert";
 
 const HeroSection = styled(Box)(({ theme }) => ({
   height: "100vh",
@@ -65,19 +66,29 @@ const Hero = () => {
 
   return (
     <HeroSection>
-      <MatrixBackground />
-      <Box 
-        sx={{ 
-          position: "absolute", 
-          top: 0, 
-          left: 0, 
-          right: 0, 
-          bottom: 0, 
-          background: "radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%)",
-          zIndex: -1 
-        }} 
+      <StickyAlert
+        title="System Update"
+        content="DXC'26 Registrations are now OPEN! Head over to the events page to sign up for your favorite challenges."
+        position="centre-left"
       />
-      
+      <StickyAlert
+        title="Security Alert"
+        content="Remember to update your passwords regularly and enable 2FA on all important accounts. Stay safe, stay secure!"
+        position="centre-right"
+      />
+      <MatrixBackground />
+      <Box
+        sx={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: "radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%)",
+          zIndex: -1
+        }}
+      />
+
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -102,12 +113,12 @@ const Hero = () => {
         </motion.div>
 
         <motion.div variants={itemVariants}>
-          <Typography 
-            variant="h5" 
-            component="h2" 
+          <Typography
+            variant="h5"
+            component="h2"
             gutterBottom
-            sx={{ 
-              fontWeight: 300, 
+            sx={{
+              fontWeight: 300,
               color: "rgba(255,255,255,0.7)",
               maxWidth: "800px",
               mx: "auto",
@@ -119,15 +130,15 @@ const Hero = () => {
           </Typography>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           variants={itemVariants}
-          animate={{ 
+          animate={{
             y: [0, 10, 0],
           }}
-          transition={{ 
-            duration: 2, 
-            repeat: Infinity, 
-            ease: "easeInOut" 
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut"
           }}
         >
           <StyledIcon onClick={scrollToNext} />

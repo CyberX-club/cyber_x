@@ -1,9 +1,11 @@
 import React from "react";
-import { Box, Container, Typography, Grid } from "@mui/material";
+import { Box, Container, Typography, Grid, Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import EventCard from "./EventCard";
 
 const Events = () => {
+  const navigate = useNavigate();
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -34,13 +36,13 @@ const Events = () => {
           viewport={{ once: true, amount: 0.1 }}
           variants={containerVariants}
         >
-          <Typography 
-            variant="h3" 
-            component="h2" 
-            gutterBottom 
-            align="center" 
-            sx={{ 
-              fontWeight: 800, 
+          <Typography
+            variant="h3"
+            component="h2"
+            gutterBottom
+            align="center"
+            sx={{
+              fontWeight: 800,
               mb: 8,
               textTransform: "uppercase",
               letterSpacing: 3
@@ -62,11 +64,18 @@ const Events = () => {
                 href: "https://hackstreet-ctf-bank-challenge.vercel.app/",
                 buttonLabel: "Attempt CTF",
               },
+              {
+                event: "DXC'26",
+                date: "",
+                href: "/event2025",
+                buttonLabel: "Learn More",
+              },
             ].map((event, index) => (
               <Grid
                 item
                 xs={12}
                 sm={6}
+                md={4}
                 key={index}
                 sx={{
                   display: "flex",
@@ -82,6 +91,28 @@ const Events = () => {
               </Grid>
             ))}
           </Grid>
+          <Box sx={{ mt: 8, display: "flex", justifyContent: "center" }}>
+            <motion.div variants={itemVariants}>
+              <Button
+                variant="contained"
+                size="large"
+                onClick={() => navigate("/event2025")}
+                sx={{
+                  bgcolor: "primary.main",
+                  color: "background.default",
+                  px: 6,
+                  py: 1.5,
+                  fontSize: "1.1rem",
+                  fontWeight: 700,
+                  "&:hover": {
+                    bgcolor: "primary.dark",
+                  },
+                }}
+              >
+                View Events
+              </Button>
+            </motion.div>
+          </Box>
         </motion.div>
       </Container>
     </Box>

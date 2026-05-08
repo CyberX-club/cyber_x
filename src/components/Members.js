@@ -30,7 +30,7 @@ const membersData = {
     },
   ],
 
-  10: [
+  11: [
     {
       name: "Devansh Kumar",
       role: "Core Member",
@@ -42,7 +42,7 @@ const membersData = {
     { name: "Esh Sinha", role: "Ad-Hoc", image: "" },
   ],
 
-  11: [
+  10: [
     { name: "Aaratrika Singh", role: "Ad-Hoc", image: "" },
     { name: "Ayan Srivastava", role: "Ad-Hoc", image: "" },
   ],
@@ -61,6 +61,10 @@ const membersData = {
     { name: "Keshav Karthikeye Valluri", role: "Ad-Hoc", image: "" },
     { name: "Pranika Gupta", role: "Ad-Hoc", image: "" },
   ],
+
+  6: [
+    { name: "****", role: "Ad-Hoc", image: "" },
+  ]
 };
 
 // Members app - exactly like the original CyberXApp

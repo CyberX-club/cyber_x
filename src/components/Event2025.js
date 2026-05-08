@@ -62,6 +62,14 @@ Judging:
 • Presentation
 • Precautions`,
   },
+  {
+    title: "Camistic",
+    image: "/resources/ser-bg.jpg",
+    content: `Classes: IX-XII\nMembers: 2\nTeams: 2\nMode: OFFLINE\n
+This is an offline event. Props will be provided on-site however participants are welcomed to bring their own props. Participants will be required to make a storyboard on one of the cybersecurity topics which will be given on spot. Participants must bring their own camera, laptop and other accessories they may require, such as tripod stand, SD card readers etc. The photos must be shot within the school premises.
+
+Judgement Criteria: Creativity | Technical Skills | Clarity | Relevance to the Topic.`,
+  },
 ];
 
 const Events = () => {
@@ -95,8 +103,9 @@ const Events = () => {
           gutterBottom
           fontFamily="Space Mono"
           color="white"
+          sx={{ mb: 6 }}
         >
-          Event 2025
+          DXC'26 <strong>Events</strong>
         </Typography>
 
         <Grid container spacing={4} justifyContent="center">
@@ -152,6 +161,57 @@ const Events = () => {
           ))}
         </Grid>
 
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            mt: 8,
+            gap: 3,
+            flexWrap: "wrap",
+          }}
+        >
+          <Button
+            component={Link}
+            to="/results"
+            variant="outlined"
+            size="large"
+            sx={{
+              fontFamily: "Space Mono",
+              color: "#fff",
+              borderColor: "#00ff9d",
+              px: 4,
+              py: 1.5,
+              borderRadius: 2,
+              "&:hover": {
+                borderColor: "#00b8ff",
+                backgroundColor: "rgba(0, 255, 157, 0.1)",
+              },
+            }}
+          >
+            View Events 2025
+          </Button>
+
+          <Button
+            disabled
+            variant="contained"
+            size="large"
+            sx={{
+              fontFamily: "Space Mono",
+              fontWeight: "bold",
+              px: 4,
+              py: 1.5,
+              borderRadius: 2,
+              "&.Mui-disabled": {
+                background: "rgba(255, 255, 255, 0.1)",
+                color: "rgba(255, 255, 255, 0.3)",
+                borderColor: "rgba(255, 255, 255, 0.1)",
+              },
+            }}
+          >
+            Results awaited
+          </Button>
+        </Box>
+
         {/* Dialog with slide transition */}
         <Dialog
           open={open}
@@ -192,44 +252,7 @@ const Events = () => {
               {selectedEvent?.content}
             </Typography>
 
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                mt: 3,
-                mb: 1,
-              }}
-            >
-              <Button
-                component={Link}
-                to="/results"
-                variant="contained"
-                size="large"
-                onClick={handleClose}
-                sx={{
-                  fontFamily: "Space Mono",
-                  fontWeight: "bold",
-                  fontSize: { xs: "0.9rem", sm: "1.1rem" },
-                  py: 1.5,
-                  px: { xs: 3, sm: 5 },
-                  borderRadius: 2,
-                  background:
-                    "linear-gradient(45deg, #00ff9d 0%, #00b8ff 100%)",
-                  boxShadow: "0 5px 15px rgba(0, 255, 157, 0.3)",
-                  color: "#000",
-                  transition: "transform 0.3s, box-shadow 0.3s",
-                  "&:hover": {
-                    background:
-                      "linear-gradient(45deg, #00ff9d 30%, #00b8ff 90%)",
-                    boxShadow: "0 8px 25px rgba(0, 255, 157, 0.5)",
-                    transform: "translateY(-2px)",
-                  },
-                  textTransform: "none",
-                }}
-              >
-                View Results
-              </Button>
-            </Box>
+
           </DialogContent>
         </Dialog>
       </Box>

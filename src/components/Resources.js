@@ -104,13 +104,28 @@ const Resources = ({ resources: propResources }) => {
       >
         Resources
       </Typography>
-      <Box width="100%" maxWidth="800px">
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: {
+            xs: "1fr",
+            sm: "1fr 1fr",
+            md: "1fr 1fr 1fr",
+          },
+          gap: 4,
+          width: "100%",
+          maxWidth: "1200px",
+          paddingBottom: 4,
+        }}
+      >
         {resources &&
           resources.map((resource, index) => (
             <Grow in={true} key={index} timeout={300 + index * 100}>
               <Card
                 sx={{
-                  marginBottom: 2,
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
                   border: "1px solid #444",
                   cursor: "pointer",
                   borderRadius: 2,
@@ -129,7 +144,7 @@ const Resources = ({ resources: propResources }) => {
                     component="img"
                     image={resource.img}
                     alt={resource.label}
-                    sx={{ height: 140, objectFit: "cover" }}
+                    sx={{ height: 180, objectFit: "cover" }}
                     onError={(e) => {
                       console.error(`Failed to load image: ${resource.img}`);
                       e.target.onerror = null;
@@ -137,36 +152,48 @@ const Resources = ({ resources: propResources }) => {
                     }}
                   />
                 )}
-                <CardContent>
+                <CardContent sx={{ flexGrow: 1 }}>
                   <Typography
                     variant="h6"
                     fontWeight={700}
                     gutterBottom
-                    sx={{ color: "#0f0" }}
+                    sx={{ color: "#0f0", fontSize: "1.1rem", lineHeight: 1.2 }}
                   >
                     {resource.label}
                   </Typography>
-                  <Typography variant="body2" noWrap sx={{ color: "#ddd" }}>
-                    {resource.description}
-                  </Typography>
                   <Typography
                     variant="body2"
-                    sx={{ color: "#0f0", marginTop: 1 }}
+                    sx={{
+                      color: "#ddd",
+                      display: "-webkit-box",
+                      WebkitLineClamp: 3,
+                      WebkitBoxOrient: "vertical",
+                      overflow: "hidden",
+                    }}
                   >
-                    Author: {resource.author || "Unknown"}
+                    {resource.description}
                   </Typography>
-                  {resource.postedAt && (
+                  <Box sx={{ marginTop: "auto", pt: 2 }}>
                     <Typography variant="body2" sx={{ color: "#0f0" }}>
-                      Posted at:{" "}
-                      {new Date(resource.postedAt).toLocaleDateString()}
+                      Author: {resource.author || "Unknown"}
                     </Typography>
-                  )}
+                    {resource.postedAt && (
+                      <Typography variant="body2" sx={{ color: "#0f0" }}>
+                        Posted at:{" "}
+                        {new Date(resource.postedAt).toLocaleDateString()}
+                      </Typography>
+                    )}
+                  </Box>
                 </CardContent>
               </Card>
             </Grow>
           ))}
         {!loading && (!resources || resources.length === 0) && (
-          <Typography variant="body1" align="center" sx={{ color: "#fff" }}>
+          <Typography
+            variant="body1"
+            align="center"
+            sx={{ color: "#fff", gridColumn: "1 / -1" }}
+          >
             No resources available.
           </Typography>
         )}

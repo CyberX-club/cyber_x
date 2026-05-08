@@ -107,7 +107,7 @@ const Results = () => {
               letterSpacing: 2,
             }}
           >
-            Digex 2025 Results
+            DXC'25 Results
           </Typography>
         </motion.div>
 

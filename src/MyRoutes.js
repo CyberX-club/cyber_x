@@ -33,7 +33,7 @@ const navConfig = {
     { label: "Members", href: "/members" },
     { label: "Alumni", href: "/alumini" },
     { label: "Resources", href: "/resources" },
-    { label: "Events 2025", href: "/event2025" },
+    { label: "Events", href: "/event2025" },
     { label: "Contact", href: "/contact" },
   ],
 };
