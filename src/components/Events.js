@@ -1,11 +1,14 @@
 import React from "react";
-import { Box, Container, Typography, Grid, Button } from "@mui/material";
+import { Box, Container, Typography, Grid, Button, useMediaQuery, useTheme } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import EventCard from "./EventCard";
 
 const Events = () => {
   const navigate = useNavigate();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -28,6 +31,32 @@ const Events = () => {
     },
   };
 
+  const allEvents = [
+    {
+      event: "Cybersecurity Challenge 2025",
+      date: "",
+      href: "/quiz",
+      buttonLabel: "Take Challenge",
+    },
+    {
+      event: "Capture the Flag Challenge",
+      date: "",
+      href: "https://hackstreet-ctf-bank-challenge.vercel.app/",
+      buttonLabel: "Attempt CTF",
+    },
+    {
+      event: "DXC'26",
+      date: "",
+      href: "/event2025",
+      buttonLabel: "Learn More",
+    },
+  ];
+
+  // Reorder for mobile: DXC'26 (index 2) at the top
+  const displayedEvents = isMobile 
+    ? [allEvents[2], allEvents[0], allEvents[1]]
+    : allEvents;
+
   return (
     <Box sx={{ py: 12, bgcolor: "background.paper" }}>
       <Container>
@@ -43,7 +72,8 @@ const Events = () => {
             align="center"
             sx={{
               fontWeight: 800,
-              mb: 8,
+              mb: { xs: 4, md: 8 },
+              fontSize: { xs: "2rem", md: "3rem" },
               textTransform: "uppercase",
               letterSpacing: 3
             }}
@@ -51,26 +81,7 @@ const Events = () => {
             Upcoming Events
           </Typography>
           <Grid container spacing={6}>
-            {[
-              {
-                event: "Cybersecurity Challenge 2025",
-                date: "",
-                href: "/quiz",
-                buttonLabel: "Take Challenge",
-              },
-              {
-                event: "Capture the Flag Challenge",
-                date: "",
-                href: "https://hackstreet-ctf-bank-challenge.vercel.app/",
-                buttonLabel: "Attempt CTF",
-              },
-              {
-                event: "DXC'26",
-                date: "",
-                href: "/event2025",
-                buttonLabel: "Learn More",
-              },
-            ].map((event, index) => (
+            {displayedEvents.map((event, index) => (
               <Grid
                 item
                 xs={12}

@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, useMediaQuery, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
 import { styled } from "@mui/material/styles";
 import { CrypticText } from "./Members";
@@ -32,6 +32,9 @@ const StyledIcon = styled(ExpandCircleDownRounded)(({ theme }) => ({
 }));
 
 const Hero = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -64,7 +67,7 @@ const Hero = () => {
   };
 
   return (
-    <HeroSection>
+    <HeroSection sx={{ height: { xs: "auto", md: "100vh" }, py: { xs: 12, md: 0 } }}>
       <MatrixBackground />
       <Box
         sx={{
@@ -82,7 +85,7 @@ const Hero = () => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        style={{ zIndex: 2 }}
+        style={{ zIndex: 2, padding: "0 20px" }}
       >
         <motion.div variants={itemVariants}>
           <Typography
@@ -92,12 +95,17 @@ const Hero = () => {
             sx={{
               fontFamily: "'Space Mono', monospace",
               fontWeight: 700,
-              fontSize: { xs: "2.5rem", md: "5rem" },
+              fontSize: { xs: "3.5rem", md: "5rem" },
               letterSpacing: "-0.02em",
               textShadow: "0 0 20px rgba(57, 255, 20, 0.3)",
+              whiteSpace: "pre-line",
+              lineHeight: { xs: 1.1, md: 1.2 },
             }}
           >
-            <CrypticText text="Welcome to CyberX" isHovered={true} />
+            <CrypticText 
+              text={isMobile ? "Welcome to \n CyberX" : "Welcome to CyberX"} 
+              isHovered={true} 
+            />
           </Typography>
         </motion.div>
 
@@ -111,7 +119,8 @@ const Hero = () => {
               color: "rgba(255,255,255,0.7)",
               maxWidth: "800px",
               mx: "auto",
-              mb: 6,
+              mb: { xs: 4, md: 6 },
+              fontSize: { xs: "1rem", md: "1.5rem" },
               letterSpacing: 1,
             }}
           >
@@ -138,4 +147,5 @@ const Hero = () => {
 };
 
 export default Hero;
+
 

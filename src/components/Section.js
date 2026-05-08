@@ -73,13 +73,14 @@ const Section = ({ image, title, content, order, buttonLabel, buttonLink }) => {
   const contentGridItem = (
     <Grid item xs={12} md={6}>
       <motion.div variants={itemVariants}>
-        <TransparentPaper sx={{ opacity: 0.9, p: 4, backdropFilter: "blur(10px)" }}>
+        <TransparentPaper sx={{ opacity: 0.9, p: { xs: 3, md: 4 }, backdropFilter: "blur(10px)" }}>
           <Typography 
             variant="h3" 
             component="h2" 
             gutterBottom 
             sx={{ 
               fontWeight: 700,
+              fontSize: { xs: "2rem", md: "3rem" },
               background: "linear-gradient(90deg, #fff, #39FF14)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
@@ -87,7 +88,7 @@ const Section = ({ image, title, content, order, buttonLabel, buttonLink }) => {
           >
             {title}
           </Typography>
-          <Typography variant="body1" sx={{ fontSize: "1.1rem", lineHeight: 1.8, color: "rgba(255,255,255,0.8)" }}>
+          <Typography variant="body1" sx={{ fontSize: { xs: "1rem", md: "1.1rem" }, lineHeight: 1.8, color: "rgba(255,255,255,0.8)" }}>
             {content}
           </Typography>
           {buttonLabel && buttonLink && (
@@ -108,7 +109,7 @@ const Section = ({ image, title, content, order, buttonLabel, buttonLink }) => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
       variants={containerVariants}
-      sx={{ py: 12, overflow: "hidden" }}
+      sx={{ py: { xs: 6, md: 12 }, overflow: "hidden" }}
     >
       <Container maxWidth="lg">
         <Grid
@@ -116,6 +117,7 @@ const Section = ({ image, title, content, order, buttonLabel, buttonLink }) => {
           spacing={6}
           justifyContent="center"
           alignItems="center"
+          direction={{ xs: order === "text-first" ? "column-reverse" : "column", md: "row" }}
         >
           {order === "image-first" ? (
             <>
@@ -165,9 +167,9 @@ const SponsorSection = ({ sponsors }) => {
       variants={containerVariants}
       sx={{ py: 8, bgcolor: "rgba(0,0,0,0.3)" }}
     >
-      <Container maxWidth={false} sx={{ width: "80%" }}>
+      <Container maxWidth={false} sx={{ width: { xs: "90%", md: "80%" } }}>
         <Box sx={{ mb: 6, textAlign: "center" }}>
-          <Typography variant="h4" component="h2" sx={{ fontWeight: 800, letterSpacing: 2 }}>
+          <Typography variant="h4" component="h2" sx={{ fontWeight: 800, letterSpacing: 2, fontSize: { xs: "1.75rem", md: "2.125rem" } }}>
             OUR SPONSORS
           </Typography>
           <Box sx={{ width: 60, height: 4, bgcolor: "#39FF14", mx: "auto", mt: 2 }} />
@@ -175,12 +177,12 @@ const SponsorSection = ({ sponsors }) => {
 
         <Grid
           container
-          spacing={4}
+          spacing={{ xs: 2, md: 4 }}
           justifyContent="center"
           alignItems="center"
         >
           {sponsors.map((sponsor) => (
-            <Grid item xs={6} sm={4} md={2.4} key={sponsor.name}>
+            <Grid item xs={6} sm={6} md={2.4} key={sponsor.name}>
               <motion.div variants={itemVariants}>
                 <Box
                   component="a"
@@ -191,11 +193,22 @@ const SponsorSection = ({ sponsors }) => {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    height: 100,
-                    p: 2,
+                    height: { xs: 120, md: 100 },
+                    p: { xs: 1, md: 2 },
                     borderRadius: 2,
                     bgcolor: "rgba(255,255,255,0.03)",
                     border: "1px solid rgba(255,255,255,0.05)",
+                    transition: "all 0.4s ease",
+                    "&:hover": {
+                      bgcolor: "rgba(255,255,255,0.07)",
+                      transform: "translateY(-5px)",
+                      boxShadow: "0 10px 20px rgba(0,0,0,0.3)",
+                      "& img": {
+                        filter: {
+                          md: "grayscale(0) brightness(1)",
+                        }
+                      }
+                    }
                   }}
                 >
                   <Box
@@ -206,6 +219,14 @@ const SponsorSection = ({ sponsors }) => {
                       maxWidth: "100%",
                       maxHeight: "100%",
                       objectFit: "contain",
+                      transition: "filter 0.4s ease",
+                      filter: {
+                        xs: "none",
+                        md: "grayscale(1) brightness(0.8)",
+                      },
+                      "@media (hover: none)": {
+                        filter: "none",
+                      },
                     }}
                   />
                 </Box>
@@ -217,6 +238,7 @@ const SponsorSection = ({ sponsors }) => {
     </Box>
   );
 };
+
 
 export { SponsorSection };
 export default Section;

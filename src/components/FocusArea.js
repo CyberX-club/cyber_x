@@ -121,7 +121,7 @@ const FocusArea = () => {
             />
           </>
         )}
-        <Timeline position="alternate">
+        <Timeline position={isSmallScreen ? "right" : "alternate"}>
           {focusAreas.map((area, index) => (
             <TimelineItem key={index}>
               <TimelineSeparator>
@@ -144,9 +144,9 @@ const FocusArea = () => {
               </TimelineSeparator>
               <TimelineContent sx={{ py: 4, px: 2 }}>
                 <motion.div
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50, filter: "blur(5px)" }}
+                  initial={{ opacity: 0, x: isSmallScreen ? 30 : (index % 2 === 0 ? -50 : 50), filter: "blur(5px)" }}
                   animate={
-                    isInView ? { opacity: 1, x: 0, filter: "blur(0px)" } : { opacity: 0, x: index % 2 === 0 ? -50 : 50, filter: "blur(5px)" }
+                    isInView ? { opacity: 1, x: 0, filter: "blur(0px)" } : { opacity: 0, x: isSmallScreen ? 30 : (index % 2 === 0 ? -50 : 50), filter: "blur(5px)" }
                   }
                   transition={{ duration: 0.8, delay: index * 0.2 + 0.3 }}
                 >
@@ -158,6 +158,7 @@ const FocusArea = () => {
                       cursor: "pointer",
                       textTransform: "uppercase",
                       letterSpacing: 1,
+                      textAlign: isSmallScreen ? "left" : "inherit",
                       transition: "all 0.3s ease",
                       "&:hover": { 
                         textShadow: "0 0 15px #39FF14",
