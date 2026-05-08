@@ -1,3 +1,4 @@
+{/*disabled*/}
 import React, { useState } from "react";
 import { Box, Typography, IconButton, Paper, Dialog, DialogContent } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";

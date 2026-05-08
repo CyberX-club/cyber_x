@@ -106,6 +106,7 @@ const Navbar = ({ config }) => {
             boxShadow: "none",
           }}
         >
+          
           {/* Alert Bar */}
           {showAlert && (
             <Box
