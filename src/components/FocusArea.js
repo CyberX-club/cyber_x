@@ -58,7 +58,7 @@ const FocusArea = () => {
   const isInView = useInView(containerRef, { once: true, amount: 0.1 });
 
   const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobileOrTablet = useMediaQuery(theme.breakpoints.down("md"));
 
   const handleClickOpen = (area) => {
     setSelectedArea(area);
@@ -70,24 +70,40 @@ const FocusArea = () => {
   };
 
   return (
-    <TransparentPaper sx={{ width: "100%", p: 4 }}>
+    <TransparentPaper sx={{ width: "100%", p: { xs: 2, sm: 3, md: 4 }, bgcolor: "transparent", boxShadow: "none" }}>
       <Box
         sx={{
           width: "100%",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          mb: 4
         }}
       >
-        <Typography variant="h4" gutterBottom component="div">
+        <Typography 
+          variant="h3" 
+          gutterBottom 
+          component="div"
+          sx={{
+            fontWeight: 800,
+            fontSize: { xs: "2.5rem", sm: "3rem", md: "3.5rem" },
+            textAlign: "center",
+            textTransform: "uppercase",
+            letterSpacing: 2,
+            background: "linear-gradient(90deg, #fff, #39FF14)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            filter: "drop-shadow(0 0 10px rgba(57, 255, 20, 0.3))"
+          }}
+        >
           Our Focus Areas
         </Typography>
       </Box>
       <Box
         ref={containerRef}
-        sx={{ textAlign: "center", color: "#fff", py: 8, position: "relative" }}
+        sx={{ textAlign: "center", color: "#fff", py: { xs: 4, md: 8 }, position: "relative" }}
       >
-        {!isSmallScreen && (
+        {!isMobileOrTablet && (
           <>
             <motion.div
               initial={{ height: 0 }}
@@ -121,7 +137,7 @@ const FocusArea = () => {
             />
           </>
         )}
-        <Timeline position={isSmallScreen ? "right" : "alternate"}>
+        <Timeline position={isMobileOrTablet ? "right" : "alternate"}>
           {focusAreas.map((area, index) => (
             <TimelineItem key={index}>
               <TimelineSeparator>
@@ -142,11 +158,11 @@ const FocusArea = () => {
                   <TimelineConnector sx={{ bgcolor: "rgba(57, 255, 20, 0.2)" }} />
                 )}
               </TimelineSeparator>
-              <TimelineContent sx={{ py: 4, px: 2 }}>
+              <TimelineContent sx={{ py: { xs: 2, md: 4 }, px: 2 }}>
                 <motion.div
-                  initial={{ opacity: 0, x: isSmallScreen ? 30 : (index % 2 === 0 ? -50 : 50), filter: "blur(5px)" }}
+                  initial={{ opacity: 0, x: isMobileOrTablet ? 30 : (index % 2 === 0 ? -50 : 50), filter: "blur(5px)" }}
                   animate={
-                    isInView ? { opacity: 1, x: 0, filter: "blur(0px)" } : { opacity: 0, x: isSmallScreen ? 30 : (index % 2 === 0 ? -50 : 50), filter: "blur(5px)" }
+                    isInView ? { opacity: 1, x: 0, filter: "blur(0px)" } : { opacity: 0, x: isMobileOrTablet ? 30 : (index % 2 === 0 ? -50 : 50), filter: "blur(5px)" }
                   }
                   transition={{ duration: 0.8, delay: index * 0.2 + 0.3 }}
                 >
@@ -158,7 +174,8 @@ const FocusArea = () => {
                       cursor: "pointer",
                       textTransform: "uppercase",
                       letterSpacing: 1,
-                      textAlign: isSmallScreen ? "left" : "inherit",
+                      textAlign: isMobileOrTablet ? "left" : "inherit",
+                      fontSize: { xs: "1.1rem", sm: "1.3rem", md: "1.5rem" },
                       transition: "all 0.3s ease",
                       "&:hover": { 
                         textShadow: "0 0 15px #39FF14",
