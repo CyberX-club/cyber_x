@@ -86,10 +86,6 @@ const Results = () => {
     THIRD: "#cd7f32",
   };
 
-  const handleRowClick = (link) => {
-    window.open(link, "_blank");
-  };
-
   return (
     <Box sx={{ position: "relative", overflow: "hidden", minHeight: "100vh" }}>
       <MatrixBackground />
@@ -203,11 +199,9 @@ const Results = () => {
                   {event.winners.map((winner, i) => (
                     <TableRow
                       key={i}
-                      onClick={() => handleRowClick(winner.driveLink)}
                       sx={{
                         "&:hover": {
                           backgroundColor: `${event.color}30`,
-                          cursor: "pointer",
                         },
                         transition: "background-color 0.2s",
                         borderBottom:

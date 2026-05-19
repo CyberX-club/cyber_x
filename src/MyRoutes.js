@@ -16,22 +16,22 @@ import Event2025 from "./components/Event2025";
 import Results from "./components/Results";
 import ScrollToTop from "./components/ScrollToTop";
 
+import { InterviewEntry } from "./InterviewEntry.js";
 import {
-  InterviewEntry,
-  GeneralEntry,
-  PrincipalInterview_volume2,
-  VPInterview_NM_volume2,
-  VPInterview_AK_volume2,
-  VPInterview_MK_volume2,
-  InchargeMessage_volume2,
-} from "./InterviewEntry.js";
+  PrincipalInterviewPage,
+  MukeshKumarInterviewPage,
+  AnilKathuriaInterviewPage,
+  NareshMiglaniInterviewPage,
+  SarikaKaushalInterviewPage,
+  RashmiMalhotraInterviewPage,
+  ShaliniHarisukhInterviewPage,
+} from "./interviewData";
 
 const navConfig = {
   title: "CyberX",
   menuItems: [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
-    { label: "Principal's Message", href: "/principals-message" },
     { label: "Members", href: "/members" },
     { label: "Resources", href: "/resources" },
     { label: "Events", href: "/event2025" },
@@ -153,24 +153,32 @@ const MyRoutes = () => {
         <Route path="/results" element={<Results />} />
         <Route path="/magazine-2024/:slug" element={<Magazine />} />
         <Route
-          path="/principals-message"
-          element={<InterviewEntry {...PrincipalInterview_volume2} />}
+          path="/interviews/principal"
+          element={<InterviewEntry {...PrincipalInterviewPage} />}
         />
         <Route
-          path="/vprincipal-nm-message"
-          element={<InterviewEntry {...VPInterview_NM_volume2} />}
+          path="/interviews/mukesh-kumar"
+          element={<InterviewEntry {...MukeshKumarInterviewPage} />}
         />
         <Route
-          path="/vprincipal-ak-message"
-          element={<InterviewEntry {...VPInterview_AK_volume2} />}
+          path="/interviews/anil-kathuria"
+          element={<InterviewEntry {...AnilKathuriaInterviewPage} />}
         />
         <Route
-          path="/vprincipal-mk-message"
-          element={<InterviewEntry {...VPInterview_MK_volume2} />}
+          path="/interviews/naresh-miglani"
+          element={<InterviewEntry {...NareshMiglaniInterviewPage} />}
         />
         <Route
-          path="/incharge-message"
-          element={<GeneralEntry {...InchargeMessage_volume2} />}
+          path="/interviews/sarika-kaushal"
+          element={<InterviewEntry {...SarikaKaushalInterviewPage} />}
+        />
+        <Route
+          path="/interviews/rashmi-malhotra"
+          element={<InterviewEntry {...RashmiMalhotraInterviewPage} />}
+        />
+        <Route
+          path="/interviews/shalini-harisukh"
+          element={<InterviewEntry {...ShaliniHarisukhInterviewPage} />}
         />
       </Routes>
       <Footer email={email} socialMedia={socialMedia} />
