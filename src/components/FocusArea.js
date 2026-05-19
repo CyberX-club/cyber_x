@@ -19,6 +19,7 @@ import {
   TimelineConnector,
   TimelineContent,
   TimelineDot,
+  TimelineOppositeContent,
 } from "@mui/lab";
 import { TransparentPaper } from "./StyledComponents";
 
@@ -58,7 +59,7 @@ const FocusArea = () => {
   const isInView = useInView(containerRef, { once: true, amount: 0.1 });
 
   const theme = useTheme();
-  const isMobileOrTablet = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const handleClickOpen = (area) => {
     setSelectedArea(area);
@@ -69,45 +70,72 @@ const FocusArea = () => {
     setOpenDialog(false);
   };
 
+  const LabelText = ({ area, index, side }) => (
+    <motion.div
+      initial={{
+        opacity: 0,
+        x: isMobile ? 20 : side === "left" ? -50 : 50,
+        filter: "blur(5px)",
+      }}
+      animate={
+        isInView
+          ? { opacity: 1, x: 0, filter: "blur(0px)" }
+          : {
+              opacity: 0,
+              x: isMobile ? 20 : side === "left" ? -50 : 50,
+              filter: "blur(5px)",
+            }
+      }
+      transition={{ duration: 0.8, delay: index * 0.2 + 0.3 }}
+    >
+      <Typography
+        variant={isMobile ? "h6" : "h5"}
+        sx={{
+          color: "#39FF14",
+          fontWeight: 800,
+          cursor: "pointer",
+          textTransform: "uppercase",
+          letterSpacing: 1,
+          lineHeight: 1.2,
+          transition: "all 0.3s ease",
+          "&:hover": {
+            textShadow: "0 0 15px #39FF14",
+            transform: "scale(1.05)",
+          },
+        }}
+        onClick={() => handleClickOpen(area)}
+      >
+        {area.name}
+      </Typography>
+    </motion.div>
+  );
+
   return (
-    <TransparentPaper sx={{ width: "100%", p: { xs: 2, sm: 3, md: 4 }, bgcolor: "transparent", boxShadow: "none" }}>
+    <TransparentPaper sx={{ width: "100%", p: isMobile ? 2 : 4 }}>
       <Box
         sx={{
           width: "100%",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          mb: 4
         }}
       >
-        <Typography 
-          variant="h3" 
-          gutterBottom 
-          component="div"
-          sx={{
-            fontWeight: 800,
-            fontSize: { xs: "2.5rem", sm: "3rem", md: "3.5rem" },
-            textAlign: "center",
-            textTransform: "uppercase",
-            letterSpacing: 2,
-            background: "linear-gradient(90deg, #fff, #39FF14)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            filter: "drop-shadow(0 0 10px rgba(57, 255, 20, 0.3))"
-          }}
-        >
+        <Typography variant="h4" gutterBottom component="div">
           Our Focus Areas
         </Typography>
       </Box>
+
       <Box
         ref={containerRef}
-        sx={{ textAlign: "center", color: "#fff", py: { xs: 4, md: 8 }, position: "relative" }}
+        sx={{ textAlign: "center", color: "#fff", py: 8, position: "relative" }}
       >
-        {!isMobileOrTablet && (
+        {!isMobile && (
           <>
             <motion.div
               initial={{ height: 0 }}
-              animate={isInView ? { height: "calc(100% - 100px)" } : { height: 0 }}
+              animate={
+                isInView ? { height: "calc(100% - 100px)" } : { height: 0 }
+              }
               transition={{ duration: 1.5, ease: [0.45, 0, 0.55, 1] }}
               style={{
                 position: "absolute",
@@ -121,7 +149,11 @@ const FocusArea = () => {
             />
             <motion.div
               initial={{ top: "60px", opacity: 0 }}
-              animate={isInView ? { top: "calc(100% - 40px)", opacity: 1 } : { top: "60px", opacity: 0 }}
+              animate={
+                isInView
+                  ? { top: "calc(100% - 40px)", opacity: 1 }
+                  : { top: "60px", opacity: 0 }
+              }
               transition={{ duration: 1.5, ease: [0.45, 0, 0.55, 1] }}
               style={{
                 position: "absolute",
@@ -137,61 +169,138 @@ const FocusArea = () => {
             />
           </>
         )}
-        <Timeline position={isMobileOrTablet ? "right" : "alternate"}>
-          {focusAreas.map((area, index) => (
-            <TimelineItem key={index}>
-              <TimelineSeparator>
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={isInView ? { scale: 1 } : { scale: 0 }}
-                  transition={{ delay: index * 0.2 + 0.5, type: "spring", stiffness: 260, damping: 20 }}
-                >
-                  <TimelineDot 
-                    sx={{ 
-                      bgcolor: "#39FF14", 
-                      boxShadow: "0 0 10px #39FF14",
-                      m: 1 
-                    }} 
-                  />
-                </motion.div>
-                {index < focusAreas.length - 1 && (
-                  <TimelineConnector sx={{ bgcolor: "rgba(57, 255, 20, 0.2)" }} />
-                )}
-              </TimelineSeparator>
-              <TimelineContent sx={{ py: { xs: 2, md: 4 }, px: 2 }}>
-                <motion.div
-                  initial={{ opacity: 0, x: isMobileOrTablet ? 30 : (index % 2 === 0 ? -50 : 50), filter: "blur(5px)" }}
-                  animate={
-                    isInView ? { opacity: 1, x: 0, filter: "blur(0px)" } : { opacity: 0, x: isMobileOrTablet ? 30 : (index % 2 === 0 ? -50 : 50), filter: "blur(5px)" }
-                  }
-                  transition={{ duration: 0.8, delay: index * 0.2 + 0.3 }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{
-                      color: "#39FF14",
-                      fontWeight: 800,
-                      cursor: "pointer",
-                      textTransform: "uppercase",
-                      letterSpacing: 1,
-                      textAlign: isMobileOrTablet ? "left" : "inherit",
-                      fontSize: { xs: "1.1rem", sm: "1.3rem", md: "1.5rem" },
-                      transition: "all 0.3s ease",
-                      "&:hover": { 
-                        textShadow: "0 0 15px #39FF14",
-                        transform: "scale(1.05)"
-                      },
+
+        {/* ── MOBILE TIMELINE ── */}
+        {isMobile ? (
+          <Timeline
+            position="right"
+            sx={{
+              p: 0,
+              m: 0,
+              // Remove the MUI default left padding that causes staggered dots
+              "& .MuiTimelineItem-root": {
+                "&::before": { display: "none" }, // kill the ghost opposite-content spacer
+                alignItems: "center",
+              },
+            }}
+          >
+            {focusAreas.map((area, index) => (
+              <TimelineItem key={index}>
+                <TimelineSeparator>
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={isInView ? { scale: 1 } : { scale: 0 }}
+                    transition={{
+                      delay: index * 0.2 + 0.5,
+                      type: "spring",
+                      stiffness: 260,
+                      damping: 20,
                     }}
-                    onClick={() => handleClickOpen(area)}
                   >
-                    {area.name}
-                  </Typography>
-                </motion.div>
-              </TimelineContent>
-            </TimelineItem>
-          ))}
-        </Timeline>
+                    <TimelineDot
+                      sx={{
+                        bgcolor: "#39FF14",
+                        boxShadow: "0 0 10px #39FF14",
+                        m: 0,
+                      }}
+                    />
+                  </motion.div>
+                  {index < focusAreas.length - 1 && (
+                    <TimelineConnector
+                      sx={{ bgcolor: "rgba(57, 255, 20, 0.2)" }}
+                    />
+                  )}
+                </TimelineSeparator>
+                <TimelineContent
+                  sx={{
+                    py: 1,
+                    px: 2,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "flex-start",
+                    textAlign: "left",
+                  }}
+                >
+                  <LabelText area={area} index={index} side="right" />
+                </TimelineContent>
+              </TimelineItem>
+            ))}
+          </Timeline>
+        ) : (
+          /* ── DESKTOP / TABLET TIMELINE ── */
+          <Timeline position="right">
+            {focusAreas.map((area, index) => {
+              const isLeftLabel = index % 2 !== 0;
+
+              return (
+                <TimelineItem key={index} sx={{ alignItems: "center" }}>
+                  {/* LEFT SIDE */}
+                  <TimelineOppositeContent
+                    sx={{
+                      flex: 1,
+                      py: 1,
+                      px: 2,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "flex-end",
+                      visibility: isLeftLabel ? "visible" : "hidden",
+                    }}
+                  >
+                    {isLeftLabel && (
+                      <LabelText area={area} index={index} side="left" />
+                    )}
+                  </TimelineOppositeContent>
+
+                  {/* CENTER DOT */}
+                  <TimelineSeparator>
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      animate={isInView ? { scale: 1 } : { scale: 0 }}
+                      transition={{
+                        delay: index * 0.2 + 0.5,
+                        type: "spring",
+                        stiffness: 260,
+                        damping: 20,
+                      }}
+                    >
+                      <TimelineDot
+                        sx={{
+                          bgcolor: "#39FF14",
+                          boxShadow: "0 0 10px #39FF14",
+                          m: 0,
+                        }}
+                      />
+                    </motion.div>
+                    {index < focusAreas.length - 1 && (
+                      <TimelineConnector
+                        sx={{ bgcolor: "rgba(57, 255, 20, 0.2)" }}
+                      />
+                    )}
+                  </TimelineSeparator>
+
+                  {/* RIGHT SIDE */}
+                  <TimelineContent
+                    sx={{
+                      flex: 1,
+                      py: 1,
+                      px: 2,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "flex-start",
+                      visibility: isLeftLabel ? "hidden" : "visible",
+                    }}
+                  >
+                    {!isLeftLabel && (
+                      <LabelText area={area} index={index} side="right" />
+                    )}
+                  </TimelineContent>
+                </TimelineItem>
+              );
+            })}
+          </Timeline>
+        )}
       </Box>
+
       <Dialog
         open={openDialog}
         onClose={handleClose}

@@ -12,7 +12,7 @@ const alumniData = {
     { name: "Numair Khan", role: "Core Member", image: "Numair.jpeg" },
     { name: "Swapnil Suraj", role: "Core Member", image: "swapnil.jpg" },
     { name: "Sabeer Ranjan", role: "Member", image: "SABEER RANJAN.jpg" },
-    { name: "Neil Saxena", role: "Ad-Hoc", image: "Neil.png" }
+    {name: "Neil Saxena", role: "Member", image: "Neil.png"}
   ],
   "2024-25": [
     { name: "Atharva Singh", role: "Director", image: "ATHARVA SINGH.jpeg" },
@@ -34,13 +34,13 @@ const alumniData = {
       image: "Swastika Dubey12 F.jpg",
     },
     { name: "Vrinda Aggarwal", role: "Treasurer", image: "Vrinda.jpg" },
-    { name: "Tanush Jayara", role: "Member", image: "Tanush Jayara 12 E.png" },
+    { name: "Tanush Jayara", role: "Core Member", image: "Tanush Jayara 12 E.png" },
     {
       name: "Aaahana Mehrotra",
-      role: "Member",
+      role: "Core Member",
       image: "Aaahana Mehrotra.jpg",
     },
-    { name: "Vishisht", role: "Member", image: "Vishisht  12L .JPG" },
+    { name: "Vishisht", role: "Core Member", image: "Vishisht  12L .JPG" },
   ],
 };
 

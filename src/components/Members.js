@@ -22,14 +22,7 @@ const membersData = {
       image: "FarzooqueHasan.png",
     },
     { name: "Naitik Singhal", role: "Core Member", image: "naitik.png" },
-    { name: "Aarya", role: "Ad-Hoc", image: "aarya11.png" },
-    { name: "Elina Aggarwal", role: "Ad-Hoc", image: "Elina11.png" },
-    { name: "Sanjit Krishna Agarwala", role: "Ad-Hoc", image: "" },
-    {
-      name: "Siddharth Srivastava",
-      role: "Ad-Hoc",
-      image: "SiddhartSrivastava.png",
-    },
+    { name: "Aarya", role: "Member", image: "aarya11.png" },
   ],
 
   11: [
@@ -40,32 +33,30 @@ const membersData = {
     },
     { name: "Arhaan Sharma", role: "Member", image: "" },
     { name: "Kiara Kapoor", role: "Member", image: "" },
-    { name: "Aviral Goyal", role: "Ad-Hoc", image: "" },
-    { name: "Esh Sinha", role: "Ad-Hoc", image: "" },
+    { name: "Aviral Goyal", role: "Member", image: "" },
   ],
 
   10: [
-    { name: "Aaratrika Singh", role: "Ad-Hoc", image: "" },
-    { name: "Ayan Srivastava", role: "Ad-Hoc", image: "" },
+    { name: "Agastaya", role: "Core Member", image: "" },
+    { name: "Aaratrika Singh", role: "Member", image: "" },
   ],
 
   9: [
-    { name: "Amartya Samajhdar", role: "Ad-Hoc", image: "amartaya.png" },
+    { name: "Amartya Samajhdar", role: "Member", image: "amartaya.png" },
   ],
 
   8: [
     { name: "Ranveer Kalra", role: "Member", image: "RanveerKalraUpd.png" },
-    { name: "N Akshay Kumar", role: "Ad-Hoc", image: "Akshay7D.png" },
+    { name: "N Akshay Kumar", role: "Member", image: "Akshay7D.png" },
   ],
 
   7: [
-    { name: "Aarav", role: "Ad-Hoc", image: "" },
-    { name: "Keshav Karthikeye Valluri", role: "Ad-Hoc", image: "" },
-    { name: "Pranika Gupta", role: "Ad-Hoc", image: "" },
+    { name: "Keshav Karthikeye Valluri", role: "Member", image: "" },
+    { name: "Pranika Gupta", role: "Member", image: "" },
   ],
 
   6: [
-    { name: "****", role: "Ad-Hoc", image: "" },
+    { name: "****", role: "Member", image: "" },
   ]
 };
 

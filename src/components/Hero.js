@@ -105,6 +105,7 @@ const Hero = () => {
             <CrypticText 
               text={isMobile ? "Welcome to\nCyberX" : "Welcome to CyberX"} 
               isHovered={true} 
+              speedMultiplier={1.8}
             />
           </Typography>
         </motion.div>

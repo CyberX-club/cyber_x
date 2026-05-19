@@ -11,7 +11,7 @@ import {
 import StarryBackground from "../StarryBackground";
 
 // CrypticText component (unchanged from original)
-const CrypticText = ({ text, isHovered }) => {
+const CrypticText = ({ text, isHovered, speedMultiplier = 1 }) => {
   const [displayText, setDisplayText] = useState(text);
   const characters =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
@@ -41,11 +41,11 @@ const CrypticText = ({ text, isHovered }) => {
         }
 
         iteration += 0.6;
-      }, 30);
+      }, 30 * speedMultiplier);
 
       return () => clearInterval(interval);
     }
-  }, [text, isHovered]);
+  }, [text, isHovered, speedMultiplier]);
 
   return <span style={{ whiteSpace: "pre-line" }}>{displayText}</span>;
 };

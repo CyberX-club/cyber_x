@@ -12,9 +12,9 @@ const Sections = ({ children }) => <div id="sections">{children}</div>;
 
 const sponsors = [
   {
-    name: "Manav Rachna",
-    image: "/ManavRachna.png",
-    link: "https://manavrachna.edu.in/",
+    name: "Canon",
+    image: "/CANON RED Ratio 1_1 (WITH DYA)_CMYK.jpg",
+    link: "https://in.canon/en/consumer/",
   },
   {
     name: "Pebble India",
@@ -27,9 +27,9 @@ const sponsors = [
     link: "https://www.facebook.com/people/Malhotra-Color-Lab/100063600862644/",
   },
   {
-    name: "Express Builders",
-    image: "/ExpressBuilders.png",
-    link: "https://expressbuildersltd.com/",
+    name: ".XYZ Domains",
+    image: "/xyz.png",
+    link: "https://gen.xyz/",
   },
   {
     name: "Smiling Tree",

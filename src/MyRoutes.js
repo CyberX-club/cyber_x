@@ -31,6 +31,7 @@ const navConfig = {
   menuItems: [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
+    { label: "Principal's Message", href: "/principals-message" },
     { label: "Members", href: "/members" },
     { label: "Resources", href: "/resources" },
     { label: "Events", href: "/event2025" },

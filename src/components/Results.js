@@ -192,6 +192,7 @@ const Results = () => {
                         borderBottom: `2px solid ${event.color}`,
                         py: 2,
                         width: "10%",
+                        display: "none",
                       }}
                     >
                       Files
@@ -257,6 +258,7 @@ const Results = () => {
                           py: 3,
                           borderBottom: "none",
                           textAlign: "center",
+                          display: "none",
                         }}
                       >
                         <OpenInNewIcon
