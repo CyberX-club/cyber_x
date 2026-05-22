@@ -2,7 +2,7 @@ import React from "react";
 import Hero from "./components/Hero";
 import Section from "./components/Section";
 import CyberTimeline from "./components/CyberTimeline";
-import Events from "./components/Events";
+import EventHome from "./components/EventHome";
 import { SponsorSection } from "./components/Section";
 import { Box } from "@mui/material";
 import StickyAlert from "./components/StickyAlert";
@@ -65,7 +65,7 @@ const App = () => {
       <Box>
         <Sections>
           <Section
-            image="/laptopvitabhay.png"
+            image="/CybeX2027.jpg"
             title="About Us"
             content="CyberX, the Cyber Security Club of Delhi Public School R.K. Puram, was established in 2023 to equip students with essential skills in cybersecurity and ethical hacking. Our mission is to create a tech-savvy community prepared to tackle the challenges of the digital world."
             order="image-first"
@@ -81,7 +81,7 @@ const App = () => {
           <CyberTimeline />
           <SponsorSection sponsors={sponsors} />
         </Sections>
-        <Events />
+        <EventHome />
       </Box>
     </>
   );

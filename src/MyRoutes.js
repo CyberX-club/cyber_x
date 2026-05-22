@@ -12,7 +12,7 @@ import About from "./components/About";
 import Resources from "./components/Resources";
 import Magazine from "./components/Magzine";
 import Contact from "./components/Contact";
-import Event2025 from "./components/Event2025";
+import Events from "./components/Events";
 import Results from "./components/Results";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -34,7 +34,7 @@ const navConfig = {
     { label: "About", href: "/about" },
     { label: "Members", href: "/members" },
     { label: "Resources", href: "/resources" },
-    { label: "Events", href: "/event2025" },
+    { label: "Events", href: "/events" },
     { label: "Contact", href: "/contact" },
   ],
 };
@@ -149,7 +149,7 @@ const MyRoutes = () => {
           element={<Resources resources={resources} />}
         />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/event2025" element={<Event2025 />} />
+        <Route path="/events" element={<Events />} />
         <Route path="/results" element={<Results />} />
         <Route path="/magazine-2024/:slug" element={<Magazine />} />
         <Route
