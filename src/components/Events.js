@@ -27,7 +27,7 @@ const events = [
   {
     title: "ReconX",
     image: "/resources/reconx.jpeg",
-    content: `Event 5\nClasses: IX-XII\nTeam Size: 2 Members\nTeams per School: 1\nVenue: CS Lab-5\n
+    content: `Classes: IX-XII\nTeam Size: 2 Members\nTeams per School: 2\nVenue: CS Lab-5\nMode: OFFLINE\n
 Participants will investigate publicly available information and create a report.
 
 Include: Findings | Footprint Analysis | 5 Privacy Tips
@@ -41,7 +41,7 @@ Judging: Accuracy | Depth | Presentation | Recommendations`,
   {
     title: "Phishing Phantom",
     image: "/resources/phishingphantom.jpeg",
-    content: `Event 4\nClasses: IX-XII\nTeam Size: 2 Members\nTeams per School: 1\nVenue: CS Lab-4\n
+    content: `Classes: IX-XII\nTeam Size: 2 Members\nTeams per School: 2\nVenue: CS Lab-4\nMode: OFFLINE\n
 Participants identify phishing communications and present analysis.
 
 Include: Fake ID & Reasoning  | Tactics Used  | 5 Prevention Tips
