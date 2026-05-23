@@ -46,7 +46,7 @@ const Events = () => {
     },
     {
       event: "DXC'26",
-      date: "",
+      date: "23-05-2026",
       href: "/events",
       buttonLabel: "Learn More",
     },

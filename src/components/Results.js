@@ -17,29 +17,44 @@ import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 const Results = () => {
   const results = [
     {
+      eventName: "Camistic",
+      color: "#ff7f50",
+      winners: [
+        {
+          position: "FIRST",
+          school: "DELHI PUBLIC SCHOOL SUSHANT LOK",
+          participants: "SAANVI GUPTA, AARAV MAHENDRU",
+        },
+        {
+          position: "SECOND",
+          school: "DELHI PUBLIC SCHOOL GREATER FARIDABAD",
+          participants: "NOBONITA BAKSHI, NIMISHA KASHYAP BORUAH",
+        },
+        {
+          position: "THIRD",
+          school: "BIRLA VIDYA NIKETAN",
+          participants: "KHYATI JASWANI, AADRITA BISWAS",
+        },
+      ],
+    },
+    {
       eventName: "ReconX",
       color: "#ff5a5a",
       winners: [
         {
           position: "FIRST",
-          school: "DPS SUSHANT LOK",
-          participants: "DESVANSH YADAV, AARYAN PARVEEN",
-          driveLink:
-            "https://drive.google.com/drive/folders/1O4vTGx6NxnUMg2AaZkjrfIb6XKwQT5Yr",
+          school: "AMITY INTERNATIONAL SCHOOL SECTOR FORTY SIX",
+          participants: "SHYAMAK SETH, ISHIT RASTOGI",
         },
         {
           position: "SECOND",
-          school: "AMITY INTERNATIONAL SCHOOL SECTOR 46",
-          participants: "ISHIT, SHAMAR",
-          driveLink:
-            "https://drive.google.com/drive/folders/1O4BYwPp_dhEnxhP2o6dt2y405vmheBl-",
+          school: "TAGORE INTERNATIONAL SCHOOL VASANT VIHAR",
+          participants: "AKSHAT HATWAL, MEDHANSH MATHUR",
         },
         {
           position: "THIRD",
-          school: "TAGORE INTERNATIONAL EAST OF KAILASH",
-          participants: "MEHAR GUVALANI, MISHIKA",
-          driveLink:
-            "https://drive.google.com/drive/folders/1NxHzSZabwlcLrQOoLKiod4fQIpXs4w5b",
+          school: "BAL BHARATI PUBLIC SCHOOL PITAMPURA",
+          participants: "ARNAV NAGPAL, SAISHA KOHLI",
         },
       ],
     },
@@ -49,24 +64,18 @@ const Results = () => {
       winners: [
         {
           position: "FIRST",
-          school: "DPS PANIPAT REFINERY",
-          participants: "PARIMOKSHA, AAKANCHA SAHU",
-          driveLink:
-            "https://drive.google.com/drive/folders/1NwAk7QT5leWkH1ikS_bLLkTvNE97OOH6",
+          school: "THE INDIAN SCHOOL",
+          participants: "UNNABH DASMAHAPATRA, TANMAY VIRMANI",
         },
         {
           position: "SECOND",
-          school: "RYAN INTERNATIONAL SCHOOL",
-          participants: "MACHUN, ARSHIYA",
-          driveLink:
-            "https://drive.google.com/drive/folders/1NqMdcrQsdevOEylbT5VUEY1HgoCzGnjY",
+          school: "VISHWA BHARTI PUBLIC SCHOOL (Team1)",
+          participants: "HARSHITA NEGI, KAVYA DHAR",
         },
         {
           position: "THIRD",
-          school: "SPRINGDALES SCHOOL DHAULA KUAN",
-          participants: "SAION GUPTA, ADITYA GUPTA",
-          driveLink:
-            "https://drive.google.com/drive/folders/1Nkdws_5_yUBKHvFqnMNE_oWKxORTT6_7",
+          school: "DPS SUSHANT LOK (Team 2)",
+          participants: "WRITOSHREE BISWAS, HARDIK DHEER",
         },
       ],
     },
@@ -92,7 +101,7 @@ const Results = () => {
 
       <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2, py: 8 }}>
         <motion.div initial="hidden" animate="visible" variants={fadeIn}>
-          <Typography
+            <Typography
             variant="h2"
             align="center"
             fontFamily="Space Mono"
@@ -103,7 +112,7 @@ const Results = () => {
               letterSpacing: 2,
             }}
           >
-            DXC'25 Results
+            DXC'26 Results
           </Typography>
         </motion.div>
 
