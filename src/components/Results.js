@@ -69,7 +69,7 @@ const Results = () => {
         },
         {
           position: "SECOND",
-          school: "VISHWA BHARTI PUBLIC SCHOOL (Team 1)",
+          school: "VISHWA BHARTI PUBLIC SCHOOL (Team1)",
           participants: "HARSHITA NEGI, KAVYA DHAR",
         },
         {

@@ -180,29 +180,9 @@ const Events = () => {
               },
             }}
           >
-            View Events 2025
+            View Results 2026
           </Button>
-
-          <Button
-            disabled
-            variant="contained"
-            size="large"
-            sx={{
-              fontFamily: "Space Mono",
-              fontWeight: "bold",
-              px: 4,
-              py: 1.5,
-              borderRadius: 2,
-              "&.Mui-disabled": {
-                background: "rgba(255, 255, 255, 0.1)",
-                color: "rgba(255, 255, 255, 0.3)",
-                borderColor: "rgba(255, 255, 255, 0.1)",
-              },
-            }}
-          >
-            Results awaited
-          </Button>
-        </Box>
+          </Box>
 
         {/* Dialog with slide transition */}
         <Dialog

@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Box, Button, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
-
+import { Box, Button, IconButton } from "@mui/material";
+import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 
 import App from "./App";
 import Quiz from "./Quiz";
@@ -138,60 +137,78 @@ const resources = [
 ];
 
 const MyRoutes = () => {
+  const [showAlert, setShowAlert] = useState(true);
+
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <Box
-        sx={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          right: 0,
-          height: `${announcementBarHeight}px`,
-          zIndex: 1301,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: 2,
-          px: 2,
-          background: "linear-gradient(90deg, rgba(0,255,157,0.96), rgba(0,184,255,0.96))",
-          color: "#001018",
-          borderBottom: "1px solid rgba(255,255,255,0.25)",
-          backdropFilter: "blur(10px)",
-        }}
-      >
-        <Typography
+      {showAlert ? (
+        <Box
           sx={{
-            fontFamily: "Space Mono",
-            fontWeight: 700,
-            letterSpacing: 1,
-            fontSize: { xs: "0.75rem", sm: "0.9rem" },
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            zIndex: (theme) => theme.zIndex.appBar + 2,
+            backgroundColor: "#240854",
+            color: "#ffffff",
+            py: 1.2,
+            px: 6,
             textAlign: "center",
+            fontSize: "0.9rem",
+            fontWeight: 700,
+            fontFamily: "Space Mono",
+            letterSpacing: 1.5,
+            boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
+            minHeight: announcementBarHeight,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
           DXC'26 RESULTS ARE OUT!
-        </Typography>
-        <Button
-          component={Link}
-          to="/results"
-          variant="contained"
-          size="small"
-          sx={{
-            fontFamily: "Space Mono",
-            fontWeight: 700,
-            color: "#001018",
-            backgroundColor: "rgba(255, 255, 255, 0.92)",
-            textTransform: "none",
-            whiteSpace: "nowrap",
-            "&:hover": {
-              backgroundColor: "#ffffff",
-            },
-          }}
-        >
-          View Results
-        </Button>
-      </Box>
-      <Navbar config={navConfig} topOffset={announcementBarHeight} />
+          <Button
+            variant="text"
+            onClick={() => window.open("/results", "_blank")}
+            sx={{
+              color: "#ffffff",
+              textDecoration: "underline",
+              minWidth: "auto",
+              p: 0,
+              ml: 1,
+              fontSize: "0.9rem",
+              fontWeight: 700,
+              fontFamily: "Space Mono",
+              "&:hover": {
+                backgroundColor: "transparent",
+                color: "#ffffff",
+              },
+            }}
+          >
+            VIEW RESULTS
+          </Button>
+          <IconButton
+            onClick={() => setShowAlert(false)}
+            sx={{
+              position: "absolute",
+              right: 12,
+              top: "50%",
+              transform: "translateY(-50%)",
+              cursor: "pointer",
+              color: "#ffffff",
+              opacity: 0.9,
+              "&:hover": {
+                opacity: 1,
+                color: "#00B8FF",
+                backgroundColor: "transparent",
+              },
+            }}
+          >
+            <CloseRoundedIcon sx={{ fontSize: 22 }} />
+          </IconButton>
+        </Box>
+      ) : null}
+      <Navbar config={navConfig} topOffset={showAlert ? announcementBarHeight : 0} />
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/quiz" element={<Quiz />} />
