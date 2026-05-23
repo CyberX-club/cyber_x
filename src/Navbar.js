@@ -12,7 +12,6 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import { styled, useTheme } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import { CrypticText } from "./components/Members";
@@ -67,10 +66,9 @@ function HideOnScroll({ children, isOpen }) {
   );
 }
 
-const Navbar = ({ config }) => {
+const Navbar = ({ config, topOffset = 0 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [showAlert, setShowAlert] = useState(true);
   const theme = useTheme();
   const navigate = useNavigate();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
@@ -101,88 +99,22 @@ const Navbar = ({ config }) => {
         <AppBar
           position="fixed"
           sx={{
+            top: topOffset,
             opacity: 0.95,
             backgroundColor: theme.palette.background.paper,
             boxShadow: "none",
           }}
         >
-          
-          {/* Alert Bar */}
-          {showAlert && (
-            <Box
-              sx={{
-                position: "relative",
-                backgroundColor: "#240854",
-                color: "#ffffff",
-                py: 1.2,
-                px: 6,
-                textAlign: "center",
-                fontSize: "0.9rem",
-                fontWeight: 700,
-                fontFamily: "Space Mono",
-                letterSpacing: 1.5,
-                boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
-              }}
-            >
-              DXC'26 IS LIVE!{" "}
-              <Box
-                component="span"
-                sx={{
-                  cursor: "pointer",
-                  textDecoration: "underline",
-                  ml: 1,
-                  color: "#ffffff",
-                  "&:hover": { color: "#ffffff" },
-                }}
-                onClick={() => window.open("https://docs.google.com/forms/d/e/1FAIpQLSfbi1tQRrzBkDZZ0Viy6PaHqbKGeWGvM9WjFKNgv5gtfCxhiA/viewform", "_blank")}
-              >
-                REGISTER NOW
-              </Box>
-              <CloseRoundedIcon
-                onClick={() => setShowAlert(false)}
-                sx={{
-                  position: "absolute",
-                  right: 12,
-                  top: "50%",
-                  transform: "translateY(-50%)",
-                  cursor: "pointer",
-                  fontSize: 22,
-                  color: "#ffffff",
-                  opacity: 0.9,
-                  "&:hover": {
-                    opacity: 1,
-                    color: "#00B8FF",
-                  },
-                }}
-              />
-            </Box>
-          )}
           <Toolbar>
             <Box sx={{ flexGrow: 1 }}>
               <Typography
                 variant="h4"
-                sx={{
-                  cursor: "pointer",
-                  py: 1,
-                  display: "inline-flex",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                }}
+                sx={{ cursor: "pointer", py: 1 }}
                 fontFamily="Space Mono"
                 fontWeight={700}
                 onClick={() => navigate("/")}
               >
                 <CrypticText text={config.title} isHovered={true} />
-                <Box
-                  sx={{
-                    width: "100%",
-                    height: 3,
-                    mt: 0.35,
-                    borderRadius: 999,
-                    backgroundColor: "#39FF14",
-                    boxShadow: "0 0 12px rgba(57, 255, 20, 0.55)",
-                  }}
-                />
               </Typography>
             </Box>
             {isDesktop ? (
@@ -230,6 +162,7 @@ const Navbar = ({ config }) => {
         </AppBar>
       </HideOnScroll>
       <Toolbar />
+      {topOffset > 0 ? <Box sx={{ height: topOffset }} /> : null}
     </>
   );
 };

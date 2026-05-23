@@ -168,7 +168,6 @@ const Events = () => {
             variant="outlined"
             size="large"
             sx={{
-              display: "none",
               fontFamily: "Space Mono",
               color: "#fff",
               borderColor: "#00ff9d",
@@ -185,8 +184,7 @@ const Events = () => {
           </Button>
 
           <Button
-            component={Link}
-            to="/results"
+            disabled
             variant="contained"
             size="large"
             sx={{
@@ -195,12 +193,14 @@ const Events = () => {
               px: 4,
               py: 1.5,
               borderRadius: 2,
-              backgroundColor: "#00ff9d",
-              color: "#000",
-              '&:hover': { backgroundColor: '#00e089' },
+              "&.Mui-disabled": {
+                background: "rgba(255, 255, 255, 0.1)",
+                color: "rgba(255, 255, 255, 0.3)",
+                borderColor: "rgba(255, 255, 255, 0.1)",
+              },
             }}
           >
-            View Results 2026
+            Results awaited
           </Button>
         </Box>
 

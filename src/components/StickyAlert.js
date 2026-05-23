@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { Box, Typography, IconButton, Paper, Dialog, DialogContent } from "@mui/material";
+import { Box, Typography, IconButton, Paper, Dialog, DialogContent, Button } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import FullscreenIcon from "@mui/icons-material/Fullscreen";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
-const StickyAlert = ({ title, content, position = "top-left" }) => {
+const StickyAlert = ({ title, content, position = "top-left", actionLabel, actionLink }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [isMaximized, setIsMaximized] = useState(false);
-  return null; // Temporarily disabled by user request
 
   if (!isVisible) return null;
 
@@ -140,6 +140,27 @@ const StickyAlert = ({ title, content, position = "top-left" }) => {
                 >
                   {content.length > 130 ? `${content.substring(0, 130)}...` : content}
                 </Typography>
+                {actionLabel && actionLink && (
+                  <Button
+                    component={Link}
+                    to={actionLink}
+                    size="small"
+                    variant="outlined"
+                    sx={{
+                      mt: 2,
+                      color: "#ffffff",
+                      borderColor: "rgba(255, 255, 255, 0.45)",
+                      fontFamily: "'Space Mono', monospace",
+                      textTransform: "none",
+                      "&:hover": {
+                        borderColor: "#ffffff",
+                        backgroundColor: "rgba(255, 255, 255, 0.08)",
+                      },
+                    }}
+                  >
+                    {actionLabel}
+                  </Button>
+                )}
               </Box>
             </Paper>
           </motion.div>

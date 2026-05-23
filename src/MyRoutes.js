@@ -1,5 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Box, Button, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 
 import App from "./App";
@@ -38,6 +40,8 @@ const navConfig = {
     { label: "Contact", href: "/contact" },
   ],
 };
+
+const announcementBarHeight = 44;
 
 const email = "cybersecurity@dpsrkp.net";
 
@@ -137,7 +141,57 @@ const MyRoutes = () => {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <Navbar config={navConfig} />
+      <Box
+        sx={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: `${announcementBarHeight}px`,
+          zIndex: 1301,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: 2,
+          px: 2,
+          background: "linear-gradient(90deg, rgba(0,255,157,0.96), rgba(0,184,255,0.96))",
+          color: "#001018",
+          borderBottom: "1px solid rgba(255,255,255,0.25)",
+          backdropFilter: "blur(10px)",
+        }}
+      >
+        <Typography
+          sx={{
+            fontFamily: "Space Mono",
+            fontWeight: 700,
+            letterSpacing: 1,
+            fontSize: { xs: "0.75rem", sm: "0.9rem" },
+            textAlign: "center",
+          }}
+        >
+          DXC'26 RESULTS ARE OUT!
+        </Typography>
+        <Button
+          component={Link}
+          to="/results"
+          variant="contained"
+          size="small"
+          sx={{
+            fontFamily: "Space Mono",
+            fontWeight: 700,
+            color: "#001018",
+            backgroundColor: "rgba(255, 255, 255, 0.92)",
+            textTransform: "none",
+            whiteSpace: "nowrap",
+            "&:hover": {
+              backgroundColor: "#ffffff",
+            },
+          }}
+        >
+          View Results
+        </Button>
+      </Box>
+      <Navbar config={navConfig} topOffset={announcementBarHeight} />
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/quiz" element={<Quiz />} />
