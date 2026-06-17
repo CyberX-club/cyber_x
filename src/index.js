@@ -4,6 +4,10 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import MyRoutes from "./MyRoutes";
+import { startPrefetch } from "./pdfLoader";
+
+// Start pre-fetching the PDF and Page 1 as soon as the site loads
+startPrefetch();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 // Create a hacker-like black and white theme

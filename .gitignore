@@ -10,7 +10,7 @@
 
 # production
 /build
-
+public/Cipher'26.pdf
 # misc
 .DS_Store
 .env.local

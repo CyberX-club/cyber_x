@@ -19,6 +19,8 @@
     "dotenv": "^16.4.5",
     "framer-motion": "^11.18.2",
     "http-proxy-middleware": "^3.0.3",
+    "page-flip": "^2.0.7",
+    "pdfjs-dist": "^5.7.284",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-material-ui-carousel": "^3.4.2",

@@ -11,11 +11,12 @@ import CyberXApp from "./components/Members";
 import AlumniPage from "./components/Alumni";
 import About from "./components/About";
 import Resources from "./components/Resources";
-import Magazine from "./components/Magzine";
+import Magazine from "./components/Magazine";
 import Contact from "./components/Contact";
 import Events from "./components/Events";
 import Results from "./components/Results";
 import ScrollToTop from "./components/ScrollToTop";
+import { Navigate } from "react-router-dom";
 
 import { InterviewEntry } from "./InterviewEntry.js";
 import {
@@ -166,10 +167,10 @@ const MyRoutes = () => {
             justifyContent: "center",
           }}
         >
-          DXC'26 RESULTS ARE OUT!
+          CIPHER'26 IS OUT!
           <Button
             variant="text"
-            onClick={() => window.open("/results", "_blank")}
+            onClick={() => window.location.assign("/cipher-26")}
             sx={{
               color: "#ffffff",
               textDecoration: "underline",
@@ -185,7 +186,7 @@ const MyRoutes = () => {
               },
             }}
           >
-            VIEW RESULTS
+            View Magazine
           </Button>
           <IconButton
             onClick={() => setShowAlert(false)}
@@ -222,7 +223,13 @@ const MyRoutes = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/events" element={<Events />} />
         <Route path="/results" element={<Results />} />
-        <Route path="/magazine-2024/:slug" element={<Magazine />} />
+        <Route path="/cipher-26" element={<Magazine />} />
+        <Route path="/magzine" element={<Navigate to="/cipher-26" replace />} />
+        <Route path="/magazine" element={<Navigate to="/cipher-26" replace />} />
+        <Route
+          path="/magazine-2024/:slug"
+          element={<Navigate to="/cipher-26" replace />}
+        />
         <Route
           path="/interviews/principal"
           element={<InterviewEntry {...PrincipalInterviewPage} />}
